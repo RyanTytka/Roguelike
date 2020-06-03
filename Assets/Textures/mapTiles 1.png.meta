@@ -1,0 +1,671 @@
+fileFormatVersion: 2
+guid: aab7c50dbee1ef0428328e2a0810aa3a
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3629206155152283661
+    second: mapTiles 1_0
+  - first:
+      213: 2340975847680574476
+    second: mapTiles 1_1
+  - first:
+      213: 8797478176261418168
+    second: mapTiles 1_2
+  - first:
+      213: 9218017192239002126
+    second: mapTiles 1_3
+  - first:
+      213: 1352540718305888182
+    second: mapTiles 1_4
+  - first:
+      213: -3049781807826409030
+    second: mapTiles 1_5
+  - first:
+      213: -174951268549113732
+    second: mapTiles 1_6
+  - first:
+      213: -3929954936785291754
+    second: mapTiles 1_7
+  - first:
+      213: 3027693434987000341
+    second: mapTiles 1_8
+  - first:
+      213: -8369965379474861694
+    second: mapTiles 1_9
+  - first:
+      213: -5530751808476399271
+    second: mapTiles 1_10
+  - first:
+      213: 4565243697589107682
+    second: mapTiles 1_11
+  - first:
+      213: 293632714884290299
+    second: mapTiles 1_12
+  - first:
+      213: 6785780022341358092
+    second: mapTiles 1_13
+  - first:
+      213: 5560982878906835834
+    second: mapTiles 1_14
+  - first:
+      213: -6064279542442141191
+    second: mapTiles 1_15
+  - first:
+      213: -2403127086878578621
+    second: mapTiles 1_16
+  - first:
+      213: 5203609591559158915
+    second: mapTiles 1_17
+  - first:
+      213: -6140263422726091216
+    second: mapTiles 1_18
+  - first:
+      213: 2430854933516500166
+    second: mapTiles 1_19
+  - first:
+      213: -8642155107286560915
+    second: mapTiles 1_20
+  - first:
+      213: -3255020606386512490
+    second: mapTiles 1_21
+  - first:
+      213: 139056287537812952
+    second: mapTiles 1_22
+  - first:
+      213: -5374837927503648433
+    second: mapTiles 1_23
+  - first:
+      213: 8615254664543633730
+    second: mapTiles 1_24
+  - first:
+      213: 6732132886517657946
+    second: mapTiles 1_25
+  - first:
+      213: 2461855041417463312
+    second: mapTiles 1_26
+  - first:
+      213: 543777064628125207
+    second: mapTiles 1_27
+  - first:
+      213: -4484759562803390949
+    second: mapTiles 1_28
+  - first:
+      213: 878702504024086932
+    second: mapTiles 1_29
+  - first:
+      213: 9119781459273509013
+    second: mapTiles 1_30
+  - first:
+      213: -254003877699845878
+    second: mapTiles 1_31
+  - first:
+      213: -711361650472001243
+    second: mapTiles 1_32
+  - first:
+      213: -1648715992628906428
+    second: mapTiles 1_33
+  - first:
+      213: -6959511973246463195
+    second: mapTiles 1_34
+  - first:
+      213: -5195226342946388571
+    second: mapTiles 1_35
+  - first:
+      213: -2633781275036203011
+    second: mapTiles 1_36
+  - first:
+      213: -7714472442438980287
+    second: mapTiles 1_37
+  - first:
+      213: -7939928207346410319
+    second: mapTiles 1_38
+  - first:
+      213: 8572529274827884582
+    second: mapTiles 1_39
+  - first:
+      213: 1974757565083583553
+    second: mapTiles 1_40
+  - first:
+      213: -4365736299269920669
+    second: mapTiles 1_41
+  - first:
+      213: -1014822521824442051
+    second: mapTiles 1_42
+  - first:
+      213: 1948156650186361082
+    second: mapTiles 1_43
+  - first:
+      213: 848580136908962865
+    second: mapTiles 1_44
+  - first:
+      213: -1932997538909463255
+    second: mapTiles 1_45
+  - first:
+      213: 8338399099659199582
+    second: mapTiles 1_46
+  - first:
+      213: 5063474387066966785
+    second: mapTiles 1_47
+  - first:
+      213: -1580222515892649282
+    second: mapTiles 1_48
+  - first:
+      213: 1237744753723306637
+    second: mapTiles 1_49
+  - first:
+      213: -5234351819554839168
+    second: mapTiles 1_50
+  - first:
+      213: 9019920571109037120
+    second: mapTiles 1_51
+  - first:
+      213: 4916447577311831750
+    second: mapTiles 1_52
+  - first:
+      213: 5537959089485326070
+    second: mapTiles 1_53
+  - first:
+      213: 4620843153173508412
+    second: mapTiles 1_54
+  - first:
+      213: 1822055964595750814
+    second: mapTiles 1_55
+  - first:
+      213: 1866050291718640296
+    second: mapTiles 1_56
+  - first:
+      213: -6657639633930878046
+    second: mapTiles 1_57
+  - first:
+      213: 5631473429653117425
+    second: mapTiles 1_58
+  - first:
+      213: 106007943365894115
+    second: mapTiles 1_59
+  - first:
+      213: -4182573244444100163
+    second: mapTiles 1_60
+  - first:
+      213: -8370679592932141481
+    second: mapTiles 1_61
+  - first:
+      213: -7790781018314675823
+    second: mapTiles 1_62
+  - first:
+      213: 936674940098273819
+    second: mapTiles 1_63
+  - first:
+      213: 4621685731017156843
+    second: mapTiles 1_64
+  - first:
+      213: -687997995667187257
+    second: mapTiles 1_65
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 1
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 1
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 1
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: mapTiles 1_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f7ac71fa3872adc0800000000000000
+      internalID: -3629206155152283661
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mapTiles 1_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0405c46121dc7020800000000000000
+      internalID: 2340975847680574476
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mapTiles 1_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8bc205f4acbe61a70800000000000000
+      internalID: 8797478176261418168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mapTiles 1_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0279d41cc9fcef70800000000000000
+      internalID: 9218017192239002126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mapTiles 1_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b7cfd20e9035c210800000000000000
+      internalID: 1352540718305888182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mapTiles 1_5
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab9ee0eaa9ffca5d0800000000000000
+      internalID: -3049781807826409030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mapTiles 1_6
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7840298fb2729df0800000000000000
+      internalID: -174951268549113732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mapTiles 1_7
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 616be998ecef579c0800000000000000
+      internalID: -3929954936785291754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mapTiles 1_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 512be214327840a20800000000000000
+      internalID: 3027693434987000341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mapTiles 1_9
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 281551655d8e7db80800000000000000
+      internalID: -8369965379474861694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mapTiles 1_10
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9593aea8882de33b0800000000000000
+      internalID: -5530751808476399271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mapTiles 1_11
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ebb3eb84f00b5f30800000000000000
+      internalID: 4565243697589107682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mapTiles 1_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf69c110661331400800000000000000
+      internalID: 293632714884290299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mapTiles 1_13
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c02599b4afeeb2e50800000000000000
+      internalID: 6785780022341358092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mapTiles 1_14
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a73654b07749c2d40800000000000000
+      internalID: 5560982878906835834
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mapTiles 1_15
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f95116d2e957dba0800000000000000
+      internalID: -6064279542442141191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mapTiles 1_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 348ab7495a066aed0800000000000000
+      internalID: -2403127086878578621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
