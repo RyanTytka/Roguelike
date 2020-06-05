@@ -46,9 +46,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 8
   mana: 8
-  attack: 10
+  attack: 11
   magic: 0
-  defense: 7
+  defense: 6
+  resilience: 4
   speed: 12
 --- !u!212 &8910617598780857229
 SpriteRenderer:

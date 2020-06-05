@@ -44,12 +44,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27e975f1ef66040449ba362446f578b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 10
+  health: 11
   mana: 5
-  attack: 10
-  magic: 0
-  defense: 10
-  speed: 10
+  attack: 7
+  magic: 3
+  defense: 9
+  resilience: 7
+  speed: 8
 --- !u!212 &1536578582061376956
 SpriteRenderer:
   m_ObjectHideFlags: 0
