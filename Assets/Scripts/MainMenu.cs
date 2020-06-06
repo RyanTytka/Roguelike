@@ -95,5 +95,10 @@ public class MainMenu : MonoBehaviour
         //delete other character
         Destroy(deleteStats);
         Destroy(deleteButton);
+        //set up button to go to game screen
+        movePlayer.GetComponentInChildren<Text>().text = "Confirm";
+        movePlayer.GetComponentInChildren<Button>().GetComponent<RectTransform>().sizeDelta = new Vector2(60,30);
+        movePlayer.GetComponentInChildren<Button>().onClick.AddListener(delegate { loadGameScene(); });
+
     }
 }

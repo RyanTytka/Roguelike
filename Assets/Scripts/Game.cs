@@ -12,7 +12,7 @@ public class Game : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
 
         seed = (int)Random.Range(0, 1000000);
-        Random.seed = seed;
+        //Random.seed = seed;
         mapManager = GetComponent<MapManager>();
 
         mapManager.CreateMap(seed);

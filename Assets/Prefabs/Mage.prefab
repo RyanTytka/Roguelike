@@ -44,10 +44,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27e975f1ef66040449ba362446f578b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 7
+  health: 8
   mana: 10
   attack: 5
-  magic: 12
+  magic: 11
   defense: 3
   resilience: 6
   speed: 6

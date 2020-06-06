@@ -50,7 +50,7 @@ MonoBehaviour:
   magic: 0
   defense: 6
   resilience: 4
-  speed: 12
+  speed: 10
 --- !u!212 &8910617598780857229
 SpriteRenderer:
   m_ObjectHideFlags: 0

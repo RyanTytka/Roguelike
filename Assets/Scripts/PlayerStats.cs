@@ -26,21 +26,26 @@ public class PlayerStats : MonoBehaviour
 
     public void RandomizeStats()
     {
-        health += Random.Range(-2,4);
-        mana += Random.Range(-2,3);
-        attack += Random.Range(-1,2);
-        magic += Random.Range(-1,2);
-        defense += Random.Range(-2,3);
-        resilience += Random.Range(-2,3);
-        speed += Random.Range(-2,3);
+        //add to a random stat 10 times
+        for (int i = 0; i < 10; i++)
+        {
+            int stat = Random.Range(1, 8);
+            if (stat == 1)
+                health += Random.Range(1,3);
+            else if (stat == 2)
+                mana += Random.Range(1, 3);
+            else if (stat == 3)
+                attack += 1;
+            else if (stat == 4)
+                magic += 1;
+            else if (stat == 5)
+                defense += 1;
+            else if (stat == 6)
+                resilience += 1;
+            else if (stat == 7)
+                speed += Random.Range(1, 3);
 
-        health = Mathf.Max(0, health);
-        mana = Mathf.Max(0, mana);
-        attack = Mathf.Max(0, attack);
-        magic = Mathf.Max(0, magic);
-        defense = Mathf.Max(0, defense);
-        resilience = Mathf.Max(0, resilience);
-        speed = Mathf.Max(0, speed);
+        }
     }
 
 }
