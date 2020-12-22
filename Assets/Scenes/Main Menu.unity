@@ -200,6 +200,8 @@ MonoBehaviour:
     type: 3}
   statDisplay: {fileID: 4526203047975408754, guid: c0a4c58f35f8f4a46a3f118753824185,
     type: 3}
+  newAbilitySelect: {fileID: 4069434533144314385, guid: 116a8338817608d4e8dbaa111b2f41f4,
+    type: 3}
   mageSprite: {fileID: -7027413993682790196, guid: 36654eb29cc9163448129d8b3996a915,
     type: 3}
   warriorSprite: {fileID: -1254183602032391468, guid: 36654eb29cc9163448129d8b3996a915,
@@ -507,6 +509,51 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &870293348
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 870293350}
+  - component: {fileID: 870293349}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &870293349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 870293348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7500cd6a43af4c4c8fa3ce0fa13841b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allAbilities:
+  - {fileID: 3732584909606297116, guid: 794612089fffada4d88d8194926fceb6, type: 3}
+--- !u!4 &870293350
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 870293348}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.15865442, y: 0.04072419, z: -0.43853512}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &948383814
 GameObject:

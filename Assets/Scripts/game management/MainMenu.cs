@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    public GameObject startMenuItems, CharChooseButton, statDisplay;
+    public GameObject startMenuItems, CharChooseButton, statDisplay, newAbilitySelect;
     public Sprite mageSprite, warriorSprite, rogueSprite;
     public GameObject magePrefab, warriorPrefab, roguePrefab; 
 
@@ -98,7 +98,22 @@ public class MainMenu : MonoBehaviour
         //set up button to go to game screen
         movePlayer.GetComponentInChildren<Text>().text = "Confirm";
         movePlayer.GetComponentInChildren<Button>().GetComponent<RectTransform>().sizeDelta = new Vector2(60,30);
-        movePlayer.GetComponentInChildren<Button>().onClick.AddListener(delegate { loadGameScene(); });
+        //movePlayer.GetComponentInChildren<Button>().onClick.AddListener(delegate { loadGameScene(); });
+        movePlayer.GetComponentInChildren<Button>().onClick.AddListener(delegate { DisplayNewAbility(); });
 
+    }
+
+    //randomly select and display three abilities to choose from
+    public void DisplayNewAbility()
+    {
+        GameObject display = Instantiate(newAbilitySelect, new Vector3(0, 0), Quaternion.identity, GameObject.Find("HUDCanvas").transform);
+        abilityManager abilityManager = GameObject.Find("GameManager").GetComponent<abilityManager>();
+
+        List<GameObject> choices = abilityManager.newAbility();
+        for(int i = 0; i < 3; i++)
+        {
+            GameObject choice = Instantiate(choices[i], new Vector3(0, i * 3, 0), Quaternion.identity);
+            display.GetComponent<NewAbilitySelect>().AddChoice(choice);
+        }
     }
 }
