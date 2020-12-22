@@ -541,6 +541,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   allAbilities:
   - {fileID: 3732584909606297116, guid: 794612089fffada4d88d8194926fceb6, type: 3}
+  - {fileID: 3732584909606297116, guid: 4df5ad341a9bb314dbfa8dca7eeba6c3, type: 3}
+  - {fileID: 3732584909606297116, guid: 1e42badfce7ca8c468fee2fefe9fee41, type: 3}
+  - {fileID: 3732584909606297116, guid: b281b042ced0e4a43b7aaf99e316fedc, type: 3}
 --- !u!4 &870293350
 Transform:
   m_ObjectHideFlags: 0

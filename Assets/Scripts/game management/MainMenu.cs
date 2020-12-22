@@ -95,17 +95,21 @@ public class MainMenu : MonoBehaviour
         //delete other character
         Destroy(deleteStats);
         Destroy(deleteButton);
-        //set up button to go to game screen
+        //set up button to display new ability options
         movePlayer.GetComponentInChildren<Text>().text = "Confirm";
         movePlayer.GetComponentInChildren<Button>().GetComponent<RectTransform>().sizeDelta = new Vector2(60,30);
-        //movePlayer.GetComponentInChildren<Button>().onClick.AddListener(delegate { loadGameScene(); });
         movePlayer.GetComponentInChildren<Button>().onClick.AddListener(delegate { DisplayNewAbility(); });
+        movePlayer.GetComponentInChildren<Button>().onClick.AddListener(delegate { Destroy(moveStats); });
 
+        //set up button to go to game screen
+        //movePlayer.GetComponentInChildren<Button>().onClick.AddListener(delegate { loadGameScene(); });
     }
 
     //randomly select and display three abilities to choose from
     public void DisplayNewAbility()
     {
+
+
         GameObject display = Instantiate(newAbilitySelect, new Vector3(0, 0), Quaternion.identity, GameObject.Find("HUDCanvas").transform);
         abilityManager abilityManager = GameObject.Find("GameManager").GetComponent<abilityManager>();
 
