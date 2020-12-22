@@ -48,4 +48,15 @@ public class PlayerStats : MonoBehaviour
         }
     }
 
+    public void AddStats(int[] newStats)
+    {
+        health += newStats[0] * 2;
+        mana += newStats[1] * 2;
+        attack += newStats[2];
+        magic += newStats[3];
+        defense += newStats[4];
+        resilience += newStats[5];
+        speed += newStats[6] * 2;
+    }
+
 }

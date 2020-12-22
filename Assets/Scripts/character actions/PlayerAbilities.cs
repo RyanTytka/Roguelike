@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class PlayerAbilities : MonoBehaviour
 {
-    public List<AbilityInterface> abilities = new List<AbilityInterface>();
+    public List<GameObject> abilities = new List<GameObject>();
 
     void Start()
     {
         
     }
 
-    public void LearnAbility(AbilityInterface ability)
+    public void LearnAbility(GameObject ability)
     {
         abilities.Add(ability);
     }

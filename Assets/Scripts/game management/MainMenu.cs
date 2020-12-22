@@ -47,30 +47,54 @@ public class MainMenu : MonoBehaviour
         display1.GetComponent<DisplayStats>().modPointsLeft = 5;
         display2.GetComponent<DisplayStats>().modPointsLeft = 5;
 
-        if (Random.Range(0, 3) == 0)
+        if (Random.Range(0, 3) <= 10)
         {
             option1.GetComponentInChildren<SpriteRenderer>().sprite = mageSprite;
-            option1.GetComponent<Button>().onClick.AddListener(delegate { selectCharacter(mage, option1, display1, display2, option2); });
+            option1.GetComponent<Button>().onClick.AddListener(delegate 
+            { 
+                option1.GetComponent<Button>().onClick.RemoveAllListeners();
+                selectCharacter(mage, option1, display1, display2, option2);
+            });
             option2.GetComponentInChildren<SpriteRenderer>().sprite = warriorSprite;
-            option2.GetComponent<Button>().onClick.AddListener(delegate { selectCharacter(warrior, option2, display2, display1, option1); });
+            option2.GetComponent<Button>().onClick.AddListener(delegate 
+            {
+                option2.GetComponent<Button>().onClick.RemoveAllListeners();
+                selectCharacter(warrior, option2, display2, display1, option1); 
+            });
             display1.GetComponent<DisplayStats>().SetStats(mage);
             display2.GetComponent<DisplayStats>().SetStats(warrior);
         }
         else if (Random.Range(0, 2) == 0)
         {
             option1.GetComponentInChildren<SpriteRenderer>().sprite = rogueSprite;
-            option1.GetComponent<Button>().onClick.AddListener(delegate { selectCharacter(rogue, option1, display1, display2, option2); });
+            option1.GetComponent<Button>().onClick.AddListener(delegate 
+            {
+                option1.GetComponent<Button>().onClick.RemoveAllListeners();
+                selectCharacter(rogue, option1, display1, display2, option2); 
+            });
             option2.GetComponentInChildren<SpriteRenderer>().sprite = warriorSprite;
-            option2.GetComponent<Button>().onClick.AddListener(delegate { selectCharacter(warrior, option2, display2, display1, option1); });
+            option2.GetComponent<Button>().onClick.AddListener(delegate 
+            {
+                option2.GetComponent<Button>().onClick.RemoveAllListeners();
+                selectCharacter(warrior, option2, display2, display1, option1); 
+            });
             display1.GetComponent<DisplayStats>().SetStats(rogue);
             display2.GetComponent<DisplayStats>().SetStats(warrior);
         }
         else
         {
             option1.GetComponentInChildren<SpriteRenderer>().sprite = mageSprite;
-            option1.GetComponent<Button>().onClick.AddListener(delegate { selectCharacter(mage, option1, display1, display2, option2); });
+            option1.GetComponent<Button>().onClick.AddListener(delegate 
+            {
+                option1.GetComponent<Button>().onClick.RemoveAllListeners();
+                selectCharacter(mage, option1, display1, display2, option2); 
+            });
             option2.GetComponentInChildren<SpriteRenderer>().sprite = rogueSprite;
-            option2.GetComponent<Button>().onClick.AddListener(delegate { selectCharacter(rogue, option2, display2, display1, option1); });
+            option2.GetComponent<Button>().onClick.AddListener(delegate 
+            {
+                option2.GetComponent<Button>().onClick.RemoveAllListeners();
+                selectCharacter(rogue, option2, display2, display1, option1); 
+            });
             display1.GetComponent<DisplayStats>().SetStats(mage);
             display2.GetComponent<DisplayStats>().SetStats(rogue);
         }
@@ -86,7 +110,7 @@ public class MainMenu : MonoBehaviour
     //adds a character prefab to the party
     public void selectCharacter(GameObject playerPrefab, GameObject movePlayer, GameObject moveStats, GameObject deleteStats, GameObject deleteButton)
     {
-        Instantiate(playerPrefab, new Vector3(0, 0, 0), Quaternion.identity, GameObject.Find("PlayerParty").transform);
+        GameObject newPlayer = Instantiate(playerPrefab, new Vector3(0, 0, 0), Quaternion.identity, GameObject.Find("PlayerParty").transform);
         //move selected character to middle of screen
         movePlayer.transform.position = new Vector3(0,-2,0);
         moveStats.transform.position = new Vector3(3, 1.5f, 0);
@@ -98,17 +122,18 @@ public class MainMenu : MonoBehaviour
         //set up button to display new ability options
         movePlayer.GetComponentInChildren<Text>().text = "Confirm";
         movePlayer.GetComponentInChildren<Button>().GetComponent<RectTransform>().sizeDelta = new Vector2(60,30);
-        movePlayer.GetComponentInChildren<Button>().onClick.AddListener(delegate { DisplayNewAbility(); });
-        movePlayer.GetComponentInChildren<Button>().onClick.AddListener(delegate { Destroy(moveStats); });
-
-        //set up button to go to game screen
-        //movePlayer.GetComponentInChildren<Button>().onClick.AddListener(delegate { loadGameScene(); });
+        movePlayer.GetComponentInChildren<Button>().onClick.AddListener(delegate
+        {
+            int[] statChanges= moveStats.GetComponent<DisplayStats>().modChanges;
+            newPlayer.GetComponent<PlayerStats>().AddStats(statChanges);
+            DisplayNewAbility();
+            Destroy(moveStats);
+        });
     }
 
     //randomly select and display three abilities to choose from
     public void DisplayNewAbility()
     {
-
 
         GameObject display = Instantiate(newAbilitySelect, new Vector3(0, 0), Quaternion.identity, GameObject.Find("HUDCanvas").transform);
         abilityManager abilityManager = GameObject.Find("GameManager").GetComponent<abilityManager>();
@@ -117,7 +142,15 @@ public class MainMenu : MonoBehaviour
         for(int i = 0; i < 3; i++)
         {
             GameObject choice = Instantiate(choices[i], new Vector3(0, i * 3, 0), Quaternion.identity);
-            display.GetComponent<NewAbilitySelect>().AddChoice(choice);
+            NewAbilitySelect select = display.GetComponent<NewAbilitySelect>();
+            select.AddChoice(choice);
+            PlayerAbilities playerAbilities = GetComponentInChildren<PlayerAbilities>(true);
+            select.GetComponentsInChildren<Button>()[i].onClick.AddListener(delegate
+            {
+                playerAbilities.LearnAbility(choice);
+                choice.transform.parent = playerAbilities.transform;
+                loadGameScene();
+            });
         }
     }
 }

@@ -14,7 +14,7 @@ public class DisplayStats : MonoBehaviour
     
     int currentStat;    //which stat the mod buttons are currently on
     public int modPointsLeft;  //how many points can be put into modding a characters stats
-    int[] modChanges;   //tracks which mods have been modified
+    public int[] modChanges;   //tracks which mods have been modified
 
     // Start is called before the first frame update
     void Start()
