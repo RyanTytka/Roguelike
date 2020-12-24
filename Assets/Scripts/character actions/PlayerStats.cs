@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PlayerStats : MonoBehaviour
+public class PlayerStats : ActingUnit
 {
     public float health;
     public float mana;
@@ -13,7 +13,6 @@ public class PlayerStats : MonoBehaviour
     public float resilience;
     public float speed;
 
-    public float turnTimer;
 
     void Start()
     {
@@ -62,7 +61,7 @@ public class PlayerStats : MonoBehaviour
     }
 
     //adds to turn timer and returns true if their turn timer has been filled
-    public bool UpdateTurn()
+    public override bool UpdateTurn()
     {
         turnTimer += speed;
         if(turnTimer >= 100)

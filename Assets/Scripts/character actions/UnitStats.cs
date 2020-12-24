@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class UnitStats : MonoBehaviour, IComparable
+public class UnitStats : ActingUnit, IComparable
 {
     public float health;
     public float mana;
@@ -12,7 +12,6 @@ public class UnitStats : MonoBehaviour, IComparable
     public float defense;
     public float speed;
 
-    public float turnTimer;
 
     private bool dead = false;
 
@@ -32,7 +31,7 @@ public class UnitStats : MonoBehaviour, IComparable
     }
 
     //adds to turn timer and returns true if their turn timer has been filled
-    public bool UpdateTurn()
+    public override bool UpdateTurn()
     {
         turnTimer += speed;
         if (turnTimer >= 100)
