@@ -493,6 +493,7 @@ GameObject:
   - component: {fileID: 1340371260}
   - component: {fileID: 1340371262}
   - component: {fileID: 1340371261}
+  - component: {fileID: 1340371263}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -526,6 +527,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa43e4c78a7b53744aaefd525973672c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  encounterPrefab: {fileID: 5576499996883801432, guid: ccdbf6e902dc3d14a926bf76081ffbe6,
+    type: 3}
   roomTilemap: {fileID: 919584522}
   overlayTilemap: {fileID: 304605774}
   roomTiles:
@@ -567,6 +570,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   seed: 0
+--- !u!114 &1340371263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1340371259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15f4d315cbc25a54eb55131a5cd35c72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  encounter: {fileID: 0}
 --- !u!1 &1744387461
 GameObject:
   m_ObjectHideFlags: 0

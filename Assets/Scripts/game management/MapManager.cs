@@ -11,6 +11,8 @@ public class MapManager : MonoBehaviour
     //0 = nothing, 1 = enemies, 2 = shop, 3 = treasure, 4 = events
     public int[,] visibility;
     //0 = cant see, 1 = can see, 2 = scouted
+    public GameObject[,] encounters;
+    public GameObject encounterPrefab;
 
     public Tilemap roomTilemap;
     public Tilemap overlayTilemap;
@@ -26,6 +28,7 @@ public class MapManager : MonoBehaviour
         map = new Vector4[mapWidth, mapHeight];
         roomTypes = new int[mapWidth, mapHeight];
         visibility = new int[mapWidth, mapHeight];
+        encounters = new GameObject[mapWidth, mapHeight];
 
         //create pathways
 
@@ -119,8 +122,7 @@ public class MapManager : MonoBehaviour
         }
         //make sure all rooms connect
         int[,] connectedRooms = new int[mapWidth, mapHeight];    //1 = connected to start
-        List<Vector2> currentPath = new List<Vector2>();
-        currentPath.Add(new Vector2(0, mapHeight - 1));
+        List<Vector2> currentPath = new List<Vector2> { new Vector2(0, mapHeight - 1) };
         Pathfind(connectedRooms, currentPath);
         while (AddUpInts(connectedRooms) != mapWidth * mapHeight - 1)
         {
@@ -188,6 +190,7 @@ public class MapManager : MonoBehaviour
                 {
                     enemyCount++;
                     roomTypes[xTile, yTile] = 1;
+                    encounters[xTile, yTile] = GenerateEncounter(1, EncounterType.ENEMY);
                 }
                 xTile += Random.Range(2, 5);
                 xTile %= mapWidth;
@@ -212,6 +215,7 @@ public class MapManager : MonoBehaviour
                         if (treasuresPlaced < 2)
                         {
                             roomTypes[j, k] = 3;
+                            encounters[j, k] = GenerateEncounter(1, EncounterType.TREASURE);
                             treasuresPlaced++;
                             //place monster guarding it
                             if (map[j, k].w == 1)
@@ -239,7 +243,7 @@ public class MapManager : MonoBehaviour
         {
             int xPos = Random.Range(0, mapWidth);
             int yPos = Random.Range(0, mapHeight);
-            //dont put reasure in start/end rooms
+            //dont put treasure in start/end rooms
             if ((xPos == 0 && yPos == mapHeight - 1) || (xPos == mapWidth - 1 && yPos == 0))
             {
                 i--;
@@ -247,6 +251,7 @@ public class MapManager : MonoBehaviour
             else
             {
                 roomTypes[xPos, yPos] = 3;
+                encounters[xPos, yPos] = GenerateEncounter(1, EncounterType.TREASURE);
             }
         }
         //shop
@@ -263,6 +268,7 @@ public class MapManager : MonoBehaviour
                 if (roomTypes[xPos, yPos] == 0 || (limit > 50 && roomTypes[xPos, yPos] < 2))
                 {
                     roomTypes[xPos, yPos] = 2;
+                    encounters[xPos, yPos] = GenerateEncounter(1, EncounterType.SHOP);
                     shopPlaced = true;
                 }
             }
@@ -275,6 +281,7 @@ public class MapManager : MonoBehaviour
                 if (roomTypes[xPos, yPos] == 0 || (limit > 50 && roomTypes[xPos, yPos] < 2))
                 {
                     roomTypes[xPos, yPos] = 2;
+                    encounters[xPos, yPos] = GenerateEncounter(1, EncounterType.SHOP);
                     shopPlaced = true;
                 }
             }
@@ -300,6 +307,7 @@ public class MapManager : MonoBehaviour
             if (roomTypes[xPos, yPos] == 0)
             {
                 roomTypes[xPos, yPos] = 4;
+                encounters[xPos, yPos] = GenerateEncounter(1, EncounterType.EVENT);
             }
             else
             {
@@ -348,7 +356,7 @@ public class MapManager : MonoBehaviour
         for (int n = 0; i > 0; n++)
         {
             a[n] = i % 2;
-            i = i / 2;
+            i /=  2;
         }
         //convert binary to vector
         vector.w = a[0] * 1;
@@ -515,5 +523,14 @@ public class MapManager : MonoBehaviour
             }
         }
         return new Vector2(0,0);
+    }
+
+    private GameObject GenerateEncounter(float difficulty, EncounterType type)
+    {
+        GameObject newEncounter = Instantiate(encounterPrefab, this.transform);
+        newEncounter.GetComponent<Encounter>().type = type;
+        newEncounter.GetComponent<Encounter>().GenerateEncounter(difficulty);
+        newEncounter.SetActive(false);
+        return newEncounter;
     }
 }

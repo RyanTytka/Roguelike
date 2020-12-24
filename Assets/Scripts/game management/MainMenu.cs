@@ -136,7 +136,7 @@ public class MainMenu : MonoBehaviour
     {
 
         GameObject display = Instantiate(newAbilitySelect, new Vector3(0, 0), Quaternion.identity, GameObject.Find("HUDCanvas").transform);
-        abilityManager abilityManager = GameObject.Find("GameManager").GetComponent<abilityManager>();
+        abilityManager abilityManager = GameObject.Find("AbilityManager").GetComponent<abilityManager>();
 
         List<GameObject> choices = abilityManager.newAbility();
         for(int i = 0; i < 3; i++)

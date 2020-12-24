@@ -69,6 +69,7 @@ public class PlayerMovement : MonoBehaviour
             }
             else if (mapManager.roomTypes[xPos, yPos] == 1)
             {
+                mapManager.encounters[xPos, yPos].SetActive(true);
                 SceneManager.LoadScene("Battle");
             }
         }

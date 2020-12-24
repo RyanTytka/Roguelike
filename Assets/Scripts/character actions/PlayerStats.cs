@@ -13,6 +13,8 @@ public class PlayerStats : MonoBehaviour
     public float resilience;
     public float speed;
 
+    public float turnTimer;
+
     void Start()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
@@ -57,6 +59,18 @@ public class PlayerStats : MonoBehaviour
         defense += newStats[4];
         resilience += newStats[5];
         speed += newStats[6] * 2;
+    }
+
+    //adds to turn timer and returns true if their turn timer has been filled
+    public bool UpdateTurn()
+    {
+        turnTimer += speed;
+        if(turnTimer >= 100)
+        {
+            turnTimer -= 100;
+            return true;
+        }
+        return false;
     }
 
 }
