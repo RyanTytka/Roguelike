@@ -11,4 +11,6 @@ public abstract class ActingUnit : MonoBehaviour
 
     //display info and act when it is my turn
     public abstract void MyTurn();
+    //clean up ability icons and remove highlight after my turn is over
+    public abstract void EndTurn();
 }

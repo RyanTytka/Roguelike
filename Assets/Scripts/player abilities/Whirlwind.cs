@@ -4,6 +4,14 @@ using UnityEngine;
 
 public class Whirlwind : AbilityInterface
 {
+    private void Update()
+    {
+        if(selected)
+        {
+
+        }
+    }
+
     public override void Use()
     {
         Debug.Log("Whirlwind used");

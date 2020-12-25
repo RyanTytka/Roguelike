@@ -15,6 +15,8 @@ public abstract class AbilityInterface : MonoBehaviour
     public string abilityName, description;
     public Sprite image;
 
+    public bool selected = false;
+
 
     void Start()
     {
@@ -25,7 +27,7 @@ public abstract class AbilityInterface : MonoBehaviour
     {
         this.targets = targets;
     }
-    
+
     public abstract void Use();
 
 }

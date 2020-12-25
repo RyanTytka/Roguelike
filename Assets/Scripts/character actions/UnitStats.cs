@@ -44,6 +44,33 @@ public class UnitStats : ActingUnit, IComparable
 
     public override void MyTurn()
     {
+        Debug.Log("Enemy Turn");
+        
+        StartCoroutine(Wait());
+
+    }
+
+    IEnumerator Wait()
+    {
+        //highlight me
+        GetComponent<SpriteRenderer>().color = Color.yellow;
+
+        //pause
+        yield return new WaitForSeconds(1);
+        
+        //use an ability
+        GetComponent<Enemy>().possibleAbilities[0].GetComponent<AbilityInterface>().Use();
+
+        yield return new WaitForSeconds(1);
+
+        //end turn
+        GameObject.Find("GameManager").GetComponent<BattleManager>().TurnEnded();
+    }
+
+    public override void EndTurn()
+    {
+        GetComponent<SpriteRenderer>().color = Color.white;
+
     }
 
 }

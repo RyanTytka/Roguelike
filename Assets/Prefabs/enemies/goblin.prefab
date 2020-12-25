@@ -95,13 +95,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ff60a56a52143418ed9d76650b8a53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  turnTimer: 0
   health: 12
   mana: 0
   attack: 0
   magic: 0
   defense: 0
-  speed: 1
-  nextActTurn: 0
+  speed: 12
 --- !u!114 &6346363514439794269
 MonoBehaviour:
   m_ObjectHideFlags: 0

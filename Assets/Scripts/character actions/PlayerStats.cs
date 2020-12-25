@@ -13,20 +13,9 @@ public class PlayerStats : ActingUnit
     public float resilience;
     public float speed;
 
-
-    void Start()
-    {
-        SceneManager.sceneLoaded += OnSceneLoaded;
-        gameObject.SetActive(false);
-    }
-
-    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        //gameObject.SetActive(scene.name == "Battle");
-    }
-
     public void RandomizeStats()
     {
+        gameObject.SetActive(false);
         //add to a random stat 10 times
         for (int i = 0; i < 10; i++)
         {
@@ -74,9 +63,21 @@ public class PlayerStats : ActingUnit
 
     public override void MyTurn()
     {
+        Debug.Log("Player Turn");
+        //highlight me
+        GetComponent<SpriteRenderer>().color = Color.yellow;
         //display my moves
         PlayerAbilities abilities = GetComponent<PlayerAbilities>();
         abilities.Display();
+    }
+
+    public override void EndTurn()
+    {
+        //unhighlight me
+        GetComponent<SpriteRenderer>().color = Color.white;
+        //remove my ability buttons
+        PlayerAbilities abilities = GetComponent<PlayerAbilities>();
+        abilities.Hide();
     }
 
 }

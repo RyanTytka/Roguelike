@@ -8,9 +8,9 @@ public class BattleManager : MonoBehaviour
 {
     public Encounter encounter;
 
-    private List<GameObject> battlingUnits;
+    public List<GameObject> battlingUnits;
     private GameObject currentTurn;
-    List<GameObject> actingUnits = new List<GameObject>();
+    public List<GameObject> actingUnits = new List<GameObject>();
 
     void Start()
     {
@@ -23,10 +23,16 @@ public class BattleManager : MonoBehaviour
         {
             //get encounter info
             encounter = GetComponentInChildren<Encounter>();
-            //get player objects
+            //get and activate player objects
             battlingUnits = new List<GameObject>();
             for (int i = 0; i < GameObject.Find("PlayerParty").transform.childCount; i++)
+            {
                 battlingUnits.Add(GameObject.Find("PlayerParty").transform.GetChild(i).gameObject);
+                GameObject.Find("PlayerParty").transform.GetChild(i).gameObject.SetActive(true);
+                //set positions of players
+                GameObject.Find("PlayerParty").transform.GetChild(i).transform.position
+                    = new Vector3(-5.0f + i * 1.5f, -2, 0);
+            }
             //get enemies
             battlingUnits.AddRange(encounter.GetEnemies());
 
@@ -50,7 +56,8 @@ public class BattleManager : MonoBehaviour
     public void TurnEnded()
     {
         actingUnits.RemoveAt(0);
-        if(actingUnits.Count > 0)
+        currentTurn.GetComponent<ActingUnit>().EndTurn();
+        if (actingUnits.Count > 0)
         {
             //same turn, new unit acting
             currentTurn = actingUnits[0];
