@@ -10,6 +10,7 @@ public class BattleManager : MonoBehaviour
 
     private List<GameObject> battlingUnits;
     private GameObject currentTurn;
+    List<GameObject> actingUnits = new List<GameObject>();
 
     void Start()
     {
@@ -20,33 +21,50 @@ public class BattleManager : MonoBehaviour
     {
         if (scene.name == "Battle")
         {
+            //get encounter info
             encounter = GetComponentInChildren<Encounter>();
+            //get player objects
+            battlingUnits = new List<GameObject>();
+            for (int i = 0; i < GameObject.Find("PlayerParty").transform.childCount; i++)
+                battlingUnits.Add(GameObject.Find("PlayerParty").transform.GetChild(i).gameObject);
+            //get enemies
+            battlingUnits.AddRange(encounter.GetEnemies());
 
-            //repeat until all enemies or players have died
-            while (BattleStillGoing())
-            {
-                //one round of turns
-                List<GameObject> actingUnits = nextTurn();
-                int currentTurn = 0;
-                //while (actingUnits.Count > 0)
-                //{
-                //    actingUnits[currentTurn].GetComponent<ActingUnit>().MyTurn();
-                //    currentTurn++;
-                //}
-            }
-
-            //end of battle
+            //begin first turn
+            NewTurn();
         }
+    }
+
+    private void NewTurn()
+    {
+        //get who goes first
+        while (actingUnits.Count == 0)
+            actingUnits = NextTurn();
+
+        //trigger active players turn
+        currentTurn = actingUnits[0];
+        currentTurn.GetComponent<ActingUnit>().MyTurn();
     }
 
     //when a unit has taken its turn, this is called and moves it to the next units turn
     public void TurnEnded()
     {
-
+        actingUnits.RemoveAt(0);
+        if(actingUnits.Count > 0)
+        {
+            //same turn, new unit acting
+            currentTurn = actingUnits[0];
+            currentTurn.GetComponent<ActingUnit>().MyTurn();
+        }
+        else
+        {
+            //next turn
+            NewTurn();
+        }
     }
 
     //find the unit(s) that act next
-    private List<GameObject> nextTurn()
+    private List<GameObject> NextTurn()
     {
         List<GameObject> turns = new List<GameObject>();
         foreach (GameObject go in battlingUnits)

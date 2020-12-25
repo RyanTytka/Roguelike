@@ -22,7 +22,7 @@ public class PlayerStats : ActingUnit
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        gameObject.SetActive(scene.name == "Battle");
+        //gameObject.SetActive(scene.name == "Battle");
     }
 
     public void RandomizeStats()
@@ -70,6 +70,13 @@ public class PlayerStats : ActingUnit
             return true;
         }
         return false;
+    }
+
+    public override void MyTurn()
+    {
+        //display my moves
+        PlayerAbilities abilities = GetComponent<PlayerAbilities>();
+        abilities.Display();
     }
 
 }

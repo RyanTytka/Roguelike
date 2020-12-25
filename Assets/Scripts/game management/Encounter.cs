@@ -11,8 +11,8 @@ public class Encounter : MonoBehaviour
 
     public List<GameObject> enemyInventory; //all possible enemies to take from
 
-    private List<GameObject> enemies;
-    private List<GameObject> items;
+    private List<GameObject> enemies = new List<GameObject>();
+    private List<GameObject> items = new List<GameObject>();
     private int eventID;
 
     public void GenerateEncounter(float difficulty)
@@ -28,8 +28,14 @@ public class Encounter : MonoBehaviour
                 GameObject enemy = Instantiate(enemyInventory[enemyNum], new Vector3(xPos, -2, 10), 
                     Quaternion.identity, this.transform);
                 totalDifficulty += enemy.GetComponent<Enemy>().difficulty;
+                enemies.Add(enemy);
                 xPos += 2;
             }
         }
+    }
+
+    public List<GameObject> GetEnemies()
+    {
+        return enemies;
     }
 }

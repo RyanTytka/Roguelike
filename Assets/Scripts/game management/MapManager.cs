@@ -298,7 +298,7 @@ public class MapManager : MonoBehaviour
             limit++;
         }
         //events
-        int numOfEvents = Random.Range(5, 9);
+        int numOfEvents = 0;// Random.Range(5, 9);
         for(int i = 0; i < numOfEvents; i++)
         {
             int xPos = Random.Range(0, mapWidth);

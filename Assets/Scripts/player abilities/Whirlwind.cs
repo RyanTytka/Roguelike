@@ -6,6 +6,7 @@ public class Whirlwind : AbilityInterface
 {
     public override void Use()
     {
+        Debug.Log("Whirlwind used");
         foreach(GameObject obj in targets)
         {
             //deal damage

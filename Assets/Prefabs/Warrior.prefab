@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27e975f1ef66040449ba362446f578b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  turnTimer: 0
   health: 11
   mana: 5
   attack: 6
@@ -116,3 +117,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   abilities: []
+  buttonPrefab: {fileID: 3819871252185079597, guid: 5b16294acbd541745b98c669b50766a5,
+    type: 3}

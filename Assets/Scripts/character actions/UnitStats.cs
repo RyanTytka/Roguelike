@@ -42,4 +42,8 @@ public class UnitStats : ActingUnit, IComparable
         return false;
     }
 
+    public override void MyTurn()
+    {
+    }
+
 }
