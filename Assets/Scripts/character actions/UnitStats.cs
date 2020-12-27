@@ -5,7 +5,8 @@ using System;
 
 public class UnitStats : ActingUnit, IComparable
 {
-    public float health;
+    public float maxHealth;
+    public float currentHealth;
     public float mana;
     public float attack;
     public float magic;
@@ -44,7 +45,7 @@ public class UnitStats : ActingUnit, IComparable
 
     public override void MyTurn()
     {
-        Debug.Log("Enemy Turn");
+        //Debug.Log("Enemy Turn");
         
         StartCoroutine(Wait());
 
@@ -56,12 +57,12 @@ public class UnitStats : ActingUnit, IComparable
         GetComponent<SpriteRenderer>().color = Color.yellow;
 
         //pause
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0.5f);
         
         //use an ability
-        GetComponent<Enemy>().possibleAbilities[0].GetComponent<AbilityInterface>().Use();
+        GetComponent<Enemy>().TakeTurn();
 
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(0.5f);
 
         //end turn
         GameObject.Find("GameManager").GetComponent<BattleManager>().TurnEnded();
@@ -69,8 +70,29 @@ public class UnitStats : ActingUnit, IComparable
 
     public override void EndTurn()
     {
-        GetComponent<SpriteRenderer>().color = Color.white;
+        if(!dead)
+            GetComponent<SpriteRenderer>().color = Color.white;
+    }
 
+    //update health bar with current heralth value
+    public void SetHealthBar()
+    {
+        GetComponentInChildren<HealthBar>().CurrentValue = currentHealth;
+        GetComponentInChildren<HealthBar>().MaxValue = maxHealth;
+    }
+
+    public void TakeDamage(float damage)
+    {
+        currentHealth -= damage;
+        SetHealthBar();
+
+        if(currentHealth <= 0)
+        {
+            print("Enemy died");
+            dead = true;
+            GameObject.Find("GameManager").GetComponent<BattleManager>().battlingUnits.Remove(this.gameObject);
+            GetComponent<SpriteRenderer>().color = Color.gray;
+        }
     }
 
 }

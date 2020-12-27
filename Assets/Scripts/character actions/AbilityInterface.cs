@@ -6,7 +6,7 @@ public abstract class AbilityInterface : MonoBehaviour
 {
     public enum AbilityType { ATTACK, DEFENSE, UTILITY }
 
-    public List<GameObject> targets;
+    public List<GameObject> targets = new List<GameObject>();
     public GameObject caster;
     protected PlayerStats playerStats;
 

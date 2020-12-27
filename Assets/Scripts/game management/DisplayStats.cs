@@ -42,7 +42,7 @@ public class DisplayStats : MonoBehaviour
         //get highest stat for sliders
         playerReference = player;
         PlayerStats statScript = player.GetComponent<PlayerStats>();
-        float maxStat = statScript.health;
+        float maxStat = statScript.maxHealth;
         if(statScript.mana > maxStat)
             maxStat = statScript.mana;
         if (statScript.attack > maxStat)
@@ -61,8 +61,8 @@ public class DisplayStats : MonoBehaviour
 
         //set text and slider labels
         sliders[1].maxValue = maxStat;
-        sliders[1].value = statScript.health;
-        numberTexts[0].text = statScript.health.ToString();
+        sliders[1].value = statScript.maxHealth;
+        numberTexts[0].text = statScript.maxHealth.ToString();
         sliders[0].maxValue = maxStat;
         sliders[0].value = statScript.mana;
         numberTexts[1].text = statScript.mana.ToString();
@@ -134,7 +134,7 @@ public class DisplayStats : MonoBehaviour
             }
             if (currentStat == 1)
             {
-                stats.health += 2;
+                stats.maxHealth += 2;
                 modChanges[1]++;
             }
             if (currentStat == 2)
@@ -179,7 +179,7 @@ public class DisplayStats : MonoBehaviour
         }
         else if (currentStat == 1 && modChanges[1] > 0)
         {
-            stats.health -= 2;
+            stats.maxHealth -= 2;
             modChanges[1]--;
         }
         else if (currentStat == 2 && modChanges[2] > 0)

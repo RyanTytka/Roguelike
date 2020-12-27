@@ -8,9 +8,15 @@ public class slash : AbilityInterface
     {
         Debug.Log("slash used");
 
+        //pick random player to attack
+        targets.Clear();
+        int playerNum = Random.Range(0, GameObject.Find("PlayerParty").transform.childCount);
+        targets.Add(GameObject.Find("PlayerParty").transform.GetChild(playerNum).gameObject);
+
         foreach (GameObject obj in targets)
         {
             //deal damage
+            obj.GetComponent<PlayerStats>().TakeDamage(2);
         }
     }
 }

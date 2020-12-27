@@ -5,7 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class PlayerStats : ActingUnit
 {
-    public float health;
+    public float maxHealth;
+    public float currentHealth;
     public float mana;
     public float attack;
     public float magic;
@@ -21,7 +22,7 @@ public class PlayerStats : ActingUnit
         {
             int stat = Random.Range(1, 8);
             if (stat == 1)
-                health += Random.Range(1,3);
+                maxHealth += Random.Range(1,3);
             else if (stat == 2)
                 mana += Random.Range(1, 3);
             else if (stat == 3)
@@ -34,13 +35,14 @@ public class PlayerStats : ActingUnit
                 resilience += 1;
             else if (stat == 7)
                 speed += Random.Range(1, 3);
-
         }
+        currentHealth = maxHealth;
     }
 
     public void AddStats(int[] newStats)
     {
-        health += newStats[0] * 2;
+        maxHealth += newStats[0] * 2;
+        currentHealth += newStats[0] * 2;
         mana += newStats[1] * 2;
         attack += newStats[2];
         magic += newStats[3];
@@ -63,7 +65,7 @@ public class PlayerStats : ActingUnit
 
     public override void MyTurn()
     {
-        Debug.Log("Player Turn");
+        //Debug.Log("Player Turn");
         //highlight me
         GetComponent<SpriteRenderer>().color = Color.yellow;
         //display my moves
@@ -80,4 +82,16 @@ public class PlayerStats : ActingUnit
         abilities.Hide();
     }
 
+    //update health bar with current heralth value
+    public void SetHealthBar()
+    {
+        GetComponentInChildren<HealthBar>().CurrentValue = currentHealth;
+        GetComponentInChildren<HealthBar>().MaxValue = maxHealth;
+    }
+
+    public void TakeDamage(float damage)
+    {
+        currentHealth = Mathf.Max(currentHealth - damage, 0);
+        SetHealthBar();
+    }
 }

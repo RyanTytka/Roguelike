@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class PlayerAbilities : MonoBehaviour
 {
+    public GameObject caster;
     public List<GameObject> abilities = new List<GameObject>();
     public GameObject buttonPrefab;
 
@@ -17,6 +18,7 @@ public class PlayerAbilities : MonoBehaviour
 
     public void LearnAbility(GameObject ability)
     {
+        ability.GetComponent<AbilityInterface>().caster = caster;
         abilities.Add(ability);
     }
 
@@ -33,7 +35,6 @@ public class PlayerAbilities : MonoBehaviour
             button.GetComponent<Button>().onClick.AddListener(delegate
             {
                 ability.GetComponent<AbilityInterface>().selected = true;
-                //GameObject.Find("GameManager").GetComponent<BattleManager>().TurnEnded();
             });
         }
     }

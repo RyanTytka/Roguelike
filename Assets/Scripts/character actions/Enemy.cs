@@ -15,4 +15,10 @@ public class Enemy : MonoBehaviour
     {
 
     }
+
+    public void TakeTurn()
+    {
+        int abilityNum = Random.Range(0, possibleAbilities.Count);
+        possibleAbilities[abilityNum].GetComponent<AbilityInterface>().Use();
+    }
 }
