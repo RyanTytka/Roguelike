@@ -47,7 +47,7 @@ public class MainMenu : MonoBehaviour
         display1.GetComponent<DisplayStats>().modPointsLeft = 5;
         display2.GetComponent<DisplayStats>().modPointsLeft = 5;
 
-        if (Random.Range(0, 3) <= 10)
+        if (Random.Range(0, 3) == 0)
         {
             option1.GetComponentInChildren<SpriteRenderer>().sprite = mageSprite;
             option1.GetComponent<Button>().onClick.AddListener(delegate 

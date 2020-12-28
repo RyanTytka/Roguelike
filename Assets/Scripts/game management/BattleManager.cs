@@ -30,13 +30,13 @@ public class BattleManager : MonoBehaviour
                 battlingUnits.Add(GameObject.Find("PlayerParty").transform.GetChild(i).gameObject);
                 GameObject.Find("PlayerParty").transform.GetChild(i).gameObject.SetActive(true);
                 //set positions of players
-                GameObject.Find("PlayerParty").transform.GetChild(i).transform.position
-                    = new Vector3(-5.0f + i * 1.5f, -2, 0);
+                GameObject.Find("PlayerParty").transform.GetChild(i).transform.position = new Vector3(-5.0f + i * 1.5f, -2, 0);
             }
             //get enemies
             battlingUnits.AddRange(encounter.GetEnemies());
 
             //begin first turn
+            actingUnits = new List<GameObject>();
             NewTurn();
         }
     }
@@ -55,6 +55,20 @@ public class BattleManager : MonoBehaviour
     //when a unit has taken its turn, this is called and moves it to the next units turn
     public void TurnEnded()
     {
+        if(BattleStillGoing() == false)
+        {
+            //end battle
+            SceneManager.LoadScene("Map");
+            Destroy(GetComponentInChildren<Encounter>().gameObject);
+            for (int i = 0; i < GameObject.Find("PlayerParty").transform.childCount; i++)
+            {
+                GameObject.Find("PlayerParty").transform.GetChild(i).gameObject.SetActive(false);
+            }
+            //update map
+            Vector2 playerPos = GetComponentInChildren<PlayerMovement>(true).GetPos();
+            GetComponent<MapManager>().RoomFinished(playerPos);
+        }
+
         actingUnits.RemoveAt(0);
         currentTurn.GetComponent<ActingUnit>().EndTurn();
         if (actingUnits.Count > 0)

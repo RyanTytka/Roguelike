@@ -12,12 +12,15 @@ public class Whirlwind : AbilityInterface
         if (selected)
         {
             //clear targets
-            foreach (GameObject go in targets)
+            try
             {
-                if (go.GetComponent<UnitStats>().isDead() == false)
-                    go.GetComponent<SpriteRenderer>().color = Color.white;
-            }
-            targets.Clear();
+                foreach (GameObject go in targets)
+                {
+                    if (go.GetComponent<UnitStats>().isDead() == false)
+                        go.GetComponent<SpriteRenderer>().color = Color.white;
+                }
+            } catch { }
+            targets = new List<GameObject>();
             //check if mousing over enemy
             ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out hit))

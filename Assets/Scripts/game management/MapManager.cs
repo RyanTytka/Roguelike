@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using UnityEngine.SceneManagement;
 
 public class MapManager : MonoBehaviour
 {
+    //public Vector2 playerPos;
     public Vector4[,] map;  //holds pathways in dungeon
     //each node is a vector4(right=2,bottom=4,left=8,top=1) 
     public int[,] roomTypes;    //what is in each of the rooms
@@ -21,9 +23,24 @@ public class MapManager : MonoBehaviour
 
     public int mapWidth, mapHeight;
 
+    public void Start()
+    {
+        SceneManager.sceneLoaded += SceneManager_sceneLoaded;
+    }
+
+    private void SceneManager_sceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (scene.name == "Map")
+        {
+
+            roomTilemap = FindObjectsOfType<Tilemap>()[0];
+            overlayTilemap = FindObjectsOfType<Tilemap>()[1];
+            DrawMap();
+        }
+    }
+
     public void CreateMap(int seed)
     {
-    
         Debug.Log("Creating Map");
         map = new Vector4[mapWidth, mapHeight];
         roomTypes = new int[mapWidth, mapHeight];
@@ -320,30 +337,33 @@ public class MapManager : MonoBehaviour
         roomTypes[mapWidth - 1, 0] = 0;
 
         visibility[0, mapHeight - 1] = 1;
-        DrawMap();
     }
 
     //places tiles onto tilemap
     public void DrawMap()
     {
-        //room tiles
-        for (int j = 0; j < mapWidth; j++)
+        //print("drawing map");
+        try
         {
-            for (int k = 0; k < mapHeight; k++)
+            //room tiles
+            for (int j = 0; j < mapWidth; j++)
             {
-                //if(visibility[j,k] == 1)
+                for (int k = 0; k < mapHeight; k++)
+                {
+                    //if(visibility[j,k] == 1)
                     roomTilemap.SetTile(new Vector3Int(j, k, 0), roomTiles[VectorToInt(map[j, k])]);
+                }
             }
-        }
-        //room overlays
-        for (int j = 0; j < mapWidth; j++)
-        {
-            for (int k = 0; k < mapHeight; k++)
+            //room overlays
+            for (int j = 0; j < mapWidth; j++)
             {
-                //if (roomTypes[j, k] > 0 && visibility[j,k] == 1)
+                for (int k = 0; k < mapHeight; k++)
+                {
+                    //if (roomTypes[j, k] > 0 && visibility[j,k] == 1)
                     overlayTilemap.SetTile(new Vector3Int(j, k, 0), overLayTiles[roomTypes[j, k]]);
+                }
             }
-        }
+        } catch { }
     }
 
 
@@ -532,5 +552,17 @@ public class MapManager : MonoBehaviour
         newEncounter.GetComponent<Encounter>().GenerateEncounter(difficulty);
         newEncounter.SetActive(false);
         return newEncounter;
+    }
+
+    //when a player finishes a room, this cleans it up
+    public void RoomFinished(Vector2 pos)
+    {
+        print($"Finished ({pos.x}, {pos.y})");
+        int type = roomTypes[(int)pos.x, (int)pos.y];
+        if (type == 1) //enemy
+        {
+            roomTypes[(int)pos.x, (int)pos.y] = 0;
+        }
+        DrawMap();
     }
 }

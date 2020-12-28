@@ -12,7 +12,8 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
-        //DontDestroyOnLoad(this.gameObject);
+        SceneManager.sceneLoaded += SceneManager_sceneLoaded;
+        gameObject.SetActive(false);
 
         GameObject gameGO = GameObject.Find("GameManager");
         gameManager = gameGO.GetComponent<Game>();
@@ -22,6 +23,21 @@ public class PlayerMovement : MonoBehaviour
         keepMoving = false;
         xPos = 0;
         yPos = 4;
+    }
+    private void SceneManager_sceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        gameObject.SetActive(scene.name == "Map");
+
+        if (scene.name == "Map")
+        {
+            canMove = true;
+            keepMoving = false;
+        }
+    }
+
+    public Vector2 GetPos()
+    {
+        return new Vector2(xPos, yPos);
     }
 
     void Update()
@@ -62,7 +78,7 @@ public class PlayerMovement : MonoBehaviour
             }
             this.gameObject.transform.position = new Vector3Int(xPos -2, yPos - 2, 0);
             mapManager.visibility[xPos, yPos] = 1;
-            mapManager.DrawMap();
+            //mapManager.DrawMap();
             if (mapManager.roomTypes[xPos, yPos] == 0)
             {
                 keepMoving = true;
@@ -73,6 +89,7 @@ public class PlayerMovement : MonoBehaviour
                 SceneManager.LoadScene("Battle");
             }
         }
+        //mapManager.playerPos = new Vector2(xPos, yPos);
         //wait for key up
         if (Input.GetAxisRaw("Vertical") == 0 && Input.GetAxisRaw("Horizontal") == 0 && keepMoving)
         {
