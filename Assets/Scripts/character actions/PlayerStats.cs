@@ -7,7 +7,8 @@ public class PlayerStats : ActingUnit
 {
     public float maxHealth;
     public float currentHealth;
-    public float mana;
+    public float maxMana;
+    public float currentMana;
     public float attack;
     public float magic;
     public float defense;
@@ -24,7 +25,7 @@ public class PlayerStats : ActingUnit
             if (stat == 1)
                 maxHealth += Random.Range(1,3);
             else if (stat == 2)
-                mana += Random.Range(1, 3);
+                maxMana += Random.Range(1, 3);
             else if (stat == 3)
                 attack += 1;
             else if (stat == 4)
@@ -37,13 +38,15 @@ public class PlayerStats : ActingUnit
                 speed += Random.Range(1, 3);
         }
         currentHealth = maxHealth;
+        currentMana = maxMana;
     }
 
     public void AddStats(int[] newStats)
     {
         maxHealth += newStats[0] * 2;
         currentHealth += newStats[0] * 2;
-        mana += newStats[1] * 2;
+        maxMana += newStats[1] * 2;
+        currentMana += newStats[1] * 2;
         attack += newStats[2];
         magic += newStats[3];
         defense += newStats[4];
@@ -82,16 +85,18 @@ public class PlayerStats : ActingUnit
         abilities.Hide();
     }
 
-    //update health bar with current heralth value
-    public void SetHealthBar()
+    //update mana and health bar with current values
+    public void SetBars()
     {
         GetComponentInChildren<HealthBar>().CurrentValue = currentHealth;
         GetComponentInChildren<HealthBar>().MaxValue = maxHealth;
+        GetComponentInChildren<ManaBar>().CurrentValue = currentMana;
+        GetComponentInChildren<ManaBar>().MaxValue = maxMana;
     }
 
     public void TakeDamage(float damage)
     {
         currentHealth = Mathf.Max(currentHealth - damage, 0);
-        SetHealthBar();
+        SetBars();
     }
 }

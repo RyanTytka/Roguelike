@@ -214,6 +214,12 @@ MonoBehaviour:
     type: 3}
   roguePrefab: {fileID: 3396294972942176503, guid: e5077399c8649d14f970b7ec3bfee8c0,
     type: 3}
+  mageBasicAttack: {fileID: 8447949290602039168, guid: 144eb3d617b743845a9afce3d3330ca5,
+    type: 3}
+  warriorBasicAttack: {fileID: 8447949290602039168, guid: 92f61f9c44ce17143a5421cea534c83a,
+    type: 3}
+  rogueBasicAttack: {fileID: 8447949290602039168, guid: 58da92b88adace34e864e0a81b336831,
+    type: 3}
 --- !u!1 &308907463
 GameObject:
   m_ObjectHideFlags: 0

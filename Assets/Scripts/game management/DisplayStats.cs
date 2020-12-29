@@ -43,8 +43,8 @@ public class DisplayStats : MonoBehaviour
         playerReference = player;
         PlayerStats statScript = player.GetComponent<PlayerStats>();
         float maxStat = statScript.maxHealth;
-        if(statScript.mana > maxStat)
-            maxStat = statScript.mana;
+        if(statScript.maxMana > maxStat)
+            maxStat = statScript.maxMana;
         if (statScript.attack > maxStat)
             maxStat = statScript.attack;
         if (statScript.magic > maxStat)
@@ -64,8 +64,8 @@ public class DisplayStats : MonoBehaviour
         sliders[1].value = statScript.maxHealth;
         numberTexts[0].text = statScript.maxHealth.ToString();
         sliders[0].maxValue = maxStat;
-        sliders[0].value = statScript.mana;
-        numberTexts[1].text = statScript.mana.ToString();
+        sliders[0].value = statScript.maxMana;
+        numberTexts[1].text = statScript.maxMana.ToString();
         sliders[2].maxValue = maxStat;
         sliders[2].value = statScript.attack;
         numberTexts[2].text = statScript.attack.ToString();
@@ -129,7 +129,7 @@ public class DisplayStats : MonoBehaviour
         {
             if (currentStat == 0)
             {
-                stats.mana += 2;
+                stats.maxMana += 2;
                 modChanges[0]++;
             }
             if (currentStat == 1)
@@ -174,7 +174,7 @@ public class DisplayStats : MonoBehaviour
         PlayerStats stats = playerReference.GetComponent<PlayerStats>();
         if (currentStat == 0 && modChanges[0] > 0)
         {
-            stats.mana -= 2;
+            stats.maxMana -= 2;
             modChanges[0]--;
         }
         else if (currentStat == 1 && modChanges[1] > 0)

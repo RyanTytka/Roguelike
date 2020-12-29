@@ -28,13 +28,15 @@ public class PlayerAbilities : MonoBehaviour
         GameObject menu = GameObject.Find("ActionMenu");
         for(int i = 0; i < abilities.Count; i++)
         {
-            GameObject button = Instantiate(buttonPrefab, new Vector3(-8 + i * 3, -3, 0), Quaternion.identity, menu.transform);
-            activeButtons.Add(button);
+            GameObject button = Instantiate(buttonPrefab, new Vector3(-6.0f + i * 1.5f, -3.5f, 0), Quaternion.identity, menu.transform);
             GameObject ability = abilities[i];
+            button.GetComponent<AbilityButton>().SetReference(gameObject, ability);
+            activeButtons.Add(button);
             button.GetComponent<Image>().sprite = ability.GetComponent<AbilityInterface>().image;
             button.GetComponent<Button>().onClick.AddListener(delegate
             {
-                ability.GetComponent<AbilityInterface>().selected = true;
+                if(GetComponent<PlayerStats>().currentMana >= ability.GetComponent<AbilityInterface>().manaCost)
+                    ability.GetComponent<AbilityInterface>().selected = true;
             });
         }
     }

@@ -2,17 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Whirlwind : AbilityInterface
+public class basicAttack : AbilityInterface
 {
     Ray ray;
     RaycastHit hit;
 
     void Update()
     {
-        //if (GetComponent<PlayerStats>().currentMana >= ability.GetComponent<AbilityInterface>().manaCost)
-        {
-
-        }
         if (selected)
         {
             //clear targets
@@ -23,7 +19,8 @@ public class Whirlwind : AbilityInterface
                     if (go.GetComponent<UnitStats>().isDead() == false)
                         go.GetComponent<SpriteRenderer>().color = Color.white;
                 }
-            } catch { }
+            }
+            catch { }
             targets = new List<GameObject>();
             //check if mousing over enemy
             ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -32,22 +29,15 @@ public class Whirlwind : AbilityInterface
                 GameObject mouseOver = hit.collider.gameObject;
                 if (mouseOver.tag == "Enemy")
                 {
-                    //add all enemies to targets list
-                    GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
-                    foreach(GameObject go in enemies)
-                    {
-                        if (go.GetComponent<UnitStats>().isDead() == false)
-                        {
-                            go.GetComponent<SpriteRenderer>().color = Color.red;
-                            targets.Add(go);
-                        }
-                    }
+                    //add hovered enemy to targets list
+                    targets.Add(mouseOver);
+                    mouseOver.GetComponent<SpriteRenderer>().color = Color.red;
                 }
             }
 
-            if(Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0))
             {
-                if(targets.Count > 0)
+                if (targets.Count > 0)
                     Use();
             }
         }
@@ -55,10 +45,8 @@ public class Whirlwind : AbilityInterface
 
     public override void Use()
     {
-        caster.GetComponent<PlayerStats>().currentMana -= manaCost;
-        caster.GetComponent<PlayerStats>().SetBars();
         //Debug.Log("Whirlwind used");
-        foreach(GameObject obj in targets)
+        foreach (GameObject obj in targets)
         {
             obj.GetComponent<UnitStats>().TakeDamage(caster.GetComponent<PlayerStats>().attack);
         }
@@ -66,7 +54,7 @@ public class Whirlwind : AbilityInterface
         caster.GetComponent<PlayerAbilities>().Hide();
         foreach (GameObject go in targets)
         {
-            if(go.GetComponent<UnitStats>().isDead() == false)
+            if (go.GetComponent<UnitStats>().isDead() == false)
                 go.GetComponent<SpriteRenderer>().color = Color.white;
         }
         //end turn
