@@ -21,16 +21,19 @@ public class AbilityButton : MonoBehaviour
         {
             //selected
             GetComponent<Image>().color = Color.yellow;
+            GetComponent<Button>().interactable = false;
         }
         else if (caster.GetComponent<PlayerStats>().currentMana >= manaCost)
         {
             //can cast
             GetComponent<Image>().color = Color.white;
+            GetComponent<Button>().interactable = true;
         }
         else
         {
             //not enough mana
             GetComponent<Image>().color = Color.blue;
+            GetComponent<Button>().interactable = false;
         }
 
     }

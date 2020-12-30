@@ -16,11 +16,14 @@ public class DisplayStats : MonoBehaviour
     public int modPointsLeft;  //how many points can be put into modding a characters stats
     public int[] modChanges;   //tracks which mods have been modified
 
+    public Slider[] sliders;
+    public Text[] labels;
+
     // Start is called before the first frame update
     void Start()
     {
         //modButtons = GameObject.Find("ButtonModGroup");
-        modChanges = new int[7];
+        modChanges = new int[8];
         ShowModButtons = false;
         HideMods();
     }
@@ -56,36 +59,43 @@ public class DisplayStats : MonoBehaviour
         if (statScript.speed > maxStat)
             maxStat = statScript.speed;
 
-        Slider[] sliders = GetComponentsInChildren<Slider>();
-        Text[] numberTexts = GetComponentsInChildren<Text>();
-
         //set text and slider labels
-        sliders[1].maxValue = maxStat;
-        sliders[1].value = statScript.maxHealth;
-        numberTexts[0].text = statScript.maxHealth.ToString();
+        labels[0].text = statScript.maxHealth.ToString();
         sliders[0].maxValue = maxStat;
-        sliders[0].value = statScript.maxMana;
-        numberTexts[1].text = statScript.maxMana.ToString();
+        sliders[0].value = statScript.maxHealth;
+
+        labels[1].text = statScript.maxMana.ToString();
+        sliders[1].maxValue = maxStat;
+        sliders[1].value = statScript.maxMana;
+
+        labels[2].text = statScript.manaRegen.ToString();
         sliders[2].maxValue = maxStat;
-        sliders[2].value = statScript.attack;
-        numberTexts[2].text = statScript.attack.ToString();
+        sliders[2].value = statScript.manaRegen;
+
+        labels[3].text = statScript.attack.ToString();
         sliders[3].maxValue = maxStat;
-        sliders[3].value = statScript.magic;
-        numberTexts[3].text = statScript.magic.ToString();
+        sliders[3].value = statScript.attack;
+
+        labels[4].text = statScript.magic.ToString();
         sliders[4].maxValue = maxStat;
-        sliders[4].value = statScript.defense;
-        numberTexts[4].text = statScript.defense.ToString();
+        sliders[4].value = statScript.magic;
+
+        labels[5].text = statScript.defense.ToString();
         sliders[5].maxValue = maxStat;
-        sliders[5].value = statScript.resilience;
-        numberTexts[5].text = statScript.resilience.ToString();
+        sliders[5].value = statScript.defense;
+
+        labels[6].text = statScript.resilience.ToString();
         sliders[6].maxValue = maxStat;
-        sliders[6].value = statScript.speed;
-        numberTexts[6].text = statScript.speed.ToString();
+        sliders[6].value = statScript.resilience;
+
+        labels[7].text = statScript.speed.ToString();
+        sliders[7].maxValue = maxStat;
+        sliders[7].value = statScript.speed;
 
         if (ShowModButtons)
-            numberTexts[17].text = "Upgrade Points: " + modPointsLeft;
+            labels[8].text = "Upgrade Points: " + modPointsLeft;
         else
-            numberTexts[17].text = "";
+            labels[8].text = "";
     }
 
     private void Update()
@@ -98,7 +108,7 @@ public class DisplayStats : MonoBehaviour
             if (Mathf.Abs(mousePos.x - .6f - transform.position.x) < 2.1)
             {
                 //find nearest slider to set y position
-                Slider[] sliders = GetComponentsInChildren<Slider>();
+                //Slider[] sliders = GetComponentsInChildren<Slider>();
                 float yPos = -999;
                 for(int i = 0; i < sliders.Length; i++)
                 {
@@ -128,40 +138,22 @@ public class DisplayStats : MonoBehaviour
         if (modPointsLeft > 0)
         {
             if (currentStat == 0)
-            {
-                stats.maxMana += 2;
-                modChanges[0]++;
-            }
-            if (currentStat == 1)
-            {
                 stats.maxHealth += 2;
-                modChanges[1]++;
-            }
+            if (currentStat == 1)
+                stats.maxMana += 2;
             if (currentStat == 2)
-            {
-                stats.attack += 1;
-                modChanges[2]++;
-            }
+                stats.manaRegen += 0.5f;
             if (currentStat == 3)
-            {
-                stats.magic += 1;
-                modChanges[3]++;
-            }
+                stats.attack += 1;
             if (currentStat == 4)
-            {
-                stats.defense += 1;
-                modChanges[4]++;
-            }
+                stats.magic += 1;
             if (currentStat == 5)
-            {
-                stats.resilience += 1;
-                modChanges[5]++;
-            }
+                stats.defense += 1;
             if (currentStat == 6)
-            {
+                stats.resilience += 1;
+            if (currentStat == 7)
                 stats.speed += 2;
-                modChanges[6]++;
-            }
+            modChanges[currentStat]++;
             modPointsLeft--;
         }
         SetStats(playerReference);
@@ -170,47 +162,30 @@ public class DisplayStats : MonoBehaviour
     //when - mod button is clicked
     public void SubtractFromStat()
     {
+        if (modChanges[currentStat] == 0)
+            return;
+
         modPointsLeft++;
         PlayerStats stats = playerReference.GetComponent<PlayerStats>();
-        if (currentStat == 0 && modChanges[0] > 0)
-        {
-            stats.maxMana -= 2;
-            modChanges[0]--;
-        }
-        else if (currentStat == 1 && modChanges[1] > 0)
-        {
+        
+        if (currentStat == 0)
             stats.maxHealth -= 2;
-            modChanges[1]--;
-        }
-        else if (currentStat == 2 && modChanges[2] > 0)
-        {
+        if (currentStat == 1)
+            stats.maxMana -= 2;
+        if (currentStat == 2)
+            stats.manaRegen -= 0.5f;
+        if (currentStat == 3)
             stats.attack -= 1;
-            modChanges[2]--;
-        }
-        else if (currentStat == 3 && modChanges[3] > 0)
-        {
+        if (currentStat == 4)
             stats.magic -= 1;
-            modChanges[3]--;
-        }
-        else if (currentStat == 4 && modChanges[4] > 0)
-        {
+        if (currentStat == 5)
             stats.defense -= 1;
-            modChanges[4]--;
-        }
-        else if (currentStat == 5 && modChanges[5] > 0)
-        {
+        if (currentStat == 6)
             stats.resilience -= 1;
-            modChanges[5]--;
-        }
-        else if (currentStat == 6 && modChanges[6] > 0)
-        {
+        if (currentStat == 7)
             stats.speed -= 2;
-            modChanges[6]--;
-        }
-        else
-        {
-            modPointsLeft--;
-        }
+        
+        modChanges[currentStat]--;
         SetStats(playerReference);
     }
 

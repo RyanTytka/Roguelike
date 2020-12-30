@@ -53,6 +53,7 @@ MonoBehaviour:
   currentHealth: 10
   maxMana: 8
   currentMana: 8
+  manaRegen: 1
   attack: 11
   magic: 0
   defense: 6

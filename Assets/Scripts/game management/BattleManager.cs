@@ -27,10 +27,14 @@ public class BattleManager : MonoBehaviour
             battlingUnits = new List<GameObject>();
             for (int i = 0; i < GameObject.Find("PlayerParty").transform.childCount; i++)
             {
-                battlingUnits.Add(GameObject.Find("PlayerParty").transform.GetChild(i).gameObject);
-                GameObject.Find("PlayerParty").transform.GetChild(i).gameObject.SetActive(true);
+                GameObject player = GameObject.Find("PlayerParty").transform.GetChild(i).gameObject;
+                battlingUnits.Add(player);
+                player.SetActive(true);
                 //set positions of players
-                GameObject.Find("PlayerParty").transform.GetChild(i).transform.position = new Vector3(-5.0f + i * 1.5f, -2, 0);
+                player.transform.position = new Vector3(-5.0f + i * 1.5f, -2, 0);
+                //refill mana
+                player.GetComponent<PlayerStats>().currentMana = player.GetComponent<PlayerStats>().maxMana;
+                player.GetComponent<PlayerStats>().SetBars();
             }
             //get enemies
             battlingUnits.AddRange(encounter.GetEnemies());

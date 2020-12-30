@@ -9,6 +9,7 @@ public class PlayerStats : ActingUnit
     public float currentHealth;
     public float maxMana;
     public float currentMana;
+    public float manaRegen;
     public float attack;
     public float magic;
     public float defense;
@@ -18,23 +19,25 @@ public class PlayerStats : ActingUnit
     public void RandomizeStats()
     {
         gameObject.SetActive(false);
-        //add to a random stat 10 times
-        for (int i = 0; i < 10; i++)
+        //add to a random stat 12 times
+        for (int i = 0; i < 12; i++)
         {
-            int stat = Random.Range(1, 8);
+            int stat = Random.Range(1, 9);
             if (stat == 1)
-                maxHealth += Random.Range(1,3);
+                maxHealth += Random.Range(1, 3);
             else if (stat == 2)
                 maxMana += Random.Range(1, 3);
             else if (stat == 3)
-                attack += 1;
+                manaRegen += Random.Range(3, 8) / 10.0f;
             else if (stat == 4)
-                magic += 1;
+                attack += 1;
             else if (stat == 5)
-                defense += 1;
+                magic += 1;
             else if (stat == 6)
-                resilience += 1;
+                defense += 1;
             else if (stat == 7)
+                resilience += 1;
+            else if (stat == 8)
                 speed += Random.Range(1, 3);
         }
         currentHealth = maxHealth;
@@ -47,11 +50,12 @@ public class PlayerStats : ActingUnit
         currentHealth += newStats[0] * 2;
         maxMana += newStats[1] * 2;
         currentMana += newStats[1] * 2;
-        attack += newStats[2];
-        magic += newStats[3];
-        defense += newStats[4];
-        resilience += newStats[5];
-        speed += newStats[6] * 2;
+        manaRegen += newStats[2] * 0.5f;
+        attack += newStats[3];
+        magic += newStats[4];
+        defense += newStats[5];
+        resilience += newStats[6];
+        speed += newStats[7] * 2;
     }
 
     //adds to turn timer and returns true if their turn timer has been filled
@@ -74,6 +78,9 @@ public class PlayerStats : ActingUnit
         //display my moves
         PlayerAbilities abilities = GetComponent<PlayerAbilities>();
         abilities.Display();
+        //mana regen
+        currentMana = Mathf.Min(maxMana, currentMana + manaRegen);
+        SetBars();
     }
 
     public override void EndTurn()
@@ -97,6 +104,12 @@ public class PlayerStats : ActingUnit
     public void TakeDamage(float damage)
     {
         currentHealth = Mathf.Max(currentHealth - damage, 0);
+        SetBars();
+    }
+
+    public void UseMana(float amount)
+    {
+        currentMana = Mathf.Max(currentMana - amount, 0);
         SetBars();
     }
 }

@@ -55,8 +55,7 @@ public class Whirlwind : AbilityInterface
 
     public override void Use()
     {
-        caster.GetComponent<PlayerStats>().currentMana -= manaCost;
-        caster.GetComponent<PlayerStats>().SetBars();
+        caster.GetComponent<PlayerStats>().UseMana(manaCost);
         //Debug.Log("Whirlwind used");
         foreach(GameObject obj in targets)
         {
