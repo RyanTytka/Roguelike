@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1707108526654619769}
   - component: {fileID: 4844203176084015874}
   - component: {fileID: 299611286229320279}
+  - component: {fileID: -3382652131469894173}
   m_Layer: 0
   m_Name: Mage
   m_TagString: Player
@@ -127,6 +128,21 @@ MonoBehaviour:
   - {fileID: 5400082938897877095}
   buttonPrefab: {fileID: 2927015654712163088, guid: 5b16294acbd541745b98c669b50766a5,
     type: 3}
+--- !u!114 &-3382652131469894173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1707108526654619768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4fdb7cb9c025a44a9d573e757ae4e4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  artifact: {fileID: 0}
+  weapon: {fileID: 0}
+  armor: {fileID: 0}
 --- !u!1001 &2678309970510242867
 PrefabInstance:
   m_ObjectHideFlags: 0

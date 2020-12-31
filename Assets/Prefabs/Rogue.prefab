@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3396294972942176502}
   - component: {fileID: 8910617598780857229}
   - component: {fileID: 2247547019359250517}
+  - component: {fileID: -5171653388085662274}
   m_Layer: 0
   m_Name: Rogue
   m_TagString: Player
@@ -127,6 +128,21 @@ MonoBehaviour:
   - {fileID: 9190731034130855385}
   buttonPrefab: {fileID: 2927015654712163088, guid: 5b16294acbd541745b98c669b50766a5,
     type: 3}
+--- !u!114 &-5171653388085662274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3396294972942176503}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4fdb7cb9c025a44a9d573e757ae4e4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  artifact: {fileID: 0}
+  weapon: {fileID: 0}
+  armor: {fileID: 0}
 --- !u!1001 &770445598902858329
 PrefabInstance:
   m_ObjectHideFlags: 0

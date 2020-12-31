@@ -162,6 +162,7 @@ GameObject:
   m_Component:
   - component: {fileID: 220989664}
   - component: {fileID: 220989665}
+  - component: {fileID: 220989666}
   m_Layer: 0
   m_Name: PlayerParty
   m_TagString: Untagged
@@ -196,11 +197,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startMenuItems: {fileID: 3336780}
+--- !u!114 &220989666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 220989663}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61bd0d0ced8611444bdb5b2f919da462, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startMenuItems: {fileID: 3336780}
   CharChooseButton: {fileID: 4257716105012534363, guid: da97fb4df9934d54db41b5840b40a083,
+    type: 3}
+  newAbilitySelect: {fileID: 4069434533144314385, guid: 116a8338817608d4e8dbaa111b2f41f4,
     type: 3}
   statDisplay: {fileID: 4526203047975408754, guid: c0a4c58f35f8f4a46a3f118753824185,
     type: 3}
-  newAbilitySelect: {fileID: 4069434533144314385, guid: 116a8338817608d4e8dbaa111b2f41f4,
+  partyMenuPrefab: {fileID: 6329698945799222355, guid: d15c47e42be42ee45974dff2850726ed,
     type: 3}
   mageSprite: {fileID: -7027413993682790196, guid: 36654eb29cc9163448129d8b3996a915,
     type: 3}
@@ -214,12 +230,7 @@ MonoBehaviour:
     type: 3}
   roguePrefab: {fileID: 3396294972942176503, guid: e5077399c8649d14f970b7ec3bfee8c0,
     type: 3}
-  mageBasicAttack: {fileID: 8447949290602039168, guid: 144eb3d617b743845a9afce3d3330ca5,
-    type: 3}
-  warriorBasicAttack: {fileID: 8447949290602039168, guid: 92f61f9c44ce17143a5421cea534c83a,
-    type: 3}
-  rogueBasicAttack: {fileID: 8447949290602039168, guid: 58da92b88adace34e864e0a81b336831,
-    type: 3}
+  party: []
 --- !u!1 &308907463
 GameObject:
   m_ObjectHideFlags: 0
@@ -749,7 +760,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 220989665}
+      - m_Target: {fileID: 220989666}
         m_MethodName: ShowStartItems
         m_Mode: 1
         m_Arguments:
@@ -1137,6 +1148,36 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1618235154}
   m_CullTransparentMesh: 0
+--- !u!1 &1868373482
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1868373483}
+  m_Layer: 0
+  m_Name: ItemManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1868373483
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1868373482}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.6351661, y: -0.2543778, z: 2.1626477}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1888386755
 GameObject:
   m_ObjectHideFlags: 0
@@ -1250,7 +1291,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -0.52, y: 3.69}
-  m_SizeDelta: {x: 300, y: 38.90368}
+  m_SizeDelta: {x: 350, y: 38.90368}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2124483874
 MonoBehaviour:
