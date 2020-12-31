@@ -45,6 +45,20 @@ public class BattleManager : MonoBehaviour
         }
     }
 
+    //call once loot has been chosen
+    public void EndBattle()
+    {
+        SceneManager.LoadScene("Map");
+        Destroy(GetComponentInChildren<Encounter>().gameObject);
+        for (int i = 0; i < GameObject.Find("PlayerParty").transform.childCount; i++)
+        {
+            GameObject.Find("PlayerParty").transform.GetChild(i).gameObject.SetActive(false);
+        }
+        //update map
+        Vector2 playerPos = GetComponentInChildren<PlayerMovement>(true).GetPos();
+        GetComponent<MapManager>().RoomFinished(playerPos);
+    }
+
     private void NewTurn()
     {
         //get who goes first
@@ -61,16 +75,8 @@ public class BattleManager : MonoBehaviour
     {
         if(BattleStillGoing() == false)
         {
-            //end battle
-            SceneManager.LoadScene("Map");
-            Destroy(GetComponentInChildren<Encounter>().gameObject);
-            for (int i = 0; i < GameObject.Find("PlayerParty").transform.childCount; i++)
-            {
-                GameObject.Find("PlayerParty").transform.GetChild(i).gameObject.SetActive(false);
-            }
-            //update map
-            Vector2 playerPos = GetComponentInChildren<PlayerMovement>(true).GetPos();
-            GetComponent<MapManager>().RoomFinished(playerPos);
+            //choose loot
+            GameObject.Find("ItemManager").GetComponent<ItemManager>().DisplayNewItems();
         }
 
         actingUnits.RemoveAt(0);

@@ -1074,6 +1074,8 @@ MonoBehaviour:
   - {fileID: 3032583427610832798}
   - {fileID: 8894381009441917984}
   displayStats: {fileID: 7568253094881499168}
+  inventoryItem: {fileID: 8364549837452557084, guid: 0f8d187930c987142b8ead86acacba35,
+    type: 3}
 --- !u!1 &6329698946540202640
 GameObject:
   m_ObjectHideFlags: 0

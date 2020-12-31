@@ -8,8 +8,9 @@ public class PartyMenu : MonoBehaviour
     public GameObject[] playerButtons; 
     public GameObject[] equippedButtons;
     public GameObject[] abilityButtons;
-    public GameObject displayStats;
 
+    public GameObject displayStats;
+    public GameObject inventoryItem;
     public void Close()
     {
         Destroy(this.gameObject);
@@ -48,6 +49,14 @@ public class PartyMenu : MonoBehaviour
             {
                 playerButtons[i].SetActive(false);
             }
+        }
+        //show inventory
+        List<GameObject> inventory = GameObject.Find("ItemManager").GetComponent<ItemManager>().inventory;
+        for (int i = 0; i < inventory.Count; i++)
+        {
+            GameObject item = Instantiate(inventoryItem, transform.GetChild(0));
+            item.GetComponent<RectTransform>().anchoredPosition = new Vector3(-110 + 60 * i, 97, 0);
+            item.GetComponent<Image>().sprite = inventory[i].GetComponent<ItemInterface>().image;
         }
         //select first character
         displayStats.GetComponent<DisplayStats>().SetStats(party[0]);

@@ -1157,6 +1157,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1868373483}
+  - component: {fileID: 1868373484}
   m_Layer: 0
   m_Name: ItemManager
   m_TagString: Untagged
@@ -1178,6 +1179,27 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1868373484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1868373482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7b095169f91cce47a9b228c9b742eeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  newItemSelect: {fileID: 4069434533144314385, guid: 183fb760d8da8d64da92a687c8ad55f2,
+    type: 3}
+  inventory: []
+  allArtifacts:
+  - {fileID: 4970903984408745278, guid: 7cfb85fff2068eb4ca6dabc47f7b9db4, type: 3}
+  - {fileID: 4970903984408745278, guid: c6908912c3cc1a5419c55e779fbc2fa8, type: 3}
+  - {fileID: 4970903984408745278, guid: 147461f95e0690242b706c6fcdbb347d, type: 3}
+  allWeapons: []
+  allArmor: []
 --- !u!1 &1888386755
 GameObject:
   m_ObjectHideFlags: 0
