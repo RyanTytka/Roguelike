@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 9135296565231235359}
   - component: {fileID: 7330682916254908649}
   m_Layer: 0
-  m_Name: RingOfMagic 1
+  m_Name: Tooth Necklace
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -43,7 +43,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c74a2bf1ec8330e44bd2bd0a5ca1dc57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 2
   itemName: Tooth Necklace
   description: More attack (+3 attack)
   image: {fileID: 21300000, guid: bed33f83e83b8c64b9f238d014267357, type: 3}
   statBoosts: 0000000000000000000000000300000000000000000000000000000000000000
+  inventoryItem: {fileID: 0}

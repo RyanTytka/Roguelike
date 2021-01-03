@@ -11,9 +11,31 @@ public class PartyMenu : MonoBehaviour
 
     public GameObject displayStats;
     public GameObject inventoryItem;
+
+    private GameObject selectedItem;
+    private GameObject selectedPlayer;
+
     public void Close()
     {
         Destroy(this.gameObject);
+    }
+
+    //when an equipment slot button is clicked, equip the selected item
+    //type: 0 = armor, 1 = weapon, 2 = artifact
+    public void EquipButtonClick(int type)
+    {
+        if (selectedItem == null)
+            return;
+
+        //set equipbuttons image to equipped item
+        ItemInterface item = selectedItem.GetComponent<InventoryItem>().itemReference.GetComponent<ItemInterface>();
+        equippedButtons[(int)item.itemType].GetComponent<Image>().sprite = item.image;
+        //unequip previous item
+        GameObject unequippedItem = selectedPlayer.GetComponent<PlayerItems>().EquipItem(selectedItem);
+        if (unequippedItem != null)
+        {
+            unequippedItem.GetComponent<ItemInterface>().inventoryItem.GetComponent<InventoryItem>().equippedBy = null;
+        }
     }
 
     public void Display(List<GameObject> party)
@@ -27,6 +49,7 @@ public class PartyMenu : MonoBehaviour
                 playerButtons[i].GetComponent<Image>().sprite = character.GetComponent<SpriteRenderer>().sprite;
                 playerButtons[i].GetComponent<Button>().onClick.AddListener( delegate
                 {
+                    selectedPlayer = character;
                     displayStats.GetComponent<DisplayStats>().SetStats(character);
                     //show player abilities
                     List<GameObject> abilities = character.GetComponent<PlayerAbilities>().abilities;
@@ -57,8 +80,28 @@ public class PartyMenu : MonoBehaviour
             GameObject item = Instantiate(inventoryItem, transform.GetChild(0));
             item.GetComponent<RectTransform>().anchoredPosition = new Vector3(-110 + 60 * i, 97, 0);
             item.GetComponent<Image>().sprite = inventory[i].GetComponent<ItemInterface>().image;
+            item.GetComponent<InventoryItem>().itemReference = inventory[i];
+            inventory[i].GetComponent<ItemInterface>().inventoryItem = item;
+            item.GetComponent<Button>().onClick.AddListener(delegate
+            {
+                if (selectedItem != null)
+                {
+                    selectedItem.GetComponent<InventoryItem>().selected = false;
+                }
+                if (selectedItem == item)
+                {
+                    //deselect currently selected item
+                    selectedItem = null;
+                }
+                else
+                {
+                    selectedItem = item;
+                    selectedItem.GetComponent<InventoryItem>().selected = true;
+                }
+            });
         }
         //select first character
+        selectedPlayer = party[0];
         displayStats.GetComponent<DisplayStats>().SetStats(party[0]);
         List<GameObject> initialAbilities = party[0].GetComponent<PlayerAbilities>().abilities;
         int initialCount = 0;

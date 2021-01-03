@@ -43,7 +43,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c74a2bf1ec8330e44bd2bd0a5ca1dc57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemType: 2
   itemName: Magic Shield Orb
   description: Resist Magic (+5 Resilience)
   image: {fileID: 21300000, guid: ac462b318a199ae48a5f55b47878f367, type: 3}
   statBoosts: 0000000000000000000000000000000000000000000000000500000000000000
+  inventoryItem: {fileID: 0}

@@ -2,9 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum ItemType { ARMOR = 0, WEAPON = 1, ARTIFACT = 2 }
+
 public abstract class ItemInterface : MonoBehaviour
 {
+    public ItemType itemType;
     public string itemName, description;
     public Sprite image;
     public int[] statBoosts;
+    public GameObject inventoryItem; //button created when viewing party menu
 }
