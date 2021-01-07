@@ -15,6 +15,18 @@ public class PartyManager : MonoBehaviour
     public Sprite mageSprite, warriorSprite, rogueSprite;
     public GameObject magePrefab, warriorPrefab, roguePrefab;
 
+    private int gold;
+    public int Gold 
+    {
+        get { return gold; }
+        set 
+        { 
+            gold = value;
+            if(GameObject.Find("GoldIcon") != null)
+                GameObject.Find("GoldIcon").GetComponentInChildren<Text>().text = gold.ToString();
+        }
+    }
+
     public List<GameObject> party = new List<GameObject>();
 
     private void Start()
@@ -24,7 +36,10 @@ public class PartyManager : MonoBehaviour
 
     private void SceneManager_sceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        if(scene.name == "Map")
+        if (GameObject.Find("GoldIcon") != null)
+            GameObject.Find("GoldIcon").GetComponentInChildren<Text>().text = gold.ToString();
+
+        if (scene.name == "Map")
             GameObject.Find("PartyMenuButton").GetComponent<Button>().onClick.AddListener(delegate { OpenPartyMenu(); });
     }
 

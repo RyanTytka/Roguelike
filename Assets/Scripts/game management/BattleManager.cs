@@ -75,6 +75,8 @@ public class BattleManager : MonoBehaviour
     {
         if(BattleStillGoing() == false)
         {
+            //add gold
+            GameObject.Find("PlayerParty").GetComponent<PartyManager>().Gold += Random.Range(10, 15);
             //choose loot
             GameObject.Find("ItemManager").GetComponent<ItemManager>().DisplayNewItems();
         }
