@@ -45,52 +45,52 @@ public class DisplayStats : MonoBehaviour
         //get highest stat for sliders
         playerReference = player;
         PlayerStats statScript = player.GetComponent<PlayerStats>();
-        float maxStat = statScript.maxHealth;
-        if(statScript.maxMana > maxStat)
-            maxStat = statScript.maxMana;
-        if (statScript.attack > maxStat)
-            maxStat = statScript.attack;
-        if (statScript.magic > maxStat)
-            maxStat = statScript.magic;
-        if (statScript.defense > maxStat)
-            maxStat = statScript.defense;
-        if (statScript.resilience > maxStat)
-            maxStat = statScript.resilience;
-        if (statScript.speed > maxStat)
-            maxStat = statScript.speed;
+        float maxStat = statScript.MaxHealth;
+        if(statScript.MaxMana > maxStat)
+            maxStat = statScript.MaxMana;
+        if (statScript.Attack > maxStat)
+            maxStat = statScript.Attack;
+        if (statScript.Magic > maxStat)
+            maxStat = statScript.Magic;
+        if (statScript.Defense > maxStat)
+            maxStat = statScript.Defense;
+        if (statScript.Resilience > maxStat)
+            maxStat = statScript.Resilience;
+        if (statScript.Speed > maxStat)
+            maxStat = statScript.Speed;
 
         //set text and slider labels
-        labels[0].text = statScript.maxHealth.ToString();
+        labels[0].text = statScript.MaxHealth.ToString();
         sliders[0].maxValue = maxStat;
-        sliders[0].value = statScript.maxHealth;
+        sliders[0].value = statScript.MaxHealth;
 
-        labels[1].text = statScript.maxMana.ToString();
+        labels[1].text = statScript.MaxMana.ToString();
         sliders[1].maxValue = maxStat;
-        sliders[1].value = statScript.maxMana;
+        sliders[1].value = statScript.MaxMana;
 
-        labels[2].text = statScript.manaRegen.ToString();
+        labels[2].text = statScript.ManaRegen.ToString();
         sliders[2].maxValue = maxStat;
-        sliders[2].value = statScript.manaRegen;
+        sliders[2].value = statScript.ManaRegen;
 
-        labels[3].text = statScript.attack.ToString();
+        labels[3].text = statScript.Attack.ToString();
         sliders[3].maxValue = maxStat;
-        sliders[3].value = statScript.attack;
+        sliders[3].value = statScript.Attack;
 
-        labels[4].text = statScript.magic.ToString();
+        labels[4].text = statScript.Magic.ToString();
         sliders[4].maxValue = maxStat;
-        sliders[4].value = statScript.magic;
+        sliders[4].value = statScript.Magic;
 
-        labels[5].text = statScript.defense.ToString();
+        labels[5].text = statScript.Defense.ToString();
         sliders[5].maxValue = maxStat;
-        sliders[5].value = statScript.defense;
+        sliders[5].value = statScript.Defense;
 
-        labels[6].text = statScript.resilience.ToString();
+        labels[6].text = statScript.Resilience.ToString();
         sliders[6].maxValue = maxStat;
-        sliders[6].value = statScript.resilience;
+        sliders[6].value = statScript.Resilience;
 
-        labels[7].text = statScript.speed.ToString();
+        labels[7].text = statScript.Speed.ToString();
         sliders[7].maxValue = maxStat;
-        sliders[7].value = statScript.speed;
+        sliders[7].value = statScript.Speed;
 
         if (ShowModButtons)
             labels[8].text = "Upgrade Points: " + modPointsLeft;

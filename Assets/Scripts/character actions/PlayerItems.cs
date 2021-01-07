@@ -43,4 +43,42 @@ public class PlayerItems : MonoBehaviour
         else
             artifact = null;
     }
+
+    //adds all stat bonuses from equipped items
+    public float[] StatMods()
+    {
+        float[] sums = new float[8];
+
+        int i = 0;
+        if (armor != null)
+        {
+            foreach (float f in armor.GetComponent<ItemInterface>().statBoosts)
+            {
+                sums[i] += f;
+                i++;
+            }
+        }
+
+        if (weapon != null)
+        {
+            i = 0;
+            foreach (float f in weapon.GetComponent<ItemInterface>().statBoosts)
+            {
+                sums[i] += f;
+                i++;
+            }
+        }
+
+        if (artifact != null)
+        {
+            i = 0;
+            foreach (float f in artifact.GetComponent<ItemInterface>().statBoosts)
+            {
+                sums[i] += f;
+                i++;
+            }
+        }
+
+        return sums;
+    }
 }
