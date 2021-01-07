@@ -1337,6 +1337,10 @@ MonoBehaviour:
   displayStats: {fileID: 7568253094881499168}
   inventoryItem: {fileID: 8364549837452557084, guid: 0f8d187930c987142b8ead86acacba35,
     type: 3}
+  defaultEquipIcons:
+  - {fileID: 21300000, guid: dcee3ae9e56513f4188fa146701904f0, type: 3}
+  - {fileID: 21300000, guid: 88e468266f2125f45a0bb93dd91f34ae, type: 3}
+  - {fileID: 21300000, guid: 4bf370e6ac2b6b749be733ce3aaa58a1, type: 3}
 --- !u!1 &6329698946540202640
 GameObject:
   m_ObjectHideFlags: 0

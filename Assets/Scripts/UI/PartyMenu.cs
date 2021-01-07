@@ -12,8 +12,10 @@ public class PartyMenu : MonoBehaviour
     public GameObject displayStats;
     public GameObject inventoryItem;
 
-    private GameObject selectedItem;
+    public GameObject selectedItem;
     private GameObject selectedPlayer;
+
+    public Sprite[] defaultEquipIcons;
 
     public void Close()
     {
@@ -27,14 +29,33 @@ public class PartyMenu : MonoBehaviour
         if (selectedItem == null)
             return;
 
+        if ((int)selectedItem.GetComponent<InventoryItem>().itemReference.GetComponent<ItemInterface>().itemType != type)
+            return;
+
         //set equipbuttons image to equipped item
         ItemInterface item = selectedItem.GetComponent<InventoryItem>().itemReference.GetComponent<ItemInterface>();
         equippedButtons[(int)item.itemType].GetComponent<Image>().sprite = item.image;
         //unequip previous item
         GameObject unequippedItem = selectedPlayer.GetComponent<PlayerItems>().EquipItem(selectedItem);
+        
+        print("equipping " + item.itemName);
+        
         if (unequippedItem != null)
         {
+            print("unequipping " + unequippedItem.GetComponent<ItemInterface>().itemName);
+
+            int _type = (int)unequippedItem.GetComponent<ItemInterface>().itemType;
             unequippedItem.GetComponent<ItemInterface>().inventoryItem.GetComponent<InventoryItem>().equippedBy = null;
+            if(unequippedItem.GetComponent<ItemInterface>().itemName != item.itemName)
+            {
+                //swapping items
+            }
+            else
+            {
+                //equipping nothing
+                equippedButtons[_type].GetComponent<Image>().sprite = defaultEquipIcons[_type];
+                selectedPlayer.GetComponent<PlayerItems>().UnequipItem(_type);
+            }
         }
     }
 

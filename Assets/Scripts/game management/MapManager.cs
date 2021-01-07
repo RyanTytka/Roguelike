@@ -557,7 +557,6 @@ public class MapManager : MonoBehaviour
     //when a player finishes a room, this cleans it up
     public void RoomFinished(Vector2 pos)
     {
-        print($"Finished ({pos.x}, {pos.y})");
         int type = roomTypes[(int)pos.x, (int)pos.y];
         if (type == 1) //enemy
         {

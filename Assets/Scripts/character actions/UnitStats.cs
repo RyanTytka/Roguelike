@@ -88,7 +88,6 @@ public class UnitStats : ActingUnit, IComparable
 
         if(currentHealth <= 0)
         {
-            print("Enemy died");
             dead = true;
             GameObject.Find("GameManager").GetComponent<BattleManager>().battlingUnits.Remove(this.gameObject);
             GetComponent<SpriteRenderer>().color = Color.gray;

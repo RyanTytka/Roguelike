@@ -32,4 +32,15 @@ public class PlayerItems : MonoBehaviour
             return temp;
         }
     }
+
+    //when a player unequips an item, use this to remove it from the slot
+    public void UnequipItem(int type)
+    {
+        if (type == 0)
+            armor = null;
+        else if (type == 1)
+            weapon = null;
+        else
+            artifact = null;
+    }
 }
