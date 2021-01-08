@@ -1198,8 +1198,14 @@ MonoBehaviour:
   - {fileID: 4970903984408745278, guid: 7cfb85fff2068eb4ca6dabc47f7b9db4, type: 3}
   - {fileID: 4970903984408745278, guid: c6908912c3cc1a5419c55e779fbc2fa8, type: 3}
   - {fileID: 4970903984408745278, guid: 147461f95e0690242b706c6fcdbb347d, type: 3}
-  allWeapons: []
-  allArmor: []
+  allWeapons:
+  - {fileID: 1132981646735270770, guid: 1f613f714092efc46b9b8b3f85a2598e, type: 3}
+  - {fileID: 1132981646735270770, guid: 9ad0a0da510efcd4bb45bde359561dd8, type: 3}
+  - {fileID: 1132981646735270770, guid: bc1fed7a6b6e5a342ab57bb782ca57a7, type: 3}
+  allArmor:
+  - {fileID: 9185470880305436546, guid: d403db5657d7ac546a7d04dcc458d67a, type: 3}
+  - {fileID: 9185470880305436546, guid: 43a7239ea342d4c40a36be25bbfb47e6, type: 3}
+  - {fileID: 9185470880305436546, guid: 64176cb9ade26b14e88cae61018334b5, type: 3}
 --- !u!1 &1888386755
 GameObject:
   m_ObjectHideFlags: 0

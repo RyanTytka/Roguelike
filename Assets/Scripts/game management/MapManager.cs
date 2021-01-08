@@ -238,18 +238,22 @@ public class MapManager : MonoBehaviour
                             if (map[j, k].w == 1)
                             {
                                 roomTypes[j, k + 1] = 1;
+                                encounters[j, k + 1] = GenerateEncounter(1, EncounterType.ENEMY);
                             }
                             if (map[j, k].x == 2)
                             {
                                 roomTypes[j + 1, k] = 1;
+                                encounters[j + 1, k] = GenerateEncounter(1, EncounterType.ENEMY);
                             }
                             if (map[j, k].y == 4)
                             {
                                 roomTypes[j, k - 1] = 1;
+                                encounters[j, k - 1] = GenerateEncounter(1, EncounterType.ENEMY);
                             }
                             if (map[j, k].z == 8)
                             {
                                 roomTypes[j - 1, k] = 1;
+                                encounters[j - 1, k] = GenerateEncounter(1, EncounterType.ENEMY);
                             }
                         }
                     }
@@ -559,6 +563,10 @@ public class MapManager : MonoBehaviour
     {
         int type = roomTypes[(int)pos.x, (int)pos.y];
         if (type == 1) //enemy
+        {
+            roomTypes[(int)pos.x, (int)pos.y] = 0;
+        }
+        else if (type == 3) //treasure
         {
             roomTypes[(int)pos.x, (int)pos.y] = 0;
         }

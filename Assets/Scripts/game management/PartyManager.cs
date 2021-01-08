@@ -41,6 +41,12 @@ public class PartyManager : MonoBehaviour
 
         if (scene.name == "Map")
             GameObject.Find("PartyMenuButton").GetComponent<Button>().onClick.AddListener(delegate { OpenPartyMenu(); });
+
+        if (scene.name == "Treasure")
+        {
+            GameObject.Find("ItemManager").GetComponent<ItemManager>().DisplayTreasureChoices();
+        }
+
     }
 
     //open menu where player can edit characters and party

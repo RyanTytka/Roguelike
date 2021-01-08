@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Battle.unity
     guid: ba9ac73f6813cf64e9f85c54fffa78d1
+  - enabled: 1
+    path: Assets/Scenes/Treasure.unity
+    guid: 70ae8880b5d155644ba7af7400d88541
   m_configObjects: {}

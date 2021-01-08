@@ -9,7 +9,7 @@ public class Encounter : MonoBehaviour
 
     public EncounterType type;
 
-    public List<GameObject> enemyInventory; //all possible enemies to take from
+    public List<GameObject> enemyInventory; //all possible enemies to choose from
 
     private List<GameObject> enemies = new List<GameObject>();
     private List<GameObject> items = new List<GameObject>();
@@ -31,6 +31,13 @@ public class Encounter : MonoBehaviour
                 enemies.Add(enemy);
                 xPos += 2;
             }
+        }
+        else if(type == EncounterType.TREASURE)
+        {
+            //ItemManager im = GameObject.Find("ItemManager").GetComponent<ItemManager>();
+            //items.AddRange(im.RandomItems());
+
+            
         }
     }
 

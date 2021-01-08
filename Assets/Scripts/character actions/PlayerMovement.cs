@@ -87,6 +87,11 @@ public class PlayerMovement : MonoBehaviour
             {
                 mapManager.encounters[xPos, yPos].SetActive(true);
                 SceneManager.LoadScene("Battle");
+            } 
+            else if (mapManager.roomTypes[xPos, yPos] == 3)
+            {
+                mapManager.encounters[xPos, yPos].SetActive(true);
+                SceneManager.LoadScene("Treasure");
             }
         }
         //mapManager.playerPos = new Vector2(xPos, yPos);
