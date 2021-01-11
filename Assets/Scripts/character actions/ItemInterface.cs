@@ -11,4 +11,5 @@ public abstract class ItemInterface : MonoBehaviour
     public Sprite image;
     public int[] statBoosts;
     public GameObject inventoryItem; //button created when viewing party menu
+    public GameObject equippedBy;
 }

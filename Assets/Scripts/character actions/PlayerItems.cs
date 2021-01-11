@@ -13,6 +13,7 @@ public class PlayerItems : MonoBehaviour
     {
         GameObject itemRef = item.GetComponent<InventoryItem>().itemReference;
         item.GetComponent<InventoryItem>().equippedBy = this.gameObject;
+        itemRef.GetComponent<ItemInterface>().equippedBy = this.gameObject;
         if((int)itemRef.GetComponent<ItemInterface>().itemType == 0)
         {
             GameObject temp = armor;

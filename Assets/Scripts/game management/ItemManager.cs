@@ -74,4 +74,15 @@ public class ItemManager : MonoBehaviour
 
         return temp;
     }
+
+    //return randomly selected item. Higher difficulty is stronger item
+    public GameObject RandomItem(float difficulty)
+    {
+        List<GameObject> allItems = new List<GameObject>();
+        allItems.AddRange(allArmor);
+        allItems.AddRange(allWeapons);
+        allItems.AddRange(allArtifacts);
+
+        return allItems[Random.Range(0, allItems.Count)];
+    }
 }

@@ -2,11 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 
 public class BattleManager : MonoBehaviour
 {
     public Encounter encounter;
+
+    public GameObject continueButton;
+    public GameObject lootText;
+    public GameObject itemLoot;
 
     public List<GameObject> battlingUnits;
     private GameObject currentTurn;
@@ -21,6 +26,12 @@ public class BattleManager : MonoBehaviour
     {
         if (scene.name == "Battle")
         {
+            continueButton = GameObject.Find("ContinueButton");
+            continueButton.SetActive(false);
+            lootText = GameObject.Find("LootText");
+            lootText.SetActive(false);            
+            itemLoot = GameObject.Find("ItemLoot");
+            itemLoot.SetActive(false);
             //get encounter info
             encounter = GetComponentInChildren<Encounter>();
             //get and activate player objects
@@ -75,13 +86,25 @@ public class BattleManager : MonoBehaviour
     {
         if(BattleStillGoing() == false)
         {
-            //add gold
-            GameObject.Find("PlayerParty").GetComponent<PartyManager>().Gold += Random.Range(10, 15);
-            //choose loot
-            //GameObject.Find("ItemManager").GetComponent<ItemManager>().DisplayNewItems();
+            //display gold
+            int goldLoot = encounter.GetComponent<Encounter>().gold;
+            lootText.GetComponent<Text>().text = goldLoot + " gold looted";
+            GameObject.Find("PlayerParty").GetComponent<PartyManager>().Gold += goldLoot;
+            lootText.SetActive(true);
 
-            //go back to map
-            EndBattle();
+            //if the battle awards an item
+            if(encounter.GetComponent<Encounter>().items != null && encounter.GetComponent<Encounter>().items.Count > 0)
+            {
+                //display item image and text
+                GameObject item = encounter.GetComponent<Encounter>().items[0];
+                itemLoot.SetActive(true);
+                itemLoot.GetComponentInChildren<Text>().text = item.GetComponent<ItemInterface>().itemName + " found!";
+                itemLoot.GetComponentInChildren<Image>().sprite= item.GetComponent<ItemInterface>().image;
+            }
+
+            //continue button
+            continueButton.SetActive(true);
+            continueButton.GetComponent<Button>().onClick.AddListener(EndBattle);
         }
 
         actingUnits.RemoveAt(0);

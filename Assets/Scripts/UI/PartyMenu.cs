@@ -41,6 +41,7 @@ public class PartyMenu : MonoBehaviour
         {
             int _type = (int)unequippedItem.GetComponent<ItemInterface>().itemType;
             unequippedItem.GetComponent<ItemInterface>().inventoryItem.GetComponent<InventoryItem>().equippedBy = null;
+            unequippedItem.GetComponent<ItemInterface>().equippedBy = null;
             if(unequippedItem.GetComponent<ItemInterface>().itemName == item.itemName)
             {
                 //not swapping, just unequipping
@@ -95,6 +96,7 @@ public class PartyMenu : MonoBehaviour
             item.GetComponent<RectTransform>().anchoredPosition = new Vector3(-110 + 60 * i, 97, 0);
             item.GetComponent<Image>().sprite = inventory[i].GetComponent<ItemInterface>().image;
             item.GetComponent<InventoryItem>().itemReference = inventory[i];
+            item.GetComponent<InventoryItem>().equippedBy = inventory[i].GetComponent<ItemInterface>().equippedBy;
             inventory[i].GetComponent<ItemInterface>().inventoryItem = item;
             item.GetComponent<Button>().onClick.AddListener(delegate
             {
@@ -130,5 +132,11 @@ public class PartyMenu : MonoBehaviour
             abilityButtons[initialCount].SetActive(false);
             initialCount++;
         }
+        if(selectedPlayer.GetComponent<PlayerItems>().armor != null)
+            equippedButtons[0].GetComponent<Image>().sprite = selectedPlayer.GetComponent<PlayerItems>().armor.GetComponent<ItemInterface>().image;
+        if(selectedPlayer.GetComponent<PlayerItems>().weapon != null)
+            equippedButtons[1].GetComponent<Image>().sprite = selectedPlayer.GetComponent<PlayerItems>().weapon.GetComponent<ItemInterface>().image;
+        if(selectedPlayer.GetComponent<PlayerItems>().artifact != null)
+            equippedButtons[2].GetComponent<Image>().sprite = selectedPlayer.GetComponent<PlayerItems>().artifact.GetComponent<ItemInterface>().image;
     }
 }
