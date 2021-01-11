@@ -43,9 +43,6 @@ public class ItemManager : MonoBehaviour
     {
 
         GameObject display = Instantiate(newItemSelect, GameObject.Find("Canvas").transform.position, Quaternion.identity, GameObject.Find("Canvas").transform);
-        print(display.transform.position);
-        //display.transform.position = new Vector3(500, 200, 0);
-        print(display.transform.position);
         List<GameObject> choices = RandomItems();
 
         for (int i = 0; i < 3; i++)

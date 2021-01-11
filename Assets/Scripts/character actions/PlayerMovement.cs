@@ -10,6 +10,8 @@ public class PlayerMovement : MonoBehaviour
     Game gameManager;
     MapManager mapManager;
 
+    public bool exitedShop; //when you have just left a shop
+
     void Start()
     {
         SceneManager.sceneLoaded += SceneManager_sceneLoaded;
@@ -19,6 +21,7 @@ public class PlayerMovement : MonoBehaviour
         gameManager = gameGO.GetComponent<Game>();
         mapManager = gameGO.GetComponent<MapManager>();
 
+        exitedShop = false;
         canMove = true;
         keepMoving = false;
         xPos = 0;
@@ -32,6 +35,10 @@ public class PlayerMovement : MonoBehaviour
         {
             canMove = true;
             keepMoving = false;
+        }
+        if (scene.name == "Shop")
+        {
+            mapManager.encounters[xPos, yPos].GetComponent<Encounter>().DisplayShop();
         }
     }
 
@@ -50,6 +57,7 @@ public class PlayerMovement : MonoBehaviour
                 {
                     yPos++;
                     canMove = false;
+                    exitedShop = false;
                 }
             }
             if (Input.GetAxisRaw("Vertical") == -1)
@@ -58,6 +66,7 @@ public class PlayerMovement : MonoBehaviour
                 {
                     yPos--;
                     canMove = false;
+                    exitedShop = false;
                 }
             }
             if (Input.GetAxisRaw("Horizontal") == -1)
@@ -66,6 +75,7 @@ public class PlayerMovement : MonoBehaviour
                 {
                     xPos--;
                     canMove = false;
+                    exitedShop = false;
                 }
             }
             if (Input.GetAxisRaw("Horizontal") == 1)
@@ -74,6 +84,7 @@ public class PlayerMovement : MonoBehaviour
                 {
                     xPos++;
                     canMove = false;
+                    exitedShop = false;
                 }
             }
             this.gameObject.transform.position = new Vector3Int(xPos -2, yPos - 2, 0);
@@ -87,8 +98,13 @@ public class PlayerMovement : MonoBehaviour
             {
                 mapManager.encounters[xPos, yPos].SetActive(true);
                 SceneManager.LoadScene("Battle");
-            } 
-            else if (mapManager.roomTypes[xPos, yPos] == 3)
+            }
+            else if (mapManager.roomTypes[xPos, yPos] == 2)
+            {
+                mapManager.encounters[xPos, yPos].SetActive(true);
+                SceneManager.LoadScene("Shop");
+            }
+            else if (mapManager.roomTypes[xPos, yPos] == 3 && !exitedShop)
             {
                 mapManager.encounters[xPos, yPos].SetActive(true);
                 SceneManager.LoadScene("Treasure");

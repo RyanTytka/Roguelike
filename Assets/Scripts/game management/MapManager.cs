@@ -32,7 +32,6 @@ public class MapManager : MonoBehaviour
     {
         if (scene.name == "Map")
         {
-
             roomTilemap = FindObjectsOfType<Tilemap>()[0];
             overlayTilemap = FindObjectsOfType<Tilemap>()[1];
             DrawMap();
@@ -565,6 +564,10 @@ public class MapManager : MonoBehaviour
         if (type == 1) //enemy
         {
             roomTypes[(int)pos.x, (int)pos.y] = 0;
+        }
+        else if (type == 2) //shop
+        {
+            GameObject.Find("Player").GetComponent<PlayerMovement>().exitedShop = true;
         }
         else if (type == 3) //treasure
         {

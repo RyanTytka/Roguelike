@@ -10,6 +10,7 @@ public class Encounter : MonoBehaviour
     public EncounterType type;
 
     public List<GameObject> enemyInventory; //all possible enemies to choose from
+    public GameObject shopItem;
 
     private List<GameObject> enemies = new List<GameObject>();
     public List<GameObject> items = new List<GameObject>();
@@ -47,10 +48,47 @@ public class Encounter : MonoBehaviour
 
             
         }
+        else if(type == EncounterType.SHOP)
+        {
+            List<string> added = new List<string>();
+            for(int i = 0; i < 5; i++)
+            {
+                GameObject tempItem = GameObject.Find("ItemManager").GetComponent<ItemManager>().RandomItem(difficulty);
+                if(added.Contains(tempItem.GetComponent<ItemInterface>().itemName))
+                {
+                    //duplicate
+                    i--;
+                }
+                else
+                {
+                    //add item
+                    items.Add(tempItem);
+                    added.Add(tempItem.GetComponent<ItemInterface>().itemName);
+                }
+            }
+            //print("items:");
+            //foreach (GameObject go in items)
+                //print(go.GetComponent<ItemInterface>().itemName);
+        }
     }
 
     public List<GameObject> GetEnemies()
     {
         return enemies;
+    }
+
+    //adds shopItems to the scene
+    public void DisplayShop()
+    {
+        for(int i = 0; i < items.Count; i++)
+        {
+            GameObject item = Instantiate(shopItem, GameObject.Find("Canvas").transform);
+            item.transform.position = new Vector3(50, 375 + i * -65, 0);
+            int cost = Random.Range(10, 15);
+            item.GetComponent<ShopItem>().cost = cost;
+            item.GetComponent<ShopItem>().costText.text = cost.ToString();
+            item.GetComponent<ShopItem>().nameText.text = items[i].GetComponent<ItemInterface>().itemName;
+            item.GetComponent<ShopItem>().displayImage.sprite = items[i].GetComponent<ItemInterface>().image;
+        }
     }
 }
