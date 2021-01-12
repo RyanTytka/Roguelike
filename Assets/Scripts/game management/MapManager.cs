@@ -567,7 +567,7 @@ public class MapManager : MonoBehaviour
         }
         else if (type == 2) //shop
         {
-            GameObject.Find("Player").GetComponent<PlayerMovement>().exitedShop = true;
+            GameObject.Find("GameManager").GetComponentInChildren<PlayerMovement>(true).exitedShop = true;
         }
         else if (type == 3) //treasure
         {

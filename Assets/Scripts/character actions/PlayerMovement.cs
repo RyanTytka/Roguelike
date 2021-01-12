@@ -99,12 +99,12 @@ public class PlayerMovement : MonoBehaviour
                 mapManager.encounters[xPos, yPos].SetActive(true);
                 SceneManager.LoadScene("Battle");
             }
-            else if (mapManager.roomTypes[xPos, yPos] == 2)
+            else if (mapManager.roomTypes[xPos, yPos] == 2 && !exitedShop)
             {
                 mapManager.encounters[xPos, yPos].SetActive(true);
                 SceneManager.LoadScene("Shop");
             }
-            else if (mapManager.roomTypes[xPos, yPos] == 3 && !exitedShop)
+            else if (mapManager.roomTypes[xPos, yPos] == 3)
             {
                 mapManager.encounters[xPos, yPos].SetActive(true);
                 SceneManager.LoadScene("Treasure");
