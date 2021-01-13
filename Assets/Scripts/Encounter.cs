@@ -89,6 +89,7 @@ public class Encounter : MonoBehaviour
             item.GetComponent<ShopItem>().costText.text = cost.ToString();
             item.GetComponent<ShopItem>().nameText.text = items[i].GetComponent<ItemInterface>().itemName;
             item.GetComponent<ShopItem>().displayImage.sprite = items[i].GetComponent<ItemInterface>().image;
+            item.GetComponent<ShopItem>().itemRef = Instantiate(items[i]);
         }
     }
 }

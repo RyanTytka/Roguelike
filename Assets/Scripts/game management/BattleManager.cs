@@ -96,10 +96,13 @@ public class BattleManager : MonoBehaviour
             if(encounter.GetComponent<Encounter>().items != null && encounter.GetComponent<Encounter>().items.Count > 0)
             {
                 //display item image and text
-                GameObject item = encounter.GetComponent<Encounter>().items[0];
+                GameObject item = Instantiate(encounter.GetComponent<Encounter>().items[0]);
                 itemLoot.SetActive(true);
                 itemLoot.GetComponentInChildren<Text>().text = item.GetComponent<ItemInterface>().itemName + " found!";
                 itemLoot.GetComponentInChildren<Image>().sprite= item.GetComponent<ItemInterface>().image;
+                GameObject itemMan = GameObject.Find("ItemManager");
+                itemMan.GetComponent<ItemManager>().inventory.Add(item);
+                item.transform.SetParent(itemMan.transform);
             }
 
             //continue button

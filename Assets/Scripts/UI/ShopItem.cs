@@ -7,6 +7,7 @@ public class ShopItem : MonoBehaviour
 {
     public Image displayImage;
     public Text nameText, costText;
+    public GameObject itemRef;
 
     public int cost;
 
@@ -35,6 +36,13 @@ public class ShopItem : MonoBehaviour
 
     public void Buy()
     {
-
+        if(!sold && cost <= GameObject.Find("PlayerParty").GetComponent<PartyManager>().Gold)
+        {
+            GameObject itemMan = GameObject.Find("ItemManager");
+            itemMan.GetComponent<ItemManager>().inventory.Add(itemRef);
+            itemRef.transform.SetParent(itemMan.transform);
+            sold = true;
+            GameObject.Find("PlayerParty").GetComponent<PartyManager>().Gold -= cost;
+        }
     }
 }

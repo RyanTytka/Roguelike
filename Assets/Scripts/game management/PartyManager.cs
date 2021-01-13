@@ -188,22 +188,16 @@ public class PartyManager : MonoBehaviour
             GameObject choice = Instantiate(choices[i], new Vector3(0, i * 3, 0), Quaternion.identity);
             NewAbilitySelect select = display.GetComponent<NewAbilitySelect>();
             select.AddChoice(choice);
-            PlayerAbilities playerAbilities = GetComponentInChildren<PlayerAbilities>(true);
+            PlayerAbilities[] playerAbilitiesList = GetComponentsInChildren<PlayerAbilities>(true);
+            PlayerAbilities playerAbilities = GetComponentsInChildren<PlayerAbilities>(true)[playerAbilitiesList.Length - 1];
             select.GetComponentsInChildren<Button>()[i].onClick.AddListener(delegate
             {
                 playerAbilities.LearnAbility(choice);
                 choice.transform.parent = playerAbilities.transform;
 
-
                 //create new map and load it
                 GameObject.Find("GameManager").GetComponent<MapManager>().CreateMap();
                 GameObject.Find("GameManager").GetComponentInChildren<PlayerMovement>(true).Init();
-
-
-                //GameObject manager = GameObject.Find("GameManager");
-                //Vector2 playerPos = manager.GetComponentInChildren<PlayerMovement>(true).GetPos();
-                //manager.GetComponent<MapManager>().RoomFinished(playerPos);
-
 
                 SceneManager.LoadScene("Map");
             });
