@@ -21,12 +21,18 @@ public class PlayerMovement : MonoBehaviour
         gameManager = gameGO.GetComponent<Game>();
         mapManager = gameGO.GetComponent<MapManager>();
 
+        Init();
+    }
+
+    public void Init()
+    {
         exitedShop = false;
         canMove = true;
         keepMoving = false;
         xPos = 0;
         yPos = 4;
     }
+
     private void SceneManager_sceneLoaded(Scene scene, LoadSceneMode mode)
     {
         gameObject.SetActive(scene.name == "Map");
@@ -109,6 +115,19 @@ public class PlayerMovement : MonoBehaviour
                 mapManager.encounters[xPos, yPos].SetActive(true);
                 SceneManager.LoadScene("Treasure");
             }
+            else if (mapManager.roomTypes[xPos, yPos] == 5) //boss
+            {
+                //mapManager.encounters[xPos, yPos].SetActive(true);
+                SceneManager.LoadScene("NewCharacter");
+
+                GameObject party = GameObject.Find("PlayerParty");
+                party.GetComponent<PartyManager>().ChooseNewCharacter();
+
+                //GameObject.Find("GameManager").GetComponent<Game>().CreateLevel();
+
+            }
+
+
         }
         //mapManager.playerPos = new Vector2(xPos, yPos);
         //wait for key up

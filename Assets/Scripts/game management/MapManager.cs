@@ -10,7 +10,7 @@ public class MapManager : MonoBehaviour
     public Vector4[,] map;  //holds pathways in dungeon
     //each node is a vector4(right=2,bottom=4,left=8,top=1) 
     public int[,] roomTypes;    //what is in each of the rooms
-    //0 = nothing, 1 = enemies, 2 = shop, 3 = treasure, 4 = events
+    //0 = nothing, 1 = enemies, 2 = shop, 3 = treasure, 4 = events, 5 = boss
     public int[,] visibility;
     //0 = cant see, 1 = can see, 2 = scouted
     public GameObject[,] encounters;
@@ -38,7 +38,7 @@ public class MapManager : MonoBehaviour
         }
     }
 
-    public void CreateMap(int seed)
+    public void CreateMap(int seed = 0)
     {
         Debug.Log("Creating Map");
         map = new Vector4[mapWidth, mapHeight];
@@ -337,7 +337,7 @@ public class MapManager : MonoBehaviour
         }
         //start and end rooms
         roomTypes[0, mapHeight - 1] = 0;
-        roomTypes[mapWidth - 1, 0] = 0;
+        roomTypes[mapWidth - 1, 0] = 5;
 
         visibility[0, mapHeight - 1] = 1;
     }
@@ -572,6 +572,10 @@ public class MapManager : MonoBehaviour
         else if (type == 3) //treasure
         {
             roomTypes[(int)pos.x, (int)pos.y] = 0;
+        }
+        else if (type == 5) //boss
+        {
+            //roomTypes[(int)pos.x, (int)pos.y] = 0;
         }
         DrawMap();
     }

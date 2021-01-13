@@ -10,12 +10,15 @@ public class Game : MonoBehaviour
     void Start()
     {
         DontDestroyOnLoad(this.gameObject);
+        CreateLevel();
+    }
 
+    public void CreateLevel()
+    {
         seed = (int)Random.Range(0, 1000000);
         //Random.seed = seed;
         mapManager = GetComponent<MapManager>();
 
         mapManager.CreateMap(seed);
     }
-
 }

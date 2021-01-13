@@ -14,6 +14,39 @@ TextureImporter:
   - first:
       213: 5107466864982866106
     second: tileOverlay_3
+  - first:
+      213: -3748654106356570297
+    second: tileOverlay_4
+  - first:
+      213: 1516234515449237832
+    second: tileOverlay_0
+  - first:
+      213: -4455023425992216853
+    second: tileOverlay_1
+  - first:
+      213: 5519010948186690743
+    second: tileOverlay_2
+  - first:
+      213: -5177864660864867146
+    second: tileOverlay_3
+  - first:
+      213: -3179127535099711221
+    second: tileOverlay_4
+  - first:
+      213: -8301047152874644680
+    second: tileOverlay_5
+  - first:
+      213: 691537744051110197
+    second: tileOverlay_6
+  - first:
+      213: 2036144178630537238
+    second: tileOverlay_7
+  - first:
+      213: 5780401678802848860
+    second: tileOverlay_8
+  - first:
+      213: 8229772819804655578
+    second: tileOverlay_9
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -125,8 +158,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1ea929355b1a40cb0800000000000000
-      internalID: -4898612694508987679
+      spriteID: 841d989224fba0510800000000000000
+      internalID: 1516234515449237832
       vertices: []
       indices: 
       edges: []
@@ -146,8 +179,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e71e7f3d434e75a60800000000000000
-      internalID: 7662844206539858302
+      spriteID: beea0bb3cc39c22c0800000000000000
+      internalID: -4455023425992216853
       vertices: []
       indices: 
       edges: []
@@ -167,8 +200,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9789c67fdbb3ecb90800000000000000
-      internalID: -7219767465542379399
+      spriteID: 7b4d8266737779c40800000000000000
+      internalID: 5519010948186690743
       vertices: []
       indices: 
       edges: []
@@ -188,8 +221,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ab8b16d9d0e51e640800000000000000
-      internalID: 5107466864982866106
+      spriteID: 6b4e91246878428b0800000000000000
+      internalID: -5177864660864867146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tileOverlay_4
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b01f7beb95871e3d0800000000000000
+      internalID: -3179127535099711221
       vertices: []
       indices: 
       edges: []

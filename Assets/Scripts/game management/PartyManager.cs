@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class PartyManager : MonoBehaviour
 {
-    public GameObject startMenuItems;
     public GameObject CharChooseButton;
     public GameObject newAbilitySelect;
     public GameObject statDisplay;
@@ -41,10 +40,13 @@ public class PartyManager : MonoBehaviour
 
         if (scene.name == "Map")
             GameObject.Find("PartyMenuButton").GetComponent<Button>().onClick.AddListener(delegate { OpenPartyMenu(); });
-
-        if (scene.name == "Treasure")
+        else if (scene.name == "Treasure")
         {
             GameObject.Find("ItemManager").GetComponent<ItemManager>().DisplayTreasureChoices();
+        }
+        else if (scene.name == "NewCharacter")
+        {
+            ShowStartItems();
         }
 
     }
@@ -81,10 +83,6 @@ public class PartyManager : MonoBehaviour
         mage.GetComponent<PlayerStats>().RandomizeStats();
         warrior.GetComponent<PlayerStats>().RandomizeStats();
         rogue.GetComponent<PlayerStats>().RandomizeStats();
-
-        //enable/disable buttons
-        startMenuItems.SetActive(true);
-        GameObject.Find("TitleMenuItems").SetActive(false);
 
         //choose random starting units to pick from
         GameObject option1 = Instantiate(CharChooseButton, new Vector3(-5, -2, 0), Quaternion.identity, GameObject.Find("HUDCanvas").transform);
@@ -195,6 +193,18 @@ public class PartyManager : MonoBehaviour
             {
                 playerAbilities.LearnAbility(choice);
                 choice.transform.parent = playerAbilities.transform;
+
+
+                //create new map and load it
+                GameObject.Find("GameManager").GetComponent<MapManager>().CreateMap();
+                GameObject.Find("GameManager").GetComponentInChildren<PlayerMovement>(true).Init();
+
+
+                //GameObject manager = GameObject.Find("GameManager");
+                //Vector2 playerPos = manager.GetComponentInChildren<PlayerMovement>(true).GetPos();
+                //manager.GetComponent<MapManager>().RoomFinished(playerPos);
+
+
                 SceneManager.LoadScene("Map");
             });
         }

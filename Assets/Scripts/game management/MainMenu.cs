@@ -12,7 +12,7 @@ public class MainMenu : MonoBehaviour
     {
         DontDestroyOnLoad(this.gameObject);
 
-        startMenuItems.SetActive(false);
+        //startMenuItems.SetActive(false);
     }
 
 }
