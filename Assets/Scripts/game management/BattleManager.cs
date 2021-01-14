@@ -70,7 +70,7 @@ public class BattleManager : MonoBehaviour
         GetComponent<MapManager>().RoomFinished(playerPos);
 
         //xp
-        GameObject.Find("PlayerParty").GetComponent<PartyManager>().AddXp(3);
+        GameObject.Find("PlayerParty").GetComponent<PartyManager>().AddXp(10);
     }
 
     private void NewTurn()
