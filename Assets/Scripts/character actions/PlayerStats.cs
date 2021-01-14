@@ -17,6 +17,10 @@ public class PlayerStats : ActingUnit
     public float resilience;
     public float speed;
 
+    public int level = 1;
+    public float xp = 0;
+    public int levelUps;
+
     //get stats that take items into account
     public float MaxHealth { get { return maxHealth + GetComponent<PlayerItems>().StatMods()[0]; } }
     public float MaxMana { get { return maxMana + GetComponent<PlayerItems>().StatMods()[1]; } }
@@ -122,5 +126,18 @@ public class PlayerStats : ActingUnit
     {
         currentMana = Mathf.Max(currentMana - amount, 0);
         SetBars();
+    }
+
+    //adds xp to player, levels up if enough xp
+    public void GainXP(float amount)
+    {
+        xp += amount;
+        if(xp >= 10)
+        {
+            level++;
+            xp -= 10;
+            levelUps++;
+            SceneManager.LoadScene("LevelUp");
+        }
     }
 }

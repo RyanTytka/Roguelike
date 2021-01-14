@@ -95,7 +95,7 @@ public class PlayerMovement : MonoBehaviour
             }
             this.gameObject.transform.position = new Vector3Int(xPos -2, yPos - 2, 0);
             mapManager.visibility[xPos, yPos] = 1;
-            //mapManager.DrawMap();
+            mapManager.DrawMap();
             if (mapManager.roomTypes[xPos, yPos] == 0)
             {
                 keepMoving = true;

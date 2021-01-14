@@ -354,7 +354,7 @@ public class MapManager : MonoBehaviour
                 for (int k = 0; k < mapHeight; k++)
                 {
                     //if(visibility[j,k] == 1)
-                    roomTilemap.SetTile(new Vector3Int(j, k, 0), roomTiles[VectorToInt(map[j, k])]);
+                        roomTilemap.SetTile(new Vector3Int(j, k, 0), roomTiles[VectorToInt(map[j, k])]);
                 }
             }
             //room overlays
@@ -363,7 +363,7 @@ public class MapManager : MonoBehaviour
                 for (int k = 0; k < mapHeight; k++)
                 {
                     //if (roomTypes[j, k] > 0 && visibility[j,k] == 1)
-                    overlayTilemap.SetTile(new Vector3Int(j, k, 0), overLayTiles[roomTypes[j, k]]);
+                        overlayTilemap.SetTile(new Vector3Int(j, k, 0), overLayTiles[roomTypes[j, k]]);
                 }
             }
         } catch { }

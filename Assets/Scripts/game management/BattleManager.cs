@@ -68,6 +68,9 @@ public class BattleManager : MonoBehaviour
         //update map
         Vector2 playerPos = GetComponentInChildren<PlayerMovement>(true).GetPos();
         GetComponent<MapManager>().RoomFinished(playerPos);
+
+        //xp
+        GameObject.Find("PlayerParty").GetComponent<PartyManager>().AddXp(3);
     }
 
     private void NewTurn()

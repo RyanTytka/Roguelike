@@ -48,7 +48,32 @@ public class PartyManager : MonoBehaviour
         {
             ShowStartItems();
         }
+        else if (scene.name == "LevelUp")
+        {
+            foreach(GameObject player in party)
+            {
+                if(player.GetComponent<PlayerStats>().levelUps > 0)
+                {
+                    GameObject display = Instantiate(statDisplay, new Vector3(0, 1.5f, 0), Quaternion.identity, GameObject.Find("HUDCanvas").transform);
+                    display.GetComponent<DisplayStats>().modPointsLeft = 3;
+                    display.GetComponent<DisplayStats>().ShowMods();
+                    display.GetComponent<DisplayStats>().showPortrait = true;
+                    display.GetComponent<DisplayStats>().portrait.sprite= player.GetComponent<SpriteRenderer>().sprite;
+                    display.GetComponent<DisplayStats>().SetStats(player);
+                    return;
+                }
+            }
+        }
 
+    }
+
+    //adds xp to all players
+    public void AddXp(float amount)
+    {
+        foreach (GameObject player in party)
+        {
+            player.GetComponent<PlayerStats>().GainXP(amount);
+        }
     }
 
     //open menu where player can edit characters and party

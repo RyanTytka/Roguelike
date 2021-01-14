@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/NewCharacter.unity
     guid: edb6532d860f349439547526dcb17607
+  - enabled: 1
+    path: Assets/Scenes/LevelUp.unity
+    guid: 9b4b5bf4b2e3fca4c99e80248e691d3a
   m_configObjects: {}

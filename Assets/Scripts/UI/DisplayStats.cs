@@ -19,12 +19,18 @@ public class DisplayStats : MonoBehaviour
     public Slider[] sliders;
     public Text[] labels;
 
+    public Text levelText;
+    public Slider xpSlider;
+
+    public Image portrait;
+    public bool showPortrait = false;
+
     // Start is called before the first frame update
     void Start()
     {
         //modButtons = GameObject.Find("ButtonModGroup");
         modChanges = new int[8];
-        ShowModButtons = false;
+        //ShowModButtons = false;
         HideMods();
     }
 
@@ -40,6 +46,7 @@ public class DisplayStats : MonoBehaviour
         modButtons.SetActive(true);
     }
 
+    //sets slider and text values to player's stats
     public void SetStats(GameObject player)
     {
         //get highest stat for sliders
@@ -92,6 +99,9 @@ public class DisplayStats : MonoBehaviour
         sliders[7].maxValue = maxStat;
         sliders[7].value = statScript.Speed;
 
+        levelText.text = "Level " + statScript.level;
+        xpSlider.value = statScript.xp;
+
         if (ShowModButtons)
             labels[8].text = "Upgrade Points: " + modPointsLeft;
         else
@@ -129,6 +139,7 @@ public class DisplayStats : MonoBehaviour
                 HideMods();
             }
         }
+        portrait.gameObject.SetActive(showPortrait);
     }
 
     //when + mod button is clicked
