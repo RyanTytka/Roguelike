@@ -56,7 +56,7 @@ public class BattleManager : MonoBehaviour
         }
     }
 
-    //call once loot has been chosen
+    //call once loot has been collected
     public void EndBattle()
     {
         SceneManager.LoadScene("Map");
@@ -89,6 +89,10 @@ public class BattleManager : MonoBehaviour
     {
         if(BattleStillGoing() == false)
         {
+            //clear battling units
+            battlingUnits.Clear();
+            actingUnits.Clear();
+
             //display gold
             int goldLoot = encounter.GetComponent<Encounter>().gold;
             lootText.GetComponent<Text>().text = goldLoot + " gold looted";

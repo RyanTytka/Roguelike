@@ -50,48 +50,7 @@ public class PartyManager : MonoBehaviour
         }
         else if (scene.name == "LevelUp")
         {
-            foreach(GameObject player in party)
-            {
-                if(player.GetComponent<PlayerStats>().levelUps > 0)
-                {
-                    GameObject display = Instantiate(statDisplay, new Vector3(0, 0.25f, 0), Quaternion.identity, GameObject.Find("HUDCanvas").transform);
-                    display.GetComponent<DisplayStats>().modPointsLeft = 3;
-                    display.GetComponent<DisplayStats>().ShowMods();
-                    display.GetComponent<DisplayStats>().showPortrait = true;
-                    display.GetComponent<DisplayStats>().portrait.sprite= player.GetComponent<SpriteRenderer>().sprite;
-                    display.GetComponent<DisplayStats>().SetStats(player);
 
-                    GameObject.Find("ContinueButton").GetComponent<Button>().onClick.AddListener(delegate
-                    {
-                        Destroy(GameObject.Find("ContinueButton"));
-                        Destroy(display);
-                        GameObject.Find("ChooseText").GetComponent<Text>().text = "Learn a new ability";
-
-                        //display new ability to learn
-                        GameObject abilitySelect = Instantiate(newAbilitySelect, new Vector3(0, 1, 0), Quaternion.identity, GameObject.Find("HUDCanvas").transform);
-                        abilityManager abilityManager = GameObject.Find("AbilityManager").GetComponent<abilityManager>();
-
-                        List<GameObject> choices = abilityManager.newAbility();
-                        for (int i = 0; i < 3; i++)
-                        {
-                            GameObject choice = Instantiate(choices[i], new Vector3(0, i * 3, 0), Quaternion.identity);
-                            NewAbilitySelect select = abilitySelect.GetComponent<NewAbilitySelect>();
-                            select.AddChoice(choice);
-                            PlayerAbilities playerAbilities = player.GetComponent<PlayerAbilities>();
-                            select.GetComponentsInChildren<Button>()[i].onClick.AddListener(delegate
-                            {
-                                //learn ability and continue to map scene
-                                playerAbilities.LearnAbility(choice);
-                                choice.transform.parent = playerAbilities.transform;
-                                SceneManager.LoadScene("Map");
-                            });
-                        }
-
-                    });
-
-                    return;
-                }
-            }
         }
 
     }
