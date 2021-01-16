@@ -318,7 +318,8 @@ public class MapManager : MonoBehaviour
             limit++;
         }
         //events
-        int numOfEvents = 0;// Random.Range(5, 9);
+        int numOfEvents = Random.Range(5, 9);
+        //numOfEvents = 0;
         for(int i = 0; i < numOfEvents; i++)
         {
             int xPos = Random.Range(0, mapWidth);
@@ -568,10 +569,17 @@ public class MapManager : MonoBehaviour
         else if (type == 2) //shop
         {
             GameObject.Find("GameManager").GetComponentInChildren<PlayerMovement>(true).exitedShop = true;
+            encounters[(int)pos.x, (int)pos.y].gameObject.SetActive(false);
         }
         else if (type == 3) //treasure
         {
             roomTypes[(int)pos.x, (int)pos.y] = 0;
+            Destroy(encounters[(int)pos.x, (int)pos.y].gameObject);
+        }
+        else if(type == 4)
+        {
+            roomTypes[(int)pos.x, (int)pos.y] = 0;
+            Destroy(encounters[(int)pos.x, (int)pos.y].gameObject);
         }
         else if (type == 5) //boss
         {

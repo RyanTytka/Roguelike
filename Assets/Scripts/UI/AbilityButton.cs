@@ -17,6 +17,9 @@ public class AbilityButton : MonoBehaviour
 
     private void Update()
     {
+        if (ability.GetComponent<AbilityInterface>() == null)
+            return;
+
         if (ability.GetComponent<AbilityInterface>().selected)
         {
             //selected

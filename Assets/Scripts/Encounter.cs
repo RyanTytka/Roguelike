@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public enum EncounterType { ENEMY, EVENT, SHOP, TREASURE }
 
@@ -14,7 +15,7 @@ public class Encounter : MonoBehaviour
 
     private List<GameObject> enemies = new List<GameObject>();
     public List<GameObject> items = new List<GameObject>();
-    private int eventID;
+    public int eventID;
     public int gold;
 
     public void GenerateEncounter(float difficulty)
@@ -45,8 +46,6 @@ public class Encounter : MonoBehaviour
             gold = (int)Random.Range(15 * difficulty, 15 * difficulty + 10);
             //ItemManager im = GameObject.Find("ItemManager").GetComponent<ItemManager>();
             //items.AddRange(im.RandomItems());
-
-            
         }
         else if(type == EncounterType.SHOP)
         {
@@ -69,6 +68,43 @@ public class Encounter : MonoBehaviour
             //print("items:");
             //foreach (GameObject go in items)
                 //print(go.GetComponent<ItemInterface>().itemName);
+        }
+        else if(type == EncounterType.EVENT)
+        {
+            eventID = Random.Range(0, 3);
+            switch (eventID)
+            {
+                case 0: //treasure room
+                    type = EncounterType.TREASURE;
+                    GenerateEncounter(difficulty);
+                    type = EncounterType.EVENT;
+                    break;
+                case 1: //enemy room
+                    type = EncounterType.ENEMY;
+                    GenerateEncounter(difficulty);
+                    type = EncounterType.EVENT;
+                    break;
+                case 2: //heal party
+
+                    break;
+            }
+        }
+    }
+
+    //when player moves to an event tile, this sets up specific event
+    public void LoadEvent()
+    {
+        switch (eventID)
+        {
+            case 0: //treasure room
+                SceneManager.LoadScene("Treasure");
+                break;
+            case 1: //enemy room
+                SceneManager.LoadScene("Battle");
+                break;
+            case 2: //heal party
+                SceneManager.LoadScene("Event");
+                break;
         }
     }
 

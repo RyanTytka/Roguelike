@@ -115,6 +115,11 @@ public class PlayerMovement : MonoBehaviour
                 mapManager.encounters[xPos, yPos].SetActive(true);
                 SceneManager.LoadScene("Treasure");
             }
+            else if(mapManager.roomTypes[xPos, yPos] == 4)
+            {
+                mapManager.encounters[xPos, yPos].SetActive(true);
+                mapManager.encounters[xPos, yPos].GetComponent<Encounter>().LoadEvent();
+            }
             else if (mapManager.roomTypes[xPos, yPos] == 5) //boss
             {
                 //mapManager.encounters[xPos, yPos].SetActive(true);
