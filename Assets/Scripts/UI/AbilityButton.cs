@@ -8,6 +8,24 @@ public class AbilityButton : MonoBehaviour
     float manaCost;
     GameObject caster, ability;
 
+    public GameObject hoverDisplayPrefab;
+    public GameObject activeHoverDisplay;
+
+    void OnMouseOver()
+    {
+        if (activeHoverDisplay == null)
+        {
+            activeHoverDisplay = Instantiate(hoverDisplayPrefab, GameObject.Find("HUDCanvas").transform);
+            activeHoverDisplay.transform.position = new Vector3(-2, 0, 0);
+            activeHoverDisplay.GetComponent<AbilityInfo>().SetInfo(ability);
+        }
+    }
+
+    void OnMouseExit()
+    {
+        Destroy(activeHoverDisplay);
+    }
+
     public void SetReference(GameObject _caster, GameObject _ability)
     {
         ability = _ability;
