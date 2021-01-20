@@ -90,6 +90,7 @@ public class UnitStats : ActingUnit, IComparable
         {
             dead = true;
             GameObject.Find("GameManager").GetComponent<BattleManager>().battlingUnits.Remove(this.gameObject);
+            GameObject.Find("TurnTracker").GetComponent<TurnTracker>().UnitDied(this.gameObject);
             GetComponent<SpriteRenderer>().color = Color.gray;
         }
     }

@@ -15,7 +15,6 @@ public class BattleManager : MonoBehaviour
 
     public List<GameObject> battlingUnits;
     private GameObject currentTurn;
-    public List<GameObject> actingUnits = new List<GameObject>();
 
     void Start()
     {
@@ -49,9 +48,10 @@ public class BattleManager : MonoBehaviour
             }
             //get enemies
             battlingUnits.AddRange(encounter.GetEnemies());
-
+            //init turn tracker
+            GameObject.Find("TurnTracker").GetComponent<TurnTracker>().allUnits = battlingUnits;
+            GameObject.Find("TurnTracker").GetComponent<TurnTracker>().Init();
             //begin first turn
-            actingUnits = new List<GameObject>();
             NewTurn();
         }
     }
@@ -68,20 +68,21 @@ public class BattleManager : MonoBehaviour
         //update map
         Vector2 playerPos = GetComponentInChildren<PlayerMovement>(true).GetPos();
         GetComponent<MapManager>().RoomFinished(playerPos);
-
         //xp
         GameObject.Find("PlayerParty").GetComponent<PartyManager>().AddXp(3);
     }
 
     private void NewTurn()
     {
-        //get who goes first
-        while (actingUnits.Count == 0)
-            actingUnits = NextTurn();
+        //get who goes next
+        currentTurn = GameObject.Find("TurnTracker").GetComponent<TurnTracker>().NextTurn();
 
         //trigger active players turn
-        currentTurn = actingUnits[0];
+        //currentTurn = actingUnits[0];
         currentTurn.GetComponent<ActingUnit>().MyTurn();
+
+        //update turn tracker
+        //GameObject.Find("TurnTracker").GetComponent<TurnTracker>().NextTurn();
     }
 
     //when a unit has taken its turn, this is called and moves it to the next units turn
@@ -91,7 +92,6 @@ public class BattleManager : MonoBehaviour
         {
             //clear battling units
             battlingUnits.Clear();
-            actingUnits.Clear();
 
             //display gold
             int goldLoot = encounter.GetComponent<Encounter>().gold;
@@ -117,32 +117,19 @@ public class BattleManager : MonoBehaviour
             continueButton.GetComponent<Button>().onClick.AddListener(EndBattle);
         }
 
-        actingUnits.RemoveAt(0);
+        //actingUnits.RemoveAt(0);
         currentTurn.GetComponent<ActingUnit>().EndTurn();
-        if (actingUnits.Count > 0)
+        //if (actingUnits.Count > 0)
         {
             //same turn, new unit acting
-            currentTurn = actingUnits[0];
-            currentTurn.GetComponent<ActingUnit>().MyTurn();
+            //currentTurn = actingUnits[0];
+            //currentTurn.GetComponent<ActingUnit>().MyTurn();
         }
-        else
+        //else
         {
             //next turn
             NewTurn();
         }
-    }
-
-    //find the unit(s) that act next
-    private List<GameObject> NextTurn()
-    {
-        List<GameObject> turns = new List<GameObject>();
-        foreach (GameObject go in battlingUnits)
-        {
-            if (go.GetComponent<ActingUnit>().UpdateTurn())
-                turns.Add(go);
-        }
-
-        return turns;
     }
 
     //returns true unless all enemies or players have died
