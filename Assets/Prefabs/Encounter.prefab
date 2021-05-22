@@ -48,7 +48,9 @@ MonoBehaviour:
   - {fileID: 973495817556448452, guid: f22855bed614d1b4cae827194213adb5, type: 3}
   - {fileID: 973495817556448452, guid: aeaf48f49a065504b8ce7f6e42888892, type: 3}
   - {fileID: 973495817556448452, guid: 2efab4625a684684798458fc9b77bc9f, type: 3}
+  - {fileID: 973495817556448452, guid: 854a93cc04003c6479f76fe871b3124b, type: 3}
   shopItem: {fileID: 3587985453434010224, guid: 8e00b69658838a6449588896aef3603c,
     type: 3}
   items: []
+  eventID: 0
   gold: 0

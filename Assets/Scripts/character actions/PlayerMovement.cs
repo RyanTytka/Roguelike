@@ -122,11 +122,12 @@ public class PlayerMovement : MonoBehaviour
             }
             else if (mapManager.roomTypes[xPos, yPos] == 5) //boss
             {
-                //mapManager.encounters[xPos, yPos].SetActive(true);
-                SceneManager.LoadScene("NewCharacter");
+                mapManager.encounters[xPos, yPos].SetActive(true);
+                SceneManager.LoadScene("Battle");
 
-                GameObject party = GameObject.Find("PlayerParty");
-                party.GetComponent<PartyManager>().ChooseNewCharacter();
+                //SceneManager.LoadScene("NewCharacter");
+                //GameObject party = GameObject.Find("PlayerParty");
+                //party.GetComponent<PartyManager>().ChooseNewCharacter();
 
                 //GameObject.Find("GameManager").GetComponent<Game>().CreateLevel();
 

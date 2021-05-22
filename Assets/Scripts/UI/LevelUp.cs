@@ -62,7 +62,7 @@ public class LevelUp : MonoBehaviour
                     playerAbilities.LearnAbility(choice);
                     choice.transform.parent = playerAbilities.transform;
                     Destroy(abilitySelect);
-                    Destroy(choice);
+                    //Destroy(choice);
                     if (index >= players.Count - 1)
                     {
                         SceneManager.LoadScene("Map");

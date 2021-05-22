@@ -336,9 +336,11 @@ public class MapManager : MonoBehaviour
             }
 
         }
-        //start and end rooms
+        //start room
         roomTypes[0, mapHeight - 1] = 0;
+        //boss room
         roomTypes[mapWidth - 1, 0] = 5;
+        encounters[mapWidth - 1, 0] = GenerateEncounter(1, EncounterType.BOSS);
 
         visibility[0, mapHeight - 1] = 1;
     }

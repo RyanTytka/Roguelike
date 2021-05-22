@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public enum EncounterType { ENEMY, EVENT, SHOP, TREASURE }
+public enum EncounterType { ENEMY, EVENT, SHOP, TREASURE, BOSS }
 
 public class Encounter : MonoBehaviour
 {
@@ -11,12 +11,14 @@ public class Encounter : MonoBehaviour
     public EncounterType type;
 
     public List<GameObject> enemyInventory; //all possible enemies to choose from
-    public GameObject shopItem;
+    // one list item is an array that contains the ids for each enemy in that boss encounter
+    public List<int[]> bossEncounters = new List<int[]> { new int[] { 0, 0, 3 } }; 
 
     private List<GameObject> enemies = new List<GameObject>();
     public List<GameObject> items = new List<GameObject>();
     public int eventID;
     public int gold;
+    public GameObject shopItem;
 
     public void GenerateEncounter(float difficulty)
     {
@@ -28,11 +30,17 @@ public class Encounter : MonoBehaviour
             while(totalDifficulty < targetDifficulty)
             {
                 int enemyNum = Random.Range(0, enemyInventory.Count);
-                GameObject enemy = Instantiate(enemyInventory[enemyNum], new Vector3(xPos, -2, 10), 
-                    Quaternion.identity, this.transform);
-                totalDifficulty += enemy.GetComponent<Enemy>().difficulty;
-                enemies.Add(enemy);
-                xPos += 2;
+                GameObject enemy = Instantiate(enemyInventory[enemyNum], new Vector3(xPos, -2, 10), Quaternion.identity, this.transform);
+                if (enemy.GetComponent<Enemy>().isBoss == false)
+                {
+                    totalDifficulty += enemy.GetComponent<Enemy>().difficulty;
+                    enemies.Add(enemy);
+                    xPos += 2;
+                }
+                else
+                {
+                    Destroy(enemy);
+                }
             }
             gold = (int)Random.Range(5 * difficulty, 5 * difficulty + 5);
             if(Random.Range(0.0f, 1.0f) < 0.25f)
@@ -88,6 +96,20 @@ public class Encounter : MonoBehaviour
 
                     break;
             }
+        }
+        else if(type == EncounterType.BOSS)
+        {
+            int bossNum = Random.Range(0, bossEncounters.Count);
+            foreach (int i in bossEncounters[bossNum])
+            {
+                GameObject enemy = Instantiate(enemyInventory[i], new Vector3(xPos, -2, 10),
+                    Quaternion.identity, this.transform);
+                enemies.Add(enemy);
+                xPos += 2;
+            }
+            gold = (int)Random.Range(10 * difficulty, 10 * difficulty + 5);
+            //award random item at end of fight
+            items.Add(GameObject.Find("ItemManager").GetComponent<ItemManager>().RandomItem(difficulty));
         }
     }
 

@@ -6,6 +6,7 @@ public class Enemy : MonoBehaviour
 {
     public List<GameObject> possibleAbilities;
     public float difficulty;
+    public bool isBoss;
 
     private void Start()
     {

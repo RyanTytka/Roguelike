@@ -59,7 +59,17 @@ public class BattleManager : MonoBehaviour
     //call once loot has been collected
     public void EndBattle()
     {
-        SceneManager.LoadScene("Map");
+        //after boss, recruit character. Otherwise go back to map
+        if (encounter.type == EncounterType.BOSS)
+        {
+            SceneManager.LoadScene("NewCharacter");
+            GameObject party = GameObject.Find("PlayerParty");
+            party.GetComponent<PartyManager>().ChooseNewCharacter();
+        }
+        else
+        {
+            SceneManager.LoadScene("Map");
+        }
         Destroy(GetComponentInChildren<Encounter>().gameObject);
         for (int i = 0; i < GameObject.Find("PlayerParty").transform.childCount; i++)
         {
@@ -76,13 +86,9 @@ public class BattleManager : MonoBehaviour
     {
         //get who goes next
         currentTurn = GameObject.Find("TurnTracker").GetComponent<TurnTracker>().NextTurn();
-
         //trigger active players turn
-        //currentTurn = actingUnits[0];
         currentTurn.GetComponent<ActingUnit>().MyTurn();
 
-        //update turn tracker
-        //GameObject.Find("TurnTracker").GetComponent<TurnTracker>().NextTurn();
     }
 
     //when a unit has taken its turn, this is called and moves it to the next units turn
@@ -117,19 +123,8 @@ public class BattleManager : MonoBehaviour
             continueButton.GetComponent<Button>().onClick.AddListener(EndBattle);
         }
 
-        //actingUnits.RemoveAt(0);
         currentTurn.GetComponent<ActingUnit>().EndTurn();
-        //if (actingUnits.Count > 0)
-        {
-            //same turn, new unit acting
-            //currentTurn = actingUnits[0];
-            //currentTurn.GetComponent<ActingUnit>().MyTurn();
-        }
-        //else
-        {
-            //next turn
-            NewTurn();
-        }
+        NewTurn();
     }
 
     //returns true unless all enemies or players have died
