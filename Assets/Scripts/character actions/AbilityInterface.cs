@@ -17,6 +17,7 @@ public abstract class AbilityInterface : MonoBehaviour
 
     public bool selected = false;
 
+    public GameObject statusEffect; //blank status effect prefab
 
     void Start()
     {
@@ -30,4 +31,13 @@ public abstract class AbilityInterface : MonoBehaviour
 
     public abstract void Use();
 
+    public GameObject CreateStatusEffect(StatusType type, int tier, int duration, GameObject parent)
+    {
+        GameObject obj = Instantiate(statusEffect, parent.transform);
+        obj.GetComponent<StatusEffect>().type = type;
+        obj.GetComponent<StatusEffect>().tierName = tier;
+        obj.GetComponent<StatusEffect>().duration = duration;
+        obj.GetComponent<StatusEffect>().tierPercent = tier * 0.25f;
+        return obj;
+    }
 }

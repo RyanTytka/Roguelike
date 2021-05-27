@@ -118,7 +118,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   possibleAbilities:
-  - {fileID: 3732584909606297116, guid: e506d980d30f76742bc167a6f8d9c037, type: 3}
+  - {fileID: 3732584909606297116, guid: 3dfbf8ad62d7ab7479f3add017719e6e, type: 3}
   - {fileID: 3732584909606297116, guid: df4f0264404e73b46a5aef9f36477149, type: 3}
   difficulty: 0.3
   isBoss: 1

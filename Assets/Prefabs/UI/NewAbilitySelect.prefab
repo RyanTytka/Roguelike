@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 7006663360963228157}
   - component: {fileID: 277005331573840271}
   - component: {fileID: 7344511185503670269}
+  - component: {fileID: 5819401006897768262}
+  - component: {fileID: 3181327306193275463}
   m_Layer: 5
   m_Name: Image (1)
   m_TagString: Untagged
@@ -118,6 +120,48 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &5819401006897768262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 733858958816386274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a10298f3b8dad9438b6108b276a2290, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ability: {fileID: 0}
+  hoverDisplayPrefab: {fileID: 6925758594390541194, guid: f318a2f64c224ef4982b02a465d4369f,
+    type: 3}
+  activeHoverDisplay: {fileID: 0}
+--- !u!61 &3181327306193275463
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 733858958816386274}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 1.1885834, y: -1.9252777}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 106.01271, y: 100.92575}
+  m_EdgeRadius: 0
 --- !u!1 &1680637895265445300
 GameObject:
   m_ObjectHideFlags: 0
@@ -130,6 +174,8 @@ GameObject:
   - component: {fileID: 2078585803966135852}
   - component: {fileID: 4895054632568072950}
   - component: {fileID: 5618985248411390720}
+  - component: {fileID: 6982697638964725844}
+  - component: {fileID: 5877309628882086568}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -236,6 +282,48 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &6982697638964725844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1680637895265445300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a10298f3b8dad9438b6108b276a2290, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ability: {fileID: 0}
+  hoverDisplayPrefab: {fileID: 6925758594390541194, guid: f318a2f64c224ef4982b02a465d4369f,
+    type: 3}
+  activeHoverDisplay: {fileID: 0}
+--- !u!61 &5877309628882086568
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1680637895265445300}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 1.1885834, y: -1.9252777}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 106.01271, y: 100.92575}
+  m_EdgeRadius: 0
 --- !u!1 &2429800969708094472
 GameObject:
   m_ObjectHideFlags: 0
@@ -248,6 +336,8 @@ GameObject:
   - component: {fileID: 8507027315753151240}
   - component: {fileID: 6067564440781253677}
   - component: {fileID: 8070782645215904482}
+  - component: {fileID: 6407561379284028987}
+  - component: {fileID: 8838579834945005241}
   m_Layer: 5
   m_Name: Image (2)
   m_TagString: Untagged
@@ -354,6 +444,48 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &6407561379284028987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2429800969708094472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a10298f3b8dad9438b6108b276a2290, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ability: {fileID: 0}
+  hoverDisplayPrefab: {fileID: 6925758594390541194, guid: f318a2f64c224ef4982b02a465d4369f,
+    type: 3}
+  activeHoverDisplay: {fileID: 0}
+--- !u!61 &8838579834945005241
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2429800969708094472}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 1.1885834, y: -1.9252777}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 106.01271, y: 100.92575}
+  m_EdgeRadius: 0
 --- !u!1 &4069434533144314385
 GameObject:
   m_ObjectHideFlags: 0

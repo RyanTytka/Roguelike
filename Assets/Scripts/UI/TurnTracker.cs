@@ -9,12 +9,21 @@ public class TurnTracker : MonoBehaviour
     public List<GameObject> turnOrder = new List<GameObject>();  
     public List<GameObject> turnImages; //reference to the image objects that display turn order
     private bool firstTurn = true;
+    private int roundTimer; //progresses with a speed of 10 along with the units. starts new round when it reaches 100
+    private int round; //what round it is (starts at 1)
+
+    public GameObject roundDivider; //adds this to acting units to progress its turn and keep track of the round
+    public Text roundText;
+    public Slider roundSlider;
 
     //set up first 5 turns
     public void Init()
     {
-        //get all units in battle
-        //allUnits.AddRange(GameObject.Find("PlayerParty").GetComponent<PartyManager>().party);
+        round = 1;
+        roundTimer = 0;
+
+        //create round divider
+        allUnits.Add(roundDivider);
 
         //calculate first 5 turns
         while(turnOrder.Count < 5)
@@ -39,12 +48,33 @@ public class TurnTracker : MonoBehaviour
         //add to end of turnOrder
         while (turnOrder.Count < 5 && c < 100)
         {
+            c++;
+            //calculate speed for each battling unit
             foreach (GameObject go in allUnits)
             {
                 if (go.GetComponent<ActingUnit>().UpdateTurn())
                     turnOrder.Add(go);
             }
-            c++;
+            //now do round timer
+            roundTimer += 10;
+            if(roundTimer >= 100)
+            {
+                //Debug.Log("Round " + round + " has begun");
+                //next round
+                roundTimer = 0;
+                round++;
+                roundText.text = "Round " + round;
+                //progress all status effects forward 1 round
+                foreach (GameObject go in allUnits)
+                {
+                    var effects = go.GetComponentsInChildren<StatusEffect>();
+                    foreach (StatusEffect status in effects)
+                    {
+                        status.Progress();
+                    }
+                }
+            }
+            roundSlider.value = roundTimer;
         }
 
         //update turn tracker UI

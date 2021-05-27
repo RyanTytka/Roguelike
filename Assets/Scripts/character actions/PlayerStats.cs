@@ -118,6 +118,24 @@ public class PlayerStats : ActingUnit
 
     public void TakeDamage(float damage)
     {
+        //status effects
+        var statusEffects = GetComponentsInChildren<StatusEffect>();
+        // applies largest instance of vulnerability 
+        float multiplier = 1; 
+        foreach(StatusEffect se in statusEffects)
+        {
+            if(se.type == StatusType.VULNERABLE)
+            {
+                multiplier = Mathf.Max(multiplier, 1.0f + se.tierPercent);
+            }
+        }
+        damage *= multiplier;
+
+        //armor/resilience
+        // *not yet implemented*
+
+        print(gameObject.name + " took " + damage + " damage");
+        //apply damage
         currentHealth = Mathf.Max(currentHealth - damage, 0);
         SetBars();
     }

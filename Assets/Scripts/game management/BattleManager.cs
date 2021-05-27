@@ -137,7 +137,7 @@ public class BattleManager : MonoBehaviour
             {
                 pCount++;
             }
-            else
+            else if (go.tag == "Enemy")
             {
                 eCount++;
             }

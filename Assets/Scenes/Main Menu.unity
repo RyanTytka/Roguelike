@@ -531,7 +531,6 @@ MonoBehaviour:
   lootText: {fileID: 0}
   itemLoot: {fileID: 0}
   battlingUnits: []
-  actingUnits: []
 --- !u!114 &671970606
 MonoBehaviour:
   m_ObjectHideFlags: 0
