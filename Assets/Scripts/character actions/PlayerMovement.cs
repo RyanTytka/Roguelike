@@ -96,6 +96,12 @@ public class PlayerMovement : MonoBehaviour
             this.gameObject.transform.position = new Vector3Int(xPos -2, yPos - 2, 0);
             mapManager.visibility[xPos, yPos] = 1;
             mapManager.DrawMap();
+            if(Input.GetKey(KeyCode.Backspace))
+            {
+                canMove = true;
+                exitedShop = true;
+                return; // dev tool to skip encounters 
+            }
             if (mapManager.roomTypes[xPos, yPos] == 0)
             {
                 keepMoving = true;

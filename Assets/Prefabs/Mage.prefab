@@ -60,6 +60,11 @@ MonoBehaviour:
   defense: 3
   resilience: 6
   speed: 6
+  level: 1
+  xp: 0
+  levelUps: 0
+  statusEffectIconPrefab: {fileID: 1624661279948346891, guid: de8fbcfd84ebab44998eddefe136e2b1,
+    type: 3}
 --- !u!212 &4844203176084015874
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -140,9 +145,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4fdb7cb9c025a44a9d573e757ae4e4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  artifact: {fileID: 0}
-  weapon: {fileID: 0}
   armor: {fileID: 0}
+  weapon: {fileID: 0}
+  artifact: {fileID: 0}
 --- !u!1001 &2678309970510242867
 PrefabInstance:
   m_ObjectHideFlags: 0

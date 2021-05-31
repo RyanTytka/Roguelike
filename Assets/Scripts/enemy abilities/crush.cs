@@ -17,7 +17,7 @@ public class crush : AbilityInterface
         {
             //deal damage
             obj.GetComponent<PlayerStats>().TakeDamage(3);
-            CreateStatusEffect(StatusType.VULNERABLE, 2, 2, obj);
+            CreateStatusEffect(StatusType.VULNERABLE, 2, 2, 0, obj);
         }
     }
 }

@@ -43,7 +43,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4272675bc7d2bf41974784fa0ca4d30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  names:
+  - Vulnerable
+  icons:
+  - {fileID: 21300000, guid: f5d7e965031d96549bbe571bc553dd15, type: 3}
+  descriptions:
+  - Take _X% more damage
   type: 0
   duration: 0
   tierName: 0
   tierPercent: 0
+  iconImage: {fileID: 0}
+  description: 

@@ -18,6 +18,7 @@ public abstract class AbilityInterface : MonoBehaviour
     public bool selected = false;
 
     public GameObject statusEffect; //blank status effect prefab
+    string[] tierNames = new string[] { "I", "II", "III" };
 
     void Start()
     {
@@ -31,13 +32,20 @@ public abstract class AbilityInterface : MonoBehaviour
 
     public abstract void Use();
 
-    public GameObject CreateStatusEffect(StatusType type, int tier, int duration, GameObject parent)
+    public GameObject CreateStatusEffect(StatusType type, int tier, int duration, int iconID, GameObject parent)
     {
         GameObject obj = Instantiate(statusEffect, parent.transform);
-        obj.GetComponent<StatusEffect>().type = type;
-        obj.GetComponent<StatusEffect>().tierName = tier;
-        obj.GetComponent<StatusEffect>().duration = duration;
-        obj.GetComponent<StatusEffect>().tierPercent = tier * 0.25f;
+        StatusEffect se = obj.GetComponent<StatusEffect>();
+        se.type = type;
+        se.tier = tier;
+        se.tierName = tierNames[tier];
+        se.duration = duration;
+        se.tierPercent = tier * 0.25f;
+        se.statusName = se.names[iconID];
+        se.iconImage = se.icons[iconID];
+        string d = se.descriptions[iconID];
+        d = d.Replace("_X", ((int)(se.tierPercent * 100)).ToString());
+        obj.GetComponent<StatusEffect>().description = d;
         return obj;
     }
 }
