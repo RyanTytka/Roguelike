@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum StatusType { VULNERABLE }
+public enum StatusType { VULNERABLE, STRENGTH }
 
 public class StatusEffect : MonoBehaviour
 {

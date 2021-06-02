@@ -16,8 +16,7 @@ public class whack : AbilityInterface
         foreach (GameObject obj in targets)
         {
             //deal damage
-            print(targets.Count);
-            obj.GetComponent<PlayerStats>().TakeDamage(2);
+            obj.GetComponent<PlayerStats>().TakeDamage(caster.GetComponent<UnitStats>().Attack);
         }
     }
 }

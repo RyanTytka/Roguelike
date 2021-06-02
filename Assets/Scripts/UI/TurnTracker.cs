@@ -87,7 +87,7 @@ public class TurnTracker : MonoBehaviour
     //when a unit dies, call this to remove it from turn order
     public void UnitDied(GameObject unit)
     {
-        while (turnOrder.Remove(unit)) { print("removed"); }
+        //while (turnOrder.Remove(unit)) { print("removed"); }
         //refill turnOrder
         int c = 0;
         while (turnOrder.Count < 5 && c < 100)

@@ -16,7 +16,7 @@ public class crush : AbilityInterface
         foreach (GameObject obj in targets)
         {
             //deal damage
-            obj.GetComponent<PlayerStats>().TakeDamage(3);
+            obj.GetComponent<PlayerStats>().TakeDamage(caster.GetComponent<UnitStats>().Attack * 0.8f);
             CreateStatusEffect(StatusType.VULNERABLE, 2, 2, 0, obj);
         }
     }

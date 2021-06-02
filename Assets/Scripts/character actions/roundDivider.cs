@@ -35,4 +35,9 @@ public class roundDivider : ActingUnit
     {
 
     }
+
+    public override void UpdateStatusEffects()
+    {
+        //does nothing
+    }
 }

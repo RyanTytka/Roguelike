@@ -84,13 +84,10 @@ public class BattleManager : MonoBehaviour
 
     private void NewTurn()
     {
-        //update player's status effect icons
+        //update status effect icons
         foreach(GameObject go in battlingUnits)
         {
-            if (go.tag == "Player")
-            {
-                go.GetComponent<PlayerStats>().UpdateStatusEffects();
-            }
+            go.GetComponent<ActingUnit>().UpdateStatusEffects();
         }
         //get who goes next
         currentTurn = GameObject.Find("TurnTracker").GetComponent<TurnTracker>().NextTurn();

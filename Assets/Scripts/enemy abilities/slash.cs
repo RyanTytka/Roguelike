@@ -16,7 +16,7 @@ public class slash : AbilityInterface
         foreach (GameObject obj in targets)
         {
             //deal damage
-            obj.GetComponent<PlayerStats>().TakeDamage(2);
+            obj.GetComponent<PlayerStats>().TakeDamage(caster.GetComponent<UnitStats>().Attack);
         }
     }
 }

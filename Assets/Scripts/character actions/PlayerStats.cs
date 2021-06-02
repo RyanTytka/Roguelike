@@ -25,14 +25,14 @@ public class PlayerStats : ActingUnit
     private List<GameObject> statusEffectIcons = new List<GameObject>(); //keeps track of the objects created to show current effects
 
     //get stats that take items into account
-    public float MaxHealth { get { return maxHealth + GetComponent<PlayerItems>().StatMods()[0]; } }
-    public float MaxMana { get { return maxMana + GetComponent<PlayerItems>().StatMods()[1]; } }
-    public float ManaRegen { get { return manaRegen + GetComponent<PlayerItems>().StatMods()[2]; } }
-    public float Attack { get { return attack + GetComponent<PlayerItems>().StatMods()[3]; } }
-    public float Magic { get { return magic + GetComponent<PlayerItems>().StatMods()[4]; } }
-    public float Defense { get { return defense + GetComponent<PlayerItems>().StatMods()[5]; } }
-    public float Resilience { get { return resilience + GetComponent<PlayerItems>().StatMods()[6]; } }
-    public float Speed { get { return speed + GetComponent<PlayerItems>().StatMods()[7]; } }
+    public float MaxHealth { get { return (maxHealth + GetComponent<PlayerItems>().StatMods()[0]) * StatusEffectMods()[0]; } }
+    public float MaxMana { get { return (maxMana + GetComponent<PlayerItems>().StatMods()[1]) * StatusEffectMods()[1]; } }
+    public float ManaRegen { get { return (manaRegen + GetComponent<PlayerItems>().StatMods()[2]) * StatusEffectMods()[2]; } }
+    public float Attack { get { return (attack + GetComponent<PlayerItems>().StatMods()[3]) * StatusEffectMods()[3]; } }
+    public float Magic { get { return (magic + GetComponent<PlayerItems>().StatMods()[4]) * StatusEffectMods()[4]; } }
+    public float Defense { get { return (defense + GetComponent<PlayerItems>().StatMods()[5]) * StatusEffectMods()[5]; } }
+    public float Resilience { get { return (resilience + GetComponent<PlayerItems>().StatMods()[6]) * StatusEffectMods()[6]; } }
+    public float Speed { get { return (speed + GetComponent<PlayerItems>().StatMods()[7]) * StatusEffectMods()[7]; } }
 
     public void RandomizeStats()
     {
@@ -123,13 +123,13 @@ public class PlayerStats : ActingUnit
     {
         //status effects
         var statusEffects = GetComponentsInChildren<StatusEffect>();
-        // applies largest instance of vulnerability 
+        //multiply damage for each status effect
         float multiplier = 1; 
         foreach(StatusEffect se in statusEffects)
         {
             if(se.type == StatusType.VULNERABLE)
             {
-                multiplier = Mathf.Max(multiplier, 1.0f + se.tierPercent);
+                multiplier += se.tierPercent;
             }
         }
         damage *= multiplier;
@@ -163,7 +163,7 @@ public class PlayerStats : ActingUnit
     }
 
     //updates the UI for which status effects are currently affecting this player
-    public void UpdateStatusEffects()
+    public override void UpdateStatusEffects()
     {
         //clear currently displayed effects
         foreach(GameObject go in statusEffectIcons)

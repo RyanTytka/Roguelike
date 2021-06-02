@@ -101,10 +101,13 @@ MonoBehaviour:
   maxHealth: 80
   currentHealth: 80
   mana: 0
-  attack: 0
+  attack: 5
   magic: 0
   defense: 0
+  resilience: 0
   speed: 9
+  statusEffectIconPrefab: {fileID: 1624661279948346891, guid: de8fbcfd84ebab44998eddefe136e2b1,
+    type: 3}
 --- !u!114 &6346363514439794269
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -120,6 +123,7 @@ MonoBehaviour:
   possibleAbilities:
   - {fileID: 3732584909606297116, guid: 3dfbf8ad62d7ab7479f3add017719e6e, type: 3}
   - {fileID: 3732584909606297116, guid: df4f0264404e73b46a5aef9f36477149, type: 3}
+  - {fileID: 3732584909606297116, guid: e01b8698932cdb8488b8b4fbaa1e8a5d, type: 3}
   difficulty: 0.3
   isBoss: 1
 --- !u!65 &5503558828885479732

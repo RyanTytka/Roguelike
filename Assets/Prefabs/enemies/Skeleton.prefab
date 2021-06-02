@@ -99,13 +99,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turnTimer: 0
-  maxHealth: 8
-  currentHealth: 8
+  maxHealth: 12
+  currentHealth: 12
   mana: 0
-  attack: 0
+  attack: 2
   magic: 0
   defense: 0
-  speed: 9
+  resilience: 0
+  speed: 7
+  statusEffectIconPrefab: {fileID: 1624661279948346891, guid: de8fbcfd84ebab44998eddefe136e2b1,
+    type: 3}
 --- !u!114 &6346363514439794269
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -121,6 +124,7 @@ MonoBehaviour:
   possibleAbilities:
   - {fileID: 3732584909606297116, guid: e506d980d30f76742bc167a6f8d9c037, type: 3}
   difficulty: 0.3
+  isBoss: 0
 --- !u!65 &5503558828885479732
 BoxCollider:
   m_ObjectHideFlags: 0

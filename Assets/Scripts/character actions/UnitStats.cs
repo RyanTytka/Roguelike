@@ -11,10 +11,21 @@ public class UnitStats : ActingUnit, IComparable
     public float attack;
     public float magic;
     public float defense;
+    public float resilience;
     public float speed;
 
-
     private bool dead = false;
+
+    public GameObject statusEffectIconPrefab; //instantiated to show what statuses are affecting this unit
+    private List<GameObject> statusEffectIcons = new List<GameObject>(); //keeps track of the objects created to show current effects
+
+    //get stats that take status effects into account
+    public float MaxHealth { get { return maxHealth * StatusEffectMods()[0]; } }
+    public float Attack { get { return attack * StatusEffectMods()[3]; } }
+    public float Magic { get { return magic * StatusEffectMods()[4]; } }
+    public float Defense { get { return defense * StatusEffectMods()[5]; } }
+    public float Resilience { get { return resilience * StatusEffectMods()[6]; } }
+    public float Speed { get { return speed * StatusEffectMods()[7]; } }
 
     public void calculateNextActTurn(int currentTurn)
     {
@@ -95,4 +106,27 @@ public class UnitStats : ActingUnit, IComparable
         }
     }
 
+    //updates the UI for which status effects are currently affecting this unit
+    public override void UpdateStatusEffects()
+    {
+        //clear currently displayed effects
+        foreach (GameObject go in statusEffectIcons)
+        {
+            Destroy(go);
+        }
+        statusEffectIcons.Clear();
+
+        //display updated effects
+        float ypos = -0.5f;
+        var statusEffects = GetComponentsInChildren<StatusEffect>();
+        foreach (StatusEffect effect in statusEffects)
+        {
+            var newIcon = Instantiate(statusEffectIconPrefab, this.gameObject.transform);
+            statusEffectIcons.Add(newIcon);
+            newIcon.transform.localPosition = new Vector3(-0.8f, ypos, 0);
+            newIcon.GetComponent<SpriteRenderer>().sprite = effect.iconImage;
+            newIcon.GetComponent<StatusEffectIcon>().statusEffect = effect;
+            ypos += 0.4f;
+        }
+    }
 }
