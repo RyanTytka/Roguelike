@@ -45,10 +45,9 @@ public class basicAttack : AbilityInterface
 
     public override void Use()
     {
-        //Debug.Log("Whirlwind used");
         foreach (GameObject obj in targets)
         {
-            obj.GetComponent<UnitStats>().TakeDamage(caster.GetComponent<PlayerStats>().attack);
+            obj.GetComponent<UnitStats>().TakeDamage(caster.GetComponent<PlayerStats>().Attack, 1);
         }
         //clear targets
         caster.GetComponent<PlayerAbilities>().Hide();

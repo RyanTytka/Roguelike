@@ -119,23 +119,32 @@ public class PlayerStats : ActingUnit
         GetComponentInChildren<ManaBar>().MaxValue = maxMana;
     }
 
-    public void TakeDamage(float damage)
+    // deal damage to this player, accounting for defense/resilience, status effects, etc
+    // type: 1 = physical damage, 2 = magic damage
+    public void TakeDamage(float damage, int type)
     {
         //status effects
         var statusEffects = GetComponentsInChildren<StatusEffect>();
         //multiply damage for each status effect
-        float multiplier = 1; 
-        foreach(StatusEffect se in statusEffects)
+        float multiplier = 1;
+        foreach (StatusEffect se in statusEffects)
         {
-            if(se.type == StatusType.VULNERABLE)
+            if (se.type == StatusType.VULNERABLE)
             {
                 multiplier += se.tierPercent;
             }
         }
         damage *= multiplier;
 
-        //armor/resilience
-        // *not yet implemented*
+        //defense/resilience
+        if (type == 1)
+        {
+            damage *= 10 / (10 + Defense);
+        }
+        else if (type == 2)
+        {
+            damage *= 10 / (10 + Resilience);
+        }
 
         print(gameObject.name + " took " + damage + " damage");
         //apply damage

@@ -103,8 +103,8 @@ MonoBehaviour:
   mana: 0
   attack: 5
   magic: 0
-  defense: 0
-  resilience: 0
+  defense: 10
+  resilience: 15
   speed: 9
   statusEffectIconPrefab: {fileID: 1624661279948346891, guid: de8fbcfd84ebab44998eddefe136e2b1,
     type: 3}

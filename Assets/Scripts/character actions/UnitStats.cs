@@ -92,8 +92,32 @@ public class UnitStats : ActingUnit, IComparable
         GetComponentInChildren<HealthBar>().MaxValue = maxHealth;
     }
 
-    public void TakeDamage(float damage)
+    public void TakeDamage(float damage, int type)
     {
+        //status effects
+        var statusEffects = GetComponentsInChildren<StatusEffect>();
+        //multiply damage for each status effect
+        float multiplier = 1;
+        foreach (StatusEffect se in statusEffects)
+        {
+            if (se.type == StatusType.VULNERABLE)
+            {
+                multiplier += se.tierPercent;
+            }
+        }
+        damage *= multiplier;
+
+        //defense/resilience
+        if (type == 1)
+        {
+            damage *= 10 / (10 + Defense);
+        }
+        else if (type == 2)
+        {
+            damage *= 10 / (10 + Resilience);
+        }
+
+        print(gameObject.name + " took " + damage + " damage");
         currentHealth -= damage;
         SetHealthBar();
 
@@ -103,6 +127,7 @@ public class UnitStats : ActingUnit, IComparable
             GameObject.Find("GameManager").GetComponent<BattleManager>().battlingUnits.Remove(this.gameObject);
             GameObject.Find("TurnTracker").GetComponent<TurnTracker>().UnitDied(this.gameObject);
             GetComponent<SpriteRenderer>().color = Color.gray;
+            Destroy(this.gameObject);
         }
     }
 

@@ -15,5 +15,7 @@ public class raiseDead : AbilityInterface
         Encounter encounter = bm.gameObject.GetComponentInChildren<Encounter>();
         GameObject newSkeleton = Instantiate(skeletonPrefab, new Vector3(bm.battlingUnits.Count * 2, -2, 10), Quaternion.identity, encounter.transform);
         bm.battlingUnits.Add(newSkeleton);
+        //restructure unit order
+        GameObject.Find("GameManager").GetComponent<BattleManager>().UpdateUnitPositions();
     }
 }

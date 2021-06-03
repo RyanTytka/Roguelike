@@ -105,7 +105,7 @@ MonoBehaviour:
   attack: 2
   magic: 0
   defense: 0
-  resilience: 0
+  resilience: 10
   speed: 7
   statusEffectIconPrefab: {fileID: 1624661279948346891, guid: de8fbcfd84ebab44998eddefe136e2b1,
     type: 3}

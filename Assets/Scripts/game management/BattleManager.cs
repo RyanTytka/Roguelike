@@ -51,6 +51,8 @@ public class BattleManager : MonoBehaviour
             //init turn tracker
             GameObject.Find("TurnTracker").GetComponent<TurnTracker>().allUnits = battlingUnits;
             GameObject.Find("TurnTracker").GetComponent<TurnTracker>().Init();
+            //set positions
+            UpdateUnitPositions();
             //begin first turn
             NewTurn();
         }
@@ -148,5 +150,30 @@ public class BattleManager : MonoBehaviour
             }
         }
         return pCount != 0 && eCount != 0;
+    }
+
+    //reset positions of all units. called when unit is added/removed from battle
+    public void UpdateUnitPositions()
+    {
+        //players
+        int i = 0;
+        foreach (GameObject unit in battlingUnits)
+        {
+            if (unit.tag == "Player")
+            {
+                unit.transform.position = new Vector3(-5.0f + i * 1.5f, -2, 0);
+                i++;
+            }
+        }
+        //enemies
+        i = 0;
+        foreach (GameObject unit in battlingUnits)
+        {
+            if (unit.tag == "Enemy")
+            {
+                unit.transform.position = new Vector3(1.5f + i * 2.0f, -2, 0);
+                i++;
+            }
+        }
     }
 }
