@@ -507,6 +507,7 @@ GameObject:
   - component: {fileID: 671970606}
   - component: {fileID: 671970605}
   - component: {fileID: 671970609}
+  - component: {fileID: 671970610}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -619,6 +620,20 @@ MonoBehaviour:
   defaultButton: {fileID: 4652997816875356753, guid: 2a1ecf07c8003d74fb7f2cc927846bb6,
     type: 3}
   defaultText: {fileID: 2910371450433099722, guid: 72a97f126c2d76547a2d27e11809b676,
+    type: 3}
+--- !u!114 &671970610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 671970604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13fd26d0f14cceb45b4266883b135d52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageTextPrefab: {fileID: 3169031925762860936, guid: 8059cbeae060d034588ab84390df43af,
     type: 3}
 --- !u!1 &870293348
 GameObject:

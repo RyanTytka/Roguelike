@@ -24,7 +24,7 @@ public class Whirlwind : AbilityInterface
                         go.GetComponent<SpriteRenderer>().color = Color.white;
                 }
             } catch { }
-            targets = new List<GameObject>();
+            targets.Clear();
             //check if mousing over enemy
             ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out hit))

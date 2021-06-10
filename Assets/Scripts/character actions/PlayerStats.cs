@@ -92,7 +92,7 @@ public class PlayerStats : ActingUnit
     {
         //Debug.Log("Player Turn");
         //highlight me
-        GetComponent<SpriteRenderer>().color = Color.yellow;
+        //GetComponent<SpriteRenderer>().color = Color.yellow;
         //display my moves
         PlayerAbilities abilities = GetComponent<PlayerAbilities>();
         abilities.Display();
@@ -104,7 +104,7 @@ public class PlayerStats : ActingUnit
     public override void EndTurn()
     {
         //unhighlight me
-        GetComponent<SpriteRenderer>().color = Color.white;
+        //GetComponent<SpriteRenderer>().color = Color.white;
         //remove my ability buttons
         PlayerAbilities abilities = GetComponent<PlayerAbilities>();
         abilities.Hide();
@@ -150,6 +150,12 @@ public class PlayerStats : ActingUnit
         //apply damage
         currentHealth = Mathf.Max(currentHealth - damage, 0);
         SetBars();
+        //create damage text
+        var obj = Instantiate(GameObject.Find("GameManager").GetComponent<UIManager>().damageTextPrefab, GameObject.Find("HUDCanvas").transform);
+        Color c = Color.red;
+        if (type == 2)
+            c = Color.blue;
+        obj.GetComponent<DamageText>().Init("-", damage, c, transform.position);
     }
 
     public void UseMana(float amount)

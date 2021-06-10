@@ -65,7 +65,7 @@ public class UnitStats : ActingUnit, IComparable
     IEnumerator Wait()
     {
         //highlight me
-        GetComponent<SpriteRenderer>().color = Color.yellow;
+        //GetComponent<SpriteRenderer>().color = Color.yellow;
 
         //pause
         yield return new WaitForSeconds(0.5f);
@@ -81,8 +81,7 @@ public class UnitStats : ActingUnit, IComparable
 
     public override void EndTurn()
     {
-        if(!dead)
-            GetComponent<SpriteRenderer>().color = Color.white;
+        //GetComponent<SpriteRenderer>().color = Color.white;
     }
 
     //update health bar with current heralth value
@@ -121,7 +120,15 @@ public class UnitStats : ActingUnit, IComparable
         currentHealth -= damage;
         SetHealthBar();
 
-        if(currentHealth <= 0)
+        //create damage text
+        var obj = Instantiate(GameObject.Find("GameManager").GetComponent<UIManager>().damageTextPrefab, GameObject.Find("HUDCanvas").transform);
+        Color c = Color.red;
+        if (type == 2)
+            c = Color.blue;
+        obj.GetComponent<DamageText>().Init("-", damage, c, transform.position);
+
+        //if dead
+        if (currentHealth <= 0)
         {
             dead = true;
             GameObject.Find("GameManager").GetComponent<BattleManager>().battlingUnits.Remove(this.gameObject);

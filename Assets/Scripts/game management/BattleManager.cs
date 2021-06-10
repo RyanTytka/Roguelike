@@ -95,7 +95,34 @@ public class BattleManager : MonoBehaviour
         currentTurn = GameObject.Find("TurnTracker").GetComponent<TurnTracker>().NextTurn();
         //trigger active players turn
         currentTurn.GetComponent<ActingUnit>().MyTurn();
-
+        GameObject.Find("TurnIndicator").transform.position = new Vector3(currentTurn.transform.position.x, currentTurn.transform.position.y - 1.0f);
+        //update current turn UI
+        GameObject UI = GameObject.Find("CurrentTurnInfo");
+        UI.GetComponentInChildren<Image>().sprite = currentTurn.GetComponent<SpriteRenderer>().sprite;
+        PlayerStats player = currentTurn.GetComponent<PlayerStats>();
+        HealthBar healthBar = UI.GetComponentInChildren<HealthBar>();
+        ManaBar manaBar = UI.GetComponentInChildren<ManaBar>();
+        if(player != null)
+        {
+            //player health/mana
+            healthBar.CurrentValue = player.currentHealth;
+            healthBar.MaxValue = player.MaxHealth;
+            healthBar.GetComponentInChildren<Text>().text = "HP (" + Mathf.Round(player.currentHealth * 10f) / 10f + " / " + player.MaxHealth + ")";
+            manaBar.CurrentValue = player.currentMana;
+            manaBar.MaxValue = player.MaxMana;
+            manaBar.GetComponentInChildren<Text>().text = "Mana (" + Mathf.Round(player.currentMana * 10f) / 10f + " / " + player.MaxMana + ")";
+        }
+        else
+        {
+            //enemy health/mana
+            UnitStats enemy = currentTurn.GetComponent<UnitStats>();
+            healthBar.CurrentValue = enemy.currentHealth;
+            healthBar.MaxValue = enemy.MaxHealth;
+            healthBar.GetComponentInChildren<Text>().text = "HP (" + Mathf.Round(enemy.currentHealth * 10f) / 10f + " / " + enemy.MaxHealth + ")";
+            manaBar.CurrentValue = 0;// enemy.currentMana;
+            manaBar.MaxValue = 10;// enemy.MaxMana;
+            manaBar.GetComponentInChildren<Text>().text = "Mana ";// (" + Mathf.Round(enemy.currentMana * 10f) / 10f + " / " + enemy.MaxMana + ")";
+        }
     }
 
     //when a unit has taken its turn, this is called and moves it to the next units turn
