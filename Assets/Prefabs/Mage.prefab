@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4844203176084015874}
   - component: {fileID: 299611286229320279}
   - component: {fileID: -3382652131469894173}
+  - component: {fileID: 6603294416667490060}
   m_Layer: 0
   m_Name: Mage
   m_TagString: Player
@@ -50,6 +51,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turnTimer: 0
+  playerName: Mage
   maxHealth: 8
   currentHealth: 8
   maxMana: 10
@@ -148,6 +150,19 @@ MonoBehaviour:
   armor: {fileID: 0}
   weapon: {fileID: 0}
   artifact: {fileID: 0}
+--- !u!65 &6603294416667490060
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1707108526654619768}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.79, y: 1, z: 0.2}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &2678309970510242867
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -155,6 +170,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1707108526654619750}
     m_Modifications:
+    - target: {fileID: 8117556915411763652, guid: bf96b2d5bc2821c4aa990ec62536cc4d,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8117556915411763652, guid: bf96b2d5bc2821c4aa990ec62536cc4d,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8117556916512297361, guid: bf96b2d5bc2821c4aa990ec62536cc4d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -213,12 +238,27 @@ PrefabInstance:
     - target: {fileID: 8117556916512297361, guid: bf96b2d5bc2821c4aa990ec62536cc4d,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 6.6249003
+      value: 3.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8117556916512297361, guid: bf96b2d5bc2821c4aa990ec62536cc4d,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 8117556916512297362, guid: bf96b2d5bc2821c4aa990ec62536cc4d,
         type: 3}
       propertyPath: m_Name
       value: HealthBar
+      objectReference: {fileID: 0}
+    - target: {fileID: 8117556916832337364, guid: bf96b2d5bc2821c4aa990ec62536cc4d,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8117556916832337364, guid: bf96b2d5bc2821c4aa990ec62536cc4d,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bf96b2d5bc2821c4aa990ec62536cc4d, type: 3}

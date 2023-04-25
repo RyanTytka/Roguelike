@@ -25,6 +25,16 @@ public class DisplayStats : MonoBehaviour
     public Image portrait;
     public bool showPortrait = false;
 
+    //what each stat improves by for level ups
+    private const int   HP_UPGRADE = 2;
+    private const int   MANA_UPGRADE = 2;
+    private const float MANA_REGEN_UPGRADE = 0.5f;
+    private const int   ATK_UPGRADE = 1;
+    private const int   MAGIC_UPGRADE = 1;
+    private const int   DEF_UPGRADE = 1;
+    private const int   RES_UPGRADE = 1;
+    private const int   SPD_UPGRADE = 1;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -149,21 +159,21 @@ public class DisplayStats : MonoBehaviour
         if (modPointsLeft > 0)
         {
             if (currentStat == 0)
-                stats.maxHealth += 2;
+                stats.maxHealth += HP_UPGRADE;
             if (currentStat == 1)
-                stats.maxMana += 2;
+                stats.maxMana += MANA_UPGRADE;
             if (currentStat == 2)
-                stats.manaRegen += 0.5f;
+                stats.manaRegen += MANA_REGEN_UPGRADE;
             if (currentStat == 3)
-                stats.attack += 1;
+                stats.attack += ATK_UPGRADE;
             if (currentStat == 4)
-                stats.magic += 1;
+                stats.magic += MAGIC_UPGRADE;
             if (currentStat == 5)
-                stats.defense += 1;
+                stats.defense += DEF_UPGRADE;
             if (currentStat == 6)
-                stats.resilience += 1;
+                stats.resilience += RES_UPGRADE;
             if (currentStat == 7)
-                stats.speed += 2;
+                stats.speed += SPD_UPGRADE;
             modChanges[currentStat]++;
             modPointsLeft--;
         }
@@ -180,21 +190,21 @@ public class DisplayStats : MonoBehaviour
         PlayerStats stats = playerReference.GetComponent<PlayerStats>();
         
         if (currentStat == 0)
-            stats.maxHealth -= 2;
+            stats.maxHealth -= HP_UPGRADE;
         if (currentStat == 1)
-            stats.maxMana -= 2;
+            stats.maxMana -= MANA_UPGRADE;
         if (currentStat == 2)
-            stats.manaRegen -= 0.5f;
+            stats.manaRegen -= MANA_REGEN_UPGRADE;
         if (currentStat == 3)
-            stats.attack -= 1;
+            stats.attack -= ATK_UPGRADE;
         if (currentStat == 4)
-            stats.magic -= 1;
+            stats.magic -= MAGIC_UPGRADE;
         if (currentStat == 5)
-            stats.defense -= 1;
+            stats.defense -= DEF_UPGRADE;
         if (currentStat == 6)
-            stats.resilience -= 1;
+            stats.resilience -= RES_UPGRADE;
         if (currentStat == 7)
-            stats.speed -= 2;
+            stats.speed -= SPD_UPGRADE;
         
         modChanges[currentStat]--;
         SetStats(playerReference);

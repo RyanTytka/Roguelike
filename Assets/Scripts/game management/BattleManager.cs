@@ -107,10 +107,10 @@ public class BattleManager : MonoBehaviour
             //player health/mana
             healthBar.CurrentValue = player.currentHealth;
             healthBar.MaxValue = player.MaxHealth;
-            healthBar.GetComponentInChildren<Text>().text = "HP (" + Mathf.Round(player.currentHealth * 10f) / 10f + " / " + player.MaxHealth + ")";
+            healthBar.transform.parent.gameObject.GetComponentInChildren<Text>().text = "HP (" + Mathf.Round(player.currentHealth * 10f) / 10f + " / " + player.MaxHealth + ")";
             manaBar.CurrentValue = player.currentMana;
             manaBar.MaxValue = player.MaxMana;
-            manaBar.GetComponentInChildren<Text>().text = "Mana (" + Mathf.Round(player.currentMana * 10f) / 10f + " / " + player.MaxMana + ")";
+            manaBar.transform.parent.gameObject.GetComponentInChildren<Text>().text = "Mana (" + Mathf.Round(player.currentMana * 10f) / 10f + " / " + player.MaxMana + ")";
         }
         else
         {
@@ -118,10 +118,10 @@ public class BattleManager : MonoBehaviour
             UnitStats enemy = currentTurn.GetComponent<UnitStats>();
             healthBar.CurrentValue = enemy.currentHealth;
             healthBar.MaxValue = enemy.MaxHealth;
-            healthBar.GetComponentInChildren<Text>().text = "HP (" + Mathf.Round(enemy.currentHealth * 10f) / 10f + " / " + enemy.MaxHealth + ")";
+            healthBar.transform.parent.gameObject.GetComponentInChildren<Text>().text = "HP (" + Mathf.Round(enemy.currentHealth * 10f) / 10f + " / " + enemy.MaxHealth + ")";
             manaBar.CurrentValue = 0;// enemy.currentMana;
             manaBar.MaxValue = 10;// enemy.MaxMana;
-            manaBar.GetComponentInChildren<Text>().text = "Mana ";// (" + Mathf.Round(enemy.currentMana * 10f) / 10f + " / " + enemy.MaxMana + ")";
+            manaBar.transform.parent.gameObject.GetComponentInChildren<Text>().text = "Mana ";// (" + Mathf.Round(enemy.currentMana * 10f) / 10f + " / " + enemy.MaxMana + ")";
         }
     }
 

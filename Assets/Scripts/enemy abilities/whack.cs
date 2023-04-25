@@ -19,4 +19,9 @@ public class whack : AbilityInterface
             obj.GetComponent<PlayerStats>().TakeDamage(caster.GetComponent<UnitStats>().Attack, 1);
         }
     }
+
+    public override string GetDescription()
+    {
+        return "Whack an enemy.";
+    }
 }

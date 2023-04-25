@@ -2,9 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.UI;
+
 
 public class UnitStats : ActingUnit, IComparable
 {
+    public string unitName, description;
     public float maxHealth;
     public float currentHealth;
     public float mana;
@@ -18,6 +21,8 @@ public class UnitStats : ActingUnit, IComparable
 
     public GameObject statusEffectIconPrefab; //instantiated to show what statuses are affecting this unit
     private List<GameObject> statusEffectIcons = new List<GameObject>(); //keeps track of the objects created to show current effects
+
+    private GameObject activeHoverDisplay;
 
     //get stats that take status effects into account
     public float MaxHealth { get { return maxHealth * StatusEffectMods()[0]; } }
@@ -89,6 +94,7 @@ public class UnitStats : ActingUnit, IComparable
     {
         GetComponentInChildren<HealthBar>().CurrentValue = currentHealth;
         GetComponentInChildren<HealthBar>().MaxValue = maxHealth;
+        GetComponentInChildren<Text>().text = currentHealth.ToString("N1") + "/" + maxHealth;
     }
 
     public void TakeDamage(float damage, int type)
@@ -136,6 +142,9 @@ public class UnitStats : ActingUnit, IComparable
             GetComponent<SpriteRenderer>().color = Color.gray;
             Destroy(this.gameObject);
         }
+
+        //Update History
+        GameObject.Find("History").GetComponent<BattleHistory>().AddLog(unitName + " takes " + damage.ToString("N1") + " damage");
     }
 
     //updates the UI for which status effects are currently affecting this unit
@@ -160,5 +169,23 @@ public class UnitStats : ActingUnit, IComparable
             newIcon.GetComponent<StatusEffectIcon>().statusEffect = effect;
             ypos += 0.4f;
         }
+    }
+
+    //display info
+    void OnMouseOver()
+    {
+        if (activeHoverDisplay == null)
+        {
+            activeHoverDisplay = Instantiate(GameObject.Find("GameManager").GetComponent<UIManager>().enemyHoverInfoPrefab, GameObject.Find("HUDCanvas").transform);
+            //activeHoverDisplay.transform.position = new Vector3(transform.position.x, transform.position.y + 2);
+            activeHoverDisplay.GetComponent<RectTransform>().anchoredPosition = new Vector3(-70, 55);
+            activeHoverDisplay.GetComponent<EnemyHoverInfo>().SetInfo(this.gameObject);
+        }
+    }
+
+    //hide info
+    void OnMouseExit()
+    {
+        Destroy(activeHoverDisplay);
     }
 }

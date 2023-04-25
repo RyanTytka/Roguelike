@@ -635,6 +635,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageTextPrefab: {fileID: 3169031925762860936, guid: 8059cbeae060d034588ab84390df43af,
     type: 3}
+  enemyHoverInfoPrefab: {fileID: 1668451144394513041, guid: caca0404c2c090a4995a23b8a2746c51,
+    type: 3}
 --- !u!1 &870293348
 GameObject:
   m_ObjectHideFlags: 0
@@ -974,7 +976,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 10
+  m_SortingOrder: 5
   m_Sprite: {fileID: -7027413993682790196, guid: 36654eb29cc9163448129d8b3996a915,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

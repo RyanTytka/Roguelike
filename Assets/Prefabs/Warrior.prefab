@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1536578582061376956}
   - component: {fileID: 5674492366472551905}
   - component: {fileID: 1008954291718460166}
+  - component: {fileID: 5241725576293771105}
   m_Layer: 0
   m_Name: Warrior
   m_TagString: Player
@@ -50,6 +51,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turnTimer: 0
+  playerName: Warrior
   maxHealth: 12
   currentHealth: 12
   maxMana: 6
@@ -148,6 +150,19 @@ MonoBehaviour:
   armor: {fileID: 0}
   weapon: {fileID: 0}
   artifact: {fileID: 0}
+--- !u!65 &5241725576293771105
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4745044831338327750}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.79, y: 1, z: 0.2}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &2894619152045746571
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -299,7 +314,12 @@ PrefabInstance:
     - target: {fileID: 8117556916512297361, guid: bf96b2d5bc2821c4aa990ec62536cc4d,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 6.6249003
+      value: 3.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8117556916512297361, guid: bf96b2d5bc2821c4aa990ec62536cc4d,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 8117556916512297362, guid: bf96b2d5bc2821c4aa990ec62536cc4d,
         type: 3}

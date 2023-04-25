@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
-    public GameObject damageTextPrefab;
+    public GameObject damageTextPrefab, enemyHoverInfoPrefab;
 }

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5054460174074187270}
   - component: {fileID: 4276254112165966234}
   m_Layer: 0
-  m_Name: Earth Staff 1
+  m_Name: Spirit Bow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -49,3 +49,6 @@ MonoBehaviour:
   image: {fileID: 21300000, guid: 41cacafd505d7964da55ef7c9d6705bb, type: 3}
   statBoosts: 
   inventoryItem: {fileID: 0}
+  equippedBy: {fileID: 0}
+  infoDisplay: {fileID: 2861884166923151974, guid: f2a69968a6771ad45bbb7c7913e86bb5,
+    type: 3}

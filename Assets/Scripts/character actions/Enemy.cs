@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
@@ -22,5 +23,15 @@ public class Enemy : MonoBehaviour
         int abilityNum = Random.Range(0, possibleAbilities.Count);
         possibleAbilities[abilityNum].GetComponent<AbilityInterface>().caster = this.gameObject;
         possibleAbilities[abilityNum].GetComponent<AbilityInterface>().Use();
+    }
+
+    void OnMouseOver()
+    {
+        GetComponentInChildren<Text>().enabled = true;
+    }
+
+    private void OnMouseExit()
+    {
+        GetComponentInChildren<Text>().enabled = false;
     }
 }

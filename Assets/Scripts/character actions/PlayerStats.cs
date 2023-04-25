@@ -1,10 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class PlayerStats : ActingUnit
 {
+    public string playerName;
+
     //base stats
     public float maxHealth;
     public float currentHealth;
@@ -156,6 +159,9 @@ public class PlayerStats : ActingUnit
         if (type == 2)
             c = Color.blue;
         obj.GetComponent<DamageText>().Init("-", damage, c, transform.position);
+
+        //Update History
+        GameObject.Find("History").GetComponent<BattleHistory>().AddLog(playerName + " takes " + damage.ToString("N1") + " damage");
     }
 
     public void UseMana(float amount)
@@ -199,5 +205,15 @@ public class PlayerStats : ActingUnit
             newIcon.GetComponent<StatusEffectIcon>().statusEffect = effect;
             ypos += 0.4f;
         }
+    }
+
+    void OnMouseOver()
+    {
+        GetComponentInChildren<Text>().enabled = true;
+    }
+
+    private void OnMouseExit()
+    {
+        GetComponentInChildren<Text>().enabled = false;
     }
 }

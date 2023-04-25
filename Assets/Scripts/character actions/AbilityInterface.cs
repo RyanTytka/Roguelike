@@ -31,6 +31,7 @@ public abstract class AbilityInterface : MonoBehaviour
     }
 
     public abstract void Use();
+    public abstract string GetDescription();
 
     public GameObject CreateStatusEffect(StatusType type, int tier, int duration, int iconID, GameObject parent)
     {
@@ -48,4 +49,5 @@ public abstract class AbilityInterface : MonoBehaviour
         obj.GetComponent<StatusEffect>().description = d;
         return obj;
     }
+
 }

@@ -20,4 +20,9 @@ public class crush : AbilityInterface
             CreateStatusEffect(StatusType.VULNERABLE, 2, 2, 0, obj);
         }
     }
+
+    public override string GetDescription()
+    {
+        return "Crush an enemy.";
+    }
 }

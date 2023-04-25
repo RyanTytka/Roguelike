@@ -98,6 +98,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turnTimer: 0
+  unitName: Goblin
+  description: 
   maxHealth: 8
   currentHealth: 8
   mana: 0
@@ -144,6 +146,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6040346193903475199}
     m_Modifications:
+    - target: {fileID: 8117556915411763652, guid: bf96b2d5bc2821c4aa990ec62536cc4d,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8117556916512297361, guid: bf96b2d5bc2821c4aa990ec62536cc4d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -202,7 +209,12 @@ PrefabInstance:
     - target: {fileID: 8117556916512297361, guid: bf96b2d5bc2821c4aa990ec62536cc4d,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 6.6249003
+      value: 3.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8117556916512297361, guid: bf96b2d5bc2821c4aa990ec62536cc4d,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 8117556916512297362, guid: bf96b2d5bc2821c4aa990ec62536cc4d,
         type: 3}

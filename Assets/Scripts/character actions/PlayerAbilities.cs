@@ -35,8 +35,15 @@ public class PlayerAbilities : MonoBehaviour
             button.GetComponent<Image>().sprite = ability.GetComponent<AbilityInterface>().image;
             button.GetComponent<Button>().onClick.AddListener(delegate
             {
-                if(GetComponent<PlayerStats>().currentMana >= ability.GetComponent<AbilityInterface>().manaCost)
-                    ability.GetComponent<AbilityInterface>().selected = true;
+                if(ability.GetComponent<AbilityInterface>().selected)
+                {
+                    ability.GetComponent<AbilityInterface>().selected = false;
+                }
+                else
+                {
+                    if (GetComponent<PlayerStats>().currentMana >= ability.GetComponent<AbilityInterface>().manaCost)
+                        ability.GetComponent<AbilityInterface>().selected = true;
+                }
             });
         }
     }

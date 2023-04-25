@@ -26,4 +26,9 @@ public class rattle : AbilityInterface
             CreateStatusEffect(StatusType.STRENGTH, 1, 2, 1, target);
         }
     }
+
+    public override string GetDescription()
+    {
+        return "Strengthen allies";
+    }
 }

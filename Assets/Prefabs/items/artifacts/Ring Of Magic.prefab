@@ -49,3 +49,6 @@ MonoBehaviour:
   image: {fileID: 21300000, guid: 36df334cd29da0d4782e08dbdf7f1fc5, type: 3}
   statBoosts: 0000000000000000000000000000000005000000000000000000000000000000
   inventoryItem: {fileID: 0}
+  equippedBy: {fileID: 0}
+  infoDisplay: {fileID: 2861884166923151974, guid: f2a69968a6771ad45bbb7c7913e86bb5,
+    type: 3}

@@ -93,9 +93,10 @@ public class PartyMenu : MonoBehaviour
         for (int i = 0; i < inventory.Count; i++)
         {
             GameObject item = Instantiate(inventoryItem, transform.GetChild(0));
-            item.GetComponent<RectTransform>().anchoredPosition = new Vector3(-110 + 60 * i, 97, 0);
+            item.GetComponent<RectTransform>().anchoredPosition = new Vector3(-110 + 60 * (i % 5), 97 - (i / 5) * 60, 0);
             item.GetComponent<Image>().sprite = inventory[i].GetComponent<ItemInterface>().image;
             item.GetComponent<InventoryItem>().itemReference = inventory[i];
+            item.GetComponent<ItemHoverDisplay>().itemObj = inventory[i];
             item.GetComponent<InventoryItem>().equippedBy = inventory[i].GetComponent<ItemInterface>().equippedBy;
             inventory[i].GetComponent<ItemInterface>().inventoryItem = item;
             item.GetComponent<Button>().onClick.AddListener(delegate
@@ -138,5 +139,23 @@ public class PartyMenu : MonoBehaviour
             equippedButtons[1].GetComponent<Image>().sprite = selectedPlayer.GetComponent<PlayerItems>().weapon.GetComponent<ItemInterface>().image;
         if(selectedPlayer.GetComponent<PlayerItems>().artifact != null)
             equippedButtons[2].GetComponent<Image>().sprite = selectedPlayer.GetComponent<PlayerItems>().artifact.GetComponent<ItemInterface>().image;
+    }
+
+    private void Update()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction);
+
+            if (hit.collider != null)
+            {
+                Debug.Log("CLICKED " + hit.collider.name);
+            }
+            else
+            {
+                Debug.Log("CLICKED null");
+            }
+        }
     }
 }

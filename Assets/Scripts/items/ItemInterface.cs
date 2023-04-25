@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public enum ItemType { ARMOR = 0, WEAPON = 1, ARTIFACT = 2 }
 

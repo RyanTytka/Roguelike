@@ -12,7 +12,7 @@ public class AbilityInfo : MonoBehaviour
     {
         AbilityInterface abilityScript = ability.GetComponent<AbilityInterface>();
         nameObj.GetComponent<Text>().text = abilityScript.abilityName;
-        descriptionObj.GetComponent<Text>().text = abilityScript.description;
+        descriptionObj.GetComponent<Text>().text = abilityScript.GetDescription();
         manaObj.GetComponent<Text>().text = abilityScript.manaCost.ToString();
         imageObj.GetComponent<Image>().sprite = abilityScript.image;
     }

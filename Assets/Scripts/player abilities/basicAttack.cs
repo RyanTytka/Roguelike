@@ -59,5 +59,22 @@ public class basicAttack : AbilityInterface
         //end turn
         selected = false;
         GameObject.Find("GameManager").GetComponent<BattleManager>().TurnEnded();
+
+        //Update History
+        GameObject.Find("History").GetComponent<BattleHistory>().AddLog(caster.GetComponent<PlayerStats>().playerName + " uses a basic attack.");
+    }
+
+    public override string GetDescription()
+    {
+        string atk;
+        if (caster == null)
+        {
+            atk = "(Attack)";
+        }
+        else
+        {
+            atk = caster.GetComponent<PlayerStats>().Attack.ToString();
+        }
+        return "Attack an enemy, dealing " + atk + " physical damage.";
     }
 }

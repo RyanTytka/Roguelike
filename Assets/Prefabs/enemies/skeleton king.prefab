@@ -98,6 +98,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turnTimer: 0
+  unitName: Skeleton King
+  description: 
   maxHealth: 80
   currentHealth: 80
   mana: 0
@@ -204,7 +206,12 @@ PrefabInstance:
     - target: {fileID: 8117556916512297361, guid: bf96b2d5bc2821c4aa990ec62536cc4d,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 6.6249003
+      value: 3.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8117556916512297361, guid: bf96b2d5bc2821c4aa990ec62536cc4d,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 8117556916512297362, guid: bf96b2d5bc2821c4aa990ec62536cc4d,
         type: 3}

@@ -18,4 +18,9 @@ public class raiseDead : AbilityInterface
         //restructure unit order
         GameObject.Find("GameManager").GetComponent<BattleManager>().UpdateUnitPositions();
     }
+    public override string GetDescription()
+    {
+        return "Summon a skeleton.";
+    }
+
 }

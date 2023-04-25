@@ -80,5 +80,22 @@ public class fireball : AbilityInterface
         //end turn
         selected = false;
         GameObject.Find("GameManager").GetComponent<BattleManager>().TurnEnded();
+
+        //Update History
+        GameObject.Find("History").GetComponent<BattleHistory>().AddLog(caster.GetComponent<PlayerStats>().playerName + " hurls a fireball.");
+    }
+
+    public override string GetDescription()
+    {
+        string mag;
+        if (caster == null)
+        {
+            mag = "(Magic)";
+        }
+        else
+        {
+            mag = caster.GetComponent<PlayerStats>().Magic.ToString();
+        }
+        return "Shoot a fireball at 3 adjacent enemies, dealing " + mag + " magic damage to each.";
     }
 }
