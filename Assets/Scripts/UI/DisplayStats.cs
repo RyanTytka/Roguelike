@@ -47,13 +47,13 @@ public class DisplayStats : MonoBehaviour
     public void HideMods()
     {
         //ShowModButtons = false;
-        modButtons.SetActive(false);
+        //modButtons.SetActive(false);
     }
 
     public void ShowMods()
     {
-        ShowModButtons = true;
-        modButtons.SetActive(true);
+        //ShowModButtons = true;
+        //modButtons.SetActive(true);
     }
 
     //sets slider and text values to player's stats

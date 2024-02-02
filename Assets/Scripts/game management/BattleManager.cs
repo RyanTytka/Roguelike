@@ -98,7 +98,7 @@ public class BattleManager : MonoBehaviour
         GameObject.Find("TurnIndicator").transform.position = new Vector3(currentTurn.transform.position.x, currentTurn.transform.position.y - 1.0f);
         //update current turn UI
         GameObject UI = GameObject.Find("CurrentTurnInfo");
-        UI.GetComponentInChildren<Image>().sprite = currentTurn.GetComponent<SpriteRenderer>().sprite;
+        UI.GetComponentsInChildren<Image>()[1].sprite = currentTurn.GetComponent<SpriteRenderer>().sprite;
         PlayerStats player = currentTurn.GetComponent<PlayerStats>();
         HealthBar healthBar = UI.GetComponentInChildren<HealthBar>();
         ManaBar manaBar = UI.GetComponentInChildren<ManaBar>();

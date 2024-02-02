@@ -12,7 +12,7 @@ public class Encounter : MonoBehaviour
 
     public List<GameObject> enemyInventory; //all possible enemies to choose from
     // one list item is an array that contains the ids for each enemy in that boss encounter
-    public List<int[]> bossEncounters = new List<int[]> { new int[] { 0, 0, 3 } }; 
+    public List<int[]> bossEncounters = new List<int[]> { new int[] { 4, 4, 3 } }; 
 
     private List<GameObject> enemies = new List<GameObject>();
     public List<GameObject> items = new List<GameObject>();

@@ -14,7 +14,7 @@ public class NewAbilityDisplayInfo : MonoBehaviour
         if (activeHoverDisplay == null)
         {
             activeHoverDisplay = Instantiate(hoverDisplayPrefab, GameObject.Find("HUDCanvas").transform);
-            activeHoverDisplay.transform.position = new Vector3(-2, 0, 0);
+            activeHoverDisplay.transform.position = new Vector3(4, -2, 0);
             activeHoverDisplay.GetComponent<AbilityInfo>().SetInfo(ability);
         }
     }

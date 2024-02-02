@@ -10,11 +10,18 @@ public class raiseDead : AbilityInterface
     {
         Debug.Log("raise dead used");
 
-        //summon a skeleton
+        //turn all bone piles into skeletons
         BattleManager bm = GameObject.Find("GameManager").GetComponent<BattleManager>();
         Encounter encounter = bm.gameObject.GetComponentInChildren<Encounter>();
-        GameObject newSkeleton = Instantiate(skeletonPrefab, new Vector3(bm.battlingUnits.Count * 2, -2, 10), Quaternion.identity, encounter.transform);
-        bm.battlingUnits.Add(newSkeleton);
+        for(int i = 0; i < bm.battlingUnits.Count; i++)
+        {
+            if(bm.battlingUnits[i].tag == "Enemy" && bm.battlingUnits[i].GetComponent<UnitStats>().unitName == "Bone Pile")
+            {
+                Destroy(bm.battlingUnits[i]);
+                GameObject newSkeleton = Instantiate(skeletonPrefab, new Vector3(bm.battlingUnits.Count * 2, -2, 10), Quaternion.identity, encounter.transform);
+                bm.battlingUnits[i] = newSkeleton;
+            }
+        }
         //restructure unit order
         GameObject.Find("GameManager").GetComponent<BattleManager>().UpdateUnitPositions();
     }

@@ -24,6 +24,9 @@ public class UnitStats : ActingUnit, IComparable
 
     private GameObject activeHoverDisplay;
 
+    public GameObject[] prefabs; //prefabs that might need to be instantiated
+    private const int BONE_PILE = 0;
+
     //get stats that take status effects into account
     public float MaxHealth { get { return maxHealth * StatusEffectMods()[0]; } }
     public float Attack { get { return attack * StatusEffectMods()[3]; } }
@@ -136,11 +139,26 @@ public class UnitStats : ActingUnit, IComparable
         //if dead
         if (currentHealth <= 0)
         {
-            dead = true;
-            GameObject.Find("GameManager").GetComponent<BattleManager>().battlingUnits.Remove(this.gameObject);
-            GameObject.Find("TurnTracker").GetComponent<TurnTracker>().UnitDied(this.gameObject);
-            GetComponent<SpriteRenderer>().color = Color.gray;
-            Destroy(this.gameObject);
+            if(unitName == "Undying Soldier")
+            {
+                //summon pile of bones in this place
+                BattleManager bm = GameObject.Find("GameManager").GetComponent<BattleManager>();
+                Encounter encounter = bm.gameObject.GetComponentInChildren<Encounter>();
+                GameObject newBonePile = Instantiate(prefabs[BONE_PILE], new Vector3(bm.battlingUnits.Count * 2, -2, 10), Quaternion.identity, encounter.transform);
+                bm.battlingUnits[bm.battlingUnits.IndexOf(this.gameObject)] = newBonePile;
+                GameObject.Find("TurnTracker").GetComponent<TurnTracker>().UnitDied(this.gameObject);
+                Destroy(this.gameObject);
+                //restructure unit order
+                GameObject.Find("GameManager").GetComponent<BattleManager>().UpdateUnitPositions();
+            }
+            else
+            {
+                dead = true;
+                GameObject.Find("GameManager").GetComponent<BattleManager>().battlingUnits.Remove(this.gameObject);
+                GameObject.Find("TurnTracker").GetComponent<TurnTracker>().UnitDied(this.gameObject);
+                //GetComponent<SpriteRenderer>().color = Color.gray;
+                Destroy(this.gameObject);
+            }
         }
 
         //Update History

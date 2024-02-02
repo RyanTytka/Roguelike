@@ -348,7 +348,6 @@ public class MapManager : MonoBehaviour
     //places tiles onto tilemap
     public void DrawMap()
     {
-        //print("drawing map");
         try
         {
             //room tiles

@@ -19,6 +19,7 @@ public class PartyMenu : MonoBehaviour
 
     public void Close()
     {
+        GameObject.Find("PlayerParty").GetComponent<PartyManager>().partyMenuOpen = false;
         Destroy(this.gameObject);
     }
 
@@ -139,23 +140,5 @@ public class PartyMenu : MonoBehaviour
             equippedButtons[1].GetComponent<Image>().sprite = selectedPlayer.GetComponent<PlayerItems>().weapon.GetComponent<ItemInterface>().image;
         if(selectedPlayer.GetComponent<PlayerItems>().artifact != null)
             equippedButtons[2].GetComponent<Image>().sprite = selectedPlayer.GetComponent<PlayerItems>().artifact.GetComponent<ItemInterface>().image;
-    }
-
-    private void Update()
-    {
-        if (Input.GetMouseButtonDown(0))
-        {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction);
-
-            if (hit.collider != null)
-            {
-                Debug.Log("CLICKED " + hit.collider.name);
-            }
-            else
-            {
-                Debug.Log("CLICKED null");
-            }
-        }
     }
 }

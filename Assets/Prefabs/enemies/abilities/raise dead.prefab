@@ -51,5 +51,6 @@ MonoBehaviour:
   description: Summon skeletons to fight for you
   image: {fileID: -8539944179904504042, guid: 36654eb29cc9163448129d8b3996a915, type: 3}
   selected: 0
-  skeletonPrefab: {fileID: 973495817556448452, guid: f22855bed614d1b4cae827194213adb5,
+  statusEffect: {fileID: 0}
+  skeletonPrefab: {fileID: 6518903012773142904, guid: 27cfa6813faca434aae5a086347febb8,
     type: 3}
