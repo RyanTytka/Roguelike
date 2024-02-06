@@ -6,7 +6,13 @@ public abstract class AbilityInterface : MonoBehaviour
 {
     public enum AbilityType { ATTACK, DEFENSE, UTILITY }
 
+    //What kind of ability this is. Ex: Fire. Holy. Basic.
+    public List<string> traits = new List<string>(); 
+
+    //Used to select characters that are being targeted
     public List<GameObject> targets = new List<GameObject>();
+
+    //Who is using this ability
     public GameObject caster;
     protected PlayerStats playerStats;
 
@@ -17,13 +23,9 @@ public abstract class AbilityInterface : MonoBehaviour
 
     public bool selected = false;
 
-    public GameObject statusEffect; //blank status effect prefab
+    //blank status effect prefab
+    public GameObject statusEffect; 
     string[] tierNames = new string[] { "I", "II", "III" };
-
-    void Start()
-    {
-        //playerStats = caster.GetComponent<PlayerStats>();
-    }
 
     public void SetTargets(List<GameObject> targets)
     {
