@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class icestorm : MonoBehaviour
+public class icestorm : AbilityInterface
 {
     Ray ray;
     RaycastHit hit;
