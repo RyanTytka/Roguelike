@@ -1,0 +1,9 @@
+public enum ENEMY_TYPE{
+    GOBLIN=0,
+    SKELETON,
+    OGRE,
+    CULTIST,
+    TENTACLE,
+    SKELETON_KING,
+    UNDYING_SOLDIER
+}
