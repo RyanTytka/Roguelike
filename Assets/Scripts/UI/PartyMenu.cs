@@ -52,6 +52,8 @@ public class PartyMenu : MonoBehaviour
         }
         //update display stats with new items
         GetComponentInChildren<DisplayStats>().SetStats(selectedPlayer);
+        //unhighlight selected item
+        
     }
 
     public void Display(List<GameObject> party)

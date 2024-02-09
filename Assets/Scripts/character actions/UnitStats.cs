@@ -64,10 +64,7 @@ public class UnitStats : ActingUnit, IComparable
 
     public override void MyTurn()
     {
-        //Debug.Log("Enemy Turn");
-        
         StartCoroutine(Wait());
-
     }
 
     IEnumerator Wait()
@@ -108,10 +105,7 @@ public class UnitStats : ActingUnit, IComparable
         float multiplier = 1;
         foreach (StatusEffect se in statusEffects)
         {
-            if (se.type == StatusType.VULNERABLE)
-            {
-                multiplier += se.tierPercent;
-            }
+            //rdt - need implementation
         }
         damage *= multiplier;
 

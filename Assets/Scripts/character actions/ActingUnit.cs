@@ -30,9 +30,9 @@ public abstract class ActingUnit : MonoBehaviour
         //0 - MaxHealth
         //1 - MaxMana
         //2 - ManaRegen
-        //3 - Attack
+        //3 - Strength
         //4 - Magic
-        //5 - Defense
+        //5 - Armor
         //6 - Resilience
         //7 - Speed
         float[] mods = new float[] { 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f };
@@ -42,8 +42,41 @@ public abstract class ActingUnit : MonoBehaviour
         {
             switch (statusEffect.type)
             {
-                case StatusType.STRENGTH:
-                    mods[3] += statusEffect.tierPercent;
+                case StatusType.MANAREGEN_UP:
+                    mods[2] += 0.25f * statusEffect.stacks;
+                    break;
+                case StatusType.MANAREGEN_DOWN:
+                    mods[2] *= 0.8f ^ statusEffect.stacks;
+                    break;
+                case StatusType.STRENGTH_UP:
+                    mods[3] += 0.25f * statusEffect.stacks;
+                    break;
+                case StatusType.STRENGTH_DOWN:
+                    mods[3] *= 0.8f ^ statusEffect.stacks;
+                    break;
+                case StatusType.MAGIC_UP:
+                    mods[4] += 0.25f * statusEffect.stacks;
+                    break;
+                case StatusType.MAGIC_DOWN:
+                    mods[4] *= 0.8f ^ statusEffect.stacks;
+                    break;
+                case StatusType.ARMOR_UP:
+                    mods[5] += 0.25f * statusEffect.stacks;
+                    break;
+                case StatusType.ARMOR_DOWN:
+                    mods[5] *= 0.8f ^ statusEffect.stacks;
+                    break;
+                case StatusType.RES_UP:
+                    mods[6] += 0.25f * statusEffect.stacks;
+                    break;
+                case StatusType.RES_DOWN:
+                    mods[6] *= 0.8f ^ statusEffect.stacks;
+                    break;
+                case StatusType.SPEED_UP:
+                    mods[7] += 0.25f * statusEffect.stacks;
+                    break;
+                case StatusType.SPEED_DOWN:
+                    mods[7] *= 0.8f ^ statusEffect.stacks;
                     break;
             }
         }

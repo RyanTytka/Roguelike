@@ -19,15 +19,28 @@ public class roundDivider : ActingUnit
         return false;
     }
 
-    //display info and act when it is my turn
+    // trigger round end effects
     public override void MyTurn()
     {
-        //next round
-        //(currently handled in turn tracker class)
+        BattleManager bm = GameObject.Find("GameManager").GetComponent<BattleManager>();
+        //status effects
+        foreach (GameObject unit in bm.battlingUnits)
+        {
+            var statusEffects = unit.GetComponentsInChildren<StatusEffect>();
+            foreach(StatusEffect se in statusEffects)
+            {
+                switch(se.type)
+                {
+                    case BLEEDING:
+                        unit.TakeDamage(unit.GetComponent<PlayerStats>().health * 0.02f * se.stacks, 3);
+                    break;
+                }
+                se.Progress();
+            }
+        }
 
         //go to next unit's turn
         GameObject.Find("GameManager").GetComponent<BattleManager>().TurnEnded();
-
     }
 
     //clean up ability icons and remove highlight after my turn is over

@@ -123,7 +123,7 @@ public class PlayerStats : ActingUnit
     }
 
     // deal damage to this player, accounting for defense/resilience, status effects, etc
-    // type: 1 = physical damage, 2 = magic damage
+    // type: 1 = physical damage, 2 = magic damage, 3 = direct damage
     public void TakeDamage(float damage, int type)
     {
         //status effects
@@ -132,10 +132,7 @@ public class PlayerStats : ActingUnit
         float multiplier = 1;
         foreach (StatusEffect se in statusEffects)
         {
-            if (se.type == StatusType.VULNERABLE)
-            {
-                multiplier += se.tierPercent;
-            }
+            //rdt - need implementation
         }
         damage *= multiplier;
 
@@ -158,6 +155,8 @@ public class PlayerStats : ActingUnit
         Color c = Color.red;
         if (type == 2)
             c = Color.blue;
+        if (type == 3)
+            c = Color.white;
         obj.GetComponent<DamageText>().Init("-", damage, c, transform.position);
 
         //Update History

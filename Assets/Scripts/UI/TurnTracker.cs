@@ -22,21 +22,51 @@ public class TurnTracker : MonoBehaviour
         round = 1;
         roundTimer = 0;
 
-        //create round divider
+        InitRound();
         allUnits.Add(roundDivider);
-
-        //calculate first 5 turns
-        while(turnOrder.Count < 5)
-        {
-            foreach (GameObject go in allUnits)
-            {
-                if (go.GetComponent<ActingUnit>().UpdateTurn())
-                    turnOrder.Add(go);
-            }
-        }
+        turnOrder.Add(roundDivider);
     }
 
-    //moves turn order up 1 and calculates next turn
+    //Get turn order for a round
+    public void InitRound()
+    {
+        //find highest speed to get its speed tier
+        int currentHighestSpeed = 0;
+        foreach (GameObject go in allUnits) 
+        {
+            if(go.GetComponent<ActingUnit>().Speed > currentHighestSpeed)
+                currentHighestSpeed = go.GetComponent<ActingUnit>().Speed;
+        }
+        int Div15 = (int)(currentHighestSpeed / 15);
+        int lastHighestSpeed = 9999;
+        do //go through each speed tier (increments of 15)
+        {
+            do //get each speed in this speed tier
+            {
+                currentHighestSpeed = 0;
+                GameObject currentGO; 
+                foreach (GameObject go in allUnits) //find next highest speed
+                {
+                    if (go.GetComponent<ActingUnit>().Speed - Div15 * 15 > 0 && 
+                        go.GetComponent<ActingUnit>().Speed % 15 > currentHighestSpeed &&
+                        go.GetComponent<ActingUnit>().Speed % 15 < lastHighestSpeed)
+                    {
+                        currentHighestSpeed = go.GetComponent<ActingUnit>().Speed % 15;
+                        currentGO = go;
+                    }
+                }
+                if(currentHighestSpeed > 0)
+                {
+                    lastHighestSpeed = currentHighestSpeed;
+                    turnOrder.Add(currentGO);
+                }
+            } while (currentHighestSpeed > 0)
+            Div15--;
+            lastHighestSpeed = 9999;
+        } while (Div15 >= 0) //keep looping until all units have been added
+    }
+
+    //moves turn order up 1 or starts new round 
     public GameObject NextTurn()
     {
         //current turn has ended, so remove them from turn order
@@ -44,38 +74,41 @@ public class TurnTracker : MonoBehaviour
             turnOrder.RemoveAt(0);
         firstTurn = false;
 
-        int c = 0;
-        //add to end of turnOrder
-        while (turnOrder.Count < 5 && c < 100)
-        {
-            c++;
-            //calculate speed for each battling unit
-            foreach (GameObject go in allUnits)
-            {
-                if (go.GetComponent<ActingUnit>().UpdateTurn())
-                    turnOrder.Add(go);
-            }
-            //now do round timer
-            roundTimer += 10;
-            if(roundTimer >= 100)
-            {
-                //Debug.Log("Round " + round + " has begun");
-                //next round
-                roundTimer = 0;
-                round++;
-                roundText.text = "Round " + round;
-                //progress all status effects forward 1 round
-                foreach (GameObject go in allUnits)
-                {
-                    var effects = go.GetComponentsInChildren<StatusEffect>();
-                    foreach (StatusEffect status in effects)
-                    {
-                        status.Progress();
-                    }
-                }
-            }
-            roundSlider.value = roundTimer;
-        }
+        if(turnOrder.Count == 0)
+        InitRound();
+
+        // int c = 0;
+        // //add to end of turnOrder
+        // while (turnOrder.Count < 5 && c < 100)
+        // {
+        //     c++;
+        //     //calculate speed for each battling unit
+        //     foreach (GameObject go in allUnits)
+        //     {
+        //         if (go.GetComponent<ActingUnit>().UpdateTurn())
+        //             turnOrder.Add(go);
+        //     }
+        //     //now do round timer
+        //     roundTimer += 10;
+        //     if(roundTimer >= 100)
+        //     {
+        //         //Debug.Log("Round " + round + " has begun");
+        //         //next round
+        //         roundTimer = 0;
+        //         round++;
+        //         roundText.text = "Round " + round;
+        //         //progress all status effects forward 1 round
+        //         foreach (GameObject go in allUnits)
+        //         {
+        //             var effects = go.GetComponentsInChildren<StatusEffect>();
+        //             foreach (StatusEffect status in effects)
+        //             {
+        //                 status.Progress();
+        //             }
+        //         }
+        //     }
+        //     roundSlider.value = roundTimer;
+        // }
 
         //update turn tracker UI
         Display();

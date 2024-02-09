@@ -10,9 +10,14 @@ public class Encounter : MonoBehaviour
 
     public EncounterType type;
 
-    public List<GameObject> enemyInventory; //all possible enemies to choose from
+    // all possible enemies to choose from
+    public List<GameObject> enemyInventory; 
+    
     // one list item is an array that contains the ids for each enemy in that boss encounter
     public List<int[]> bossEncounters = new List<int[]> { new int[] { 4, 4, 3 } }; 
+
+    // similar types of enemies spawn together
+    public List<int[]> buckets = new List<int[]> { new int[] { 1, 2 } }; 
 
     private List<GameObject> enemies = new List<GameObject>();
     public List<GameObject> items = new List<GameObject>();
@@ -27,10 +32,12 @@ public class Encounter : MonoBehaviour
         {
             float totalDifficulty = 0;
             float targetDifficulty = difficulty + Random.Range(0.0f, 0.5f) * difficulty;
+            //choose a bucket
+            int[] bucket = buckets[Random.Range(0.0f, buckets.Count)];
             while(totalDifficulty < targetDifficulty)
             {
-                int enemyNum = Random.Range(0, enemyInventory.Count);
-                GameObject enemy = Instantiate(enemyInventory[enemyNum], new Vector3(xPos, -2, 10), Quaternion.identity, this.transform);
+                int enemyNum = Random.Range(0, bucket.Count);
+                GameObject enemy = Instantiate(enemyInventory[bucket[enemyNum]], new Vector3(xPos, -2, 10), Quaternion.identity, this.transform);
                 if (enemy.GetComponent<Enemy>().isBoss == false)
                 {
                     totalDifficulty += enemy.GetComponent<Enemy>().difficulty;

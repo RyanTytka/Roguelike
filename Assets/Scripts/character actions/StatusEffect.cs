@@ -2,7 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum StatusType { VULNERABLE, STRENGTH }
+public enum StatusType {  STRENGTH_UP = 0, STRENGTH_DOWN, MAGIC_UP, MAGIC_DOWN, MANAREGEN_UP, MANAREGEN_DOWN, //stats
+                        ARMOR_UP, ARMOR_DOWN, RES_UP, RES_DOWN, SPEED_UP, SPEED_DOWN,
+                        POISONED, BLEEDING, STUNNED, CONFUSED, BURNING, //misc effects
+                        MARKED, SHACKLED, DOOM } //enemy specific
 
 public class StatusEffect : MonoBehaviour
 {
@@ -10,14 +13,12 @@ public class StatusEffect : MonoBehaviour
     public List<string> names;
     public List<Sprite> icons; 
     public List<string> descriptions; 
+    public List<bool> TicksDown; // Does this status effect remove 1 stack each round
 
     //this instance of a status effect's info
     public string statusName;
     public StatusType type; //which status effect this is
-    public int duration; //how many turns this will last
-    public int tier; //1, 2, or 3
-    public string tierName; //I, II, or III
-    public float tierPercent; //0.25, 0.5, or 0.75
+    public int stacks; //how many stacks of this effect you have
     public Sprite iconImage;
     public string description;
 
@@ -26,10 +27,13 @@ public class StatusEffect : MonoBehaviour
     /// </summary>
     public void Progress()
     {
-        duration--;
-        if(duration <= 0)
+        if(TicksDown[type])
         {
-            Destroy(this.gameObject);
+            stacks--;
+            if(stacks <= 0)
+            {
+                Destroy(this.gameObject);
+            }
         }
     }
 }
