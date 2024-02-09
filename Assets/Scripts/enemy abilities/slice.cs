@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class slash : AbilityInterface
+public class slice : AbilityInterface
 {
     public override void Use()
     {
