@@ -23,7 +23,7 @@ public class rattle : AbilityInterface
         foreach (GameObject target in targets)
         {
             //add strength status effect
-            CreateStatusEffect(StatusType.STRENGTH, 1, 2, 1, target);
+            CreateStatusEffect(StatusType.STRENGTH_UP, 2, 1, target);
         }
     }
 

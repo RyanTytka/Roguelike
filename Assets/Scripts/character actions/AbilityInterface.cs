@@ -25,8 +25,7 @@ public abstract class AbilityInterface : MonoBehaviour
 
     //blank status effect prefab
     public GameObject statusEffect; 
-    string[] tierNames = new string[] { "I", "II", "III" };
-
+    
     public void SetTargets(List<GameObject> targets)
     {
         this.targets = targets;
@@ -35,19 +34,15 @@ public abstract class AbilityInterface : MonoBehaviour
     public abstract void Use();
     public abstract string GetDescription();
 
-    public GameObject CreateStatusEffect(StatusType type, int tier, int duration, int iconID, GameObject parent)
+    public GameObject CreateStatusEffect(StatusType type, int stacks, int iconID, GameObject parent)
     {
         GameObject obj = Instantiate(statusEffect, parent.transform);
         StatusEffect se = obj.GetComponent<StatusEffect>();
         se.type = type;
-        se.tier = tier;
-        se.tierName = tierNames[tier];
-        se.duration = duration;
-        se.tierPercent = tier * 0.25f;
+        se.stacks = stacks;
         se.statusName = se.names[iconID];
         se.iconImage = se.icons[iconID];
         string d = se.descriptions[iconID];
-        d = d.Replace("_X", ((int)(se.tierPercent * 100)).ToString());
         obj.GetComponent<StatusEffect>().description = d;
         return obj;
     }

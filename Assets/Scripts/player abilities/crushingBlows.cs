@@ -2,17 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class crushingBlows : MonoBehaviour
+public class crushingBlows : AbilityInterface
 {
-    // Start is called before the first frame update
-    void Start()
+    public override string GetDescription()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        return "Your Basic abilities apply Armor Down 1.";
     }
 }

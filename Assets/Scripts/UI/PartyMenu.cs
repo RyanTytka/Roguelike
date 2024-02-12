@@ -24,7 +24,6 @@ public class PartyMenu : MonoBehaviour
     }
 
     //when an equipment slot button is clicked, equip the selected item
-    //type: 0 = armor, 1 = weapon, 2 = artifact
     public void EquipButtonClick(int type)
     {
         if (selectedItem == null)

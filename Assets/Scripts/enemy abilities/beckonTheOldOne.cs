@@ -2,17 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class beckonTheOldOne : MonoBehaviour
+public class beckonTheOldOne : AbilityInterface
 {
-    // Start is called before the first frame update
-    void Start()
+    public override void Use()
     {
-        
+        CreateStatusEffect(StatusType.DOOM, 1, 0, caster);
     }
 
-    // Update is called once per frame
-    void Update()
+    public override string GetDescription()
     {
-        
+        return "Call on the Old One to bring doom to your enemies. Apply a stack of Doom to yourself.";
     }
 }

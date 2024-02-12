@@ -2,17 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class adaptiveFighting : MonoBehaviour
+public class adaptiveFighting : AbilityInterface
 {
-    // Start is called before the first frame update
-    void Start()
+    public override string GetDescription()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        return "Gain 2 Armor after getting hit by an attack.";
     }
 }

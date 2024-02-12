@@ -2,11 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum StatusType {  STRENGTH_UP = 0, STRENGTH_DOWN, MAGIC_UP, MAGIC_DOWN, MANAREGEN_UP, MANAREGEN_DOWN, //stats
-                        ARMOR_UP, ARMOR_DOWN, RES_UP, RES_DOWN, SPEED_UP, SPEED_DOWN,
-                        POISONED, BLEEDING, STUNNED, CONFUSED, BURNING, //misc effects
-                        MARKED, SHACKLED, DOOM } //enemy specific
-
 public class StatusEffect : MonoBehaviour
 {
     //list of info for each status effect 
@@ -14,6 +9,7 @@ public class StatusEffect : MonoBehaviour
     public List<Sprite> icons; 
     public List<string> descriptions; 
     public List<bool> TicksDown; // Does this status effect remove 1 stack each round
+    public List<bool> IsGood; // Is this a buff or debuff? 
 
     //this instance of a status effect's info
     public string statusName;
