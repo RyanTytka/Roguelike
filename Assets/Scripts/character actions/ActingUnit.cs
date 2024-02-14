@@ -4,6 +4,24 @@ using UnityEngine;
 
 public abstract class ActingUnit : MonoBehaviour
 {
+    public string unitName, description;
+    public float maxHealth;
+    public float currentHealth;
+    public float mana;
+    public float attack;
+    public float magic;
+    public float defense;
+    public float resilience;
+    public float speed;
+
+    //get stats that take status effects into account
+    public virtual float MaxHealth { get { return maxHealth * StatusEffectMods()[0]; } }
+    public virtual float Attack { get { return attack * StatusEffectMods()[3]; } }
+    public virtual float Magic { get { return magic * StatusEffectMods()[4]; } }
+    public virtual float Defense { get { return defense * StatusEffectMods()[5]; } }
+    public virtual float Resilience { get { return resilience * StatusEffectMods()[6]; } }
+    public virtual float Speed { get { return speed * StatusEffectMods()[7]; } }
+
     public float turnTimer;
 
     private void Update()
@@ -42,41 +60,41 @@ public abstract class ActingUnit : MonoBehaviour
         {
             switch (statusEffect.type)
             {
-                case StatusType.MANAREGEN_UP:
-                    mods[2] += 0.25f * statusEffect.stacks;
+                case StatusTypeEnum.MANAREGEN_UP:
+                    mods[2] += Mathf.Pow(0.25f, statusEffect.stacks);
                     break;
-                case StatusType.MANAREGEN_DOWN:
-                    mods[2] *= 0.8f ^ statusEffect.stacks;
+                case StatusTypeEnum.MANAREGEN_DOWN:
+                    mods[2] *= Mathf.Pow(0.8f, statusEffect.stacks);
                     break;
-                case StatusType.STRENGTH_UP:
-                    mods[3] += 0.25f * statusEffect.stacks;
+                case StatusTypeEnum.STRENGTH_UP:
+                    mods[3] += Mathf.Pow(0.25f, statusEffect.stacks);
                     break;
-                case StatusType.STRENGTH_DOWN:
-                    mods[3] *= 0.8f ^ statusEffect.stacks;
+                case StatusTypeEnum.STRENGTH_DOWN:
+                    mods[3] *= Mathf.Pow(0.8f, statusEffect.stacks);
                     break;
-                case StatusType.MAGIC_UP:
-                    mods[4] += 0.25f * statusEffect.stacks;
+                case StatusTypeEnum.MAGIC_UP:
+                    mods[4] += Mathf.Pow(0.25f, statusEffect.stacks);
                     break;
-                case StatusType.MAGIC_DOWN:
-                    mods[4] *= 0.8f ^ statusEffect.stacks;
+                case StatusTypeEnum.MAGIC_DOWN:
+                    mods[4] *= Mathf.Pow(0.8f, statusEffect.stacks);
                     break;
-                case StatusType.ARMOR_UP:
-                    mods[5] += 0.25f * statusEffect.stacks;
+                case StatusTypeEnum.ARMOR_UP:
+                    mods[5] += Mathf.Pow(0.25f, statusEffect.stacks);
                     break;
-                case StatusType.ARMOR_DOWN:
-                    mods[5] *= 0.8f ^ statusEffect.stacks;
+                case StatusTypeEnum.ARMOR_DOWN:
+                    mods[5] *= Mathf.Pow(0.8f, statusEffect.stacks);
                     break;
-                case StatusType.RES_UP:
-                    mods[6] += 0.25f * statusEffect.stacks;
+                case StatusTypeEnum.RES_UP:
+                    mods[6] += Mathf.Pow(0.25f, statusEffect.stacks);
                     break;
-                case StatusType.RES_DOWN:
-                    mods[6] *= 0.8f ^ statusEffect.stacks;
+                case StatusTypeEnum.RES_DOWN:
+                    mods[6] *= Mathf.Pow(0.8f, statusEffect.stacks);
                     break;
-                case StatusType.SPEED_UP:
-                    mods[7] += 0.25f * statusEffect.stacks;
+                case StatusTypeEnum.SPEED_UP:
+                    mods[7] += Mathf.Pow(0.25f, statusEffect.stacks);
                     break;
-                case StatusType.SPEED_DOWN:
-                    mods[7] *= 0.8f ^ statusEffect.stacks;
+                case StatusTypeEnum.SPEED_DOWN:
+                    mods[7] *= Mathf.Pow(0.8f,statusEffect.stacks);
                     break;
             }
         }

@@ -8,4 +8,6 @@ public class swordsmanship : AbilityInterface
     {
         return "Your Basic abilities deal 25% more damage.";
     }
+
+    public override void Use() { } //This is a passive ability
 }

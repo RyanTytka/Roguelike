@@ -33,10 +33,10 @@ public class Encounter : MonoBehaviour
             float totalDifficulty = 0;
             float targetDifficulty = difficulty + Random.Range(0.0f, 0.5f) * difficulty;
             //choose a bucket
-            int[] bucket = buckets[Random.Range(0.0f, buckets.Count)];
+            int[] bucket = buckets[(int)Random.Range(0.0f, buckets.Count)];
             while(totalDifficulty < targetDifficulty)
             {
-                int enemyNum = Random.Range(0, bucket.Count);
+                int enemyNum = Random.Range(0, bucket.Length);
                 GameObject enemy = Instantiate(enemyInventory[bucket[enemyNum]], new Vector3(xPos, -2, 10), Quaternion.identity, this.transform);
                 if (enemy.GetComponent<Enemy>().isBoss == false)
                 {

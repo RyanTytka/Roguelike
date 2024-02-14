@@ -46,13 +46,13 @@ public class slash : AbilityInterface
     public override void Use()
     {
         float dmg = caster.GetComponent<PlayerStats>().Attack;
-        if(caster.GetComponentsInChildren<Swordsmanship>() != null)
-            dmg *= 1.25;
+        if(caster.GetComponentsInChildren<swordsmanship>() != null)
+            dmg *= 1.25f;
         foreach (GameObject obj in targets)
         {
-            obj.GetComponent<UnitStats>().TakeDamage(dmg, DamageType.PHYSICAL);
+            obj.GetComponent<UnitStats>().TakeDamage(dmg, (int)DamageTypesEnum.PHYSICAL);
             if(caster.GetComponentsInChildren<crushingBlows>() != null)
-                CreateStatusEffect(StatusType.ARMOR_DOWN, 1, 0, target);
+                CreateStatusEffect(StatusTypeEnum.ARMOR_DOWN, 1, 0, obj);
         }
         //clear targets
         caster.GetComponent<PlayerAbilities>().Hide();

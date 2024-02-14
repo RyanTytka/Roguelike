@@ -34,7 +34,7 @@ public abstract class AbilityInterface : MonoBehaviour
     public abstract void Use();
     public abstract string GetDescription();
 
-    public GameObject CreateStatusEffect(StatusType type, int stacks, int iconID, GameObject parent)
+    public GameObject CreateStatusEffect(StatusTypeEnum type, int stacks, int iconID, GameObject parent)
     {
         GameObject obj = Instantiate(statusEffect, parent.transform);
         StatusEffect se = obj.GetComponent<StatusEffect>();

@@ -13,7 +13,7 @@ public class StatusEffect : MonoBehaviour
 
     //this instance of a status effect's info
     public string statusName;
-    public StatusType type; //which status effect this is
+    public StatusTypeEnum type; //which status effect this is
     public int stacks; //how many stacks of this effect you have
     public Sprite iconImage;
     public string description;
@@ -23,7 +23,7 @@ public class StatusEffect : MonoBehaviour
     /// </summary>
     public void Progress()
     {
-        if(TicksDown[type])
+        if(TicksDown[(int)type])
         {
             stacks--;
             if(stacks <= 0)

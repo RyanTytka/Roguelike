@@ -7,15 +7,6 @@ using UnityEngine.UI;
 
 public class UnitStats : ActingUnit, IComparable
 {
-    public string unitName, description;
-    public float maxHealth;
-    public float currentHealth;
-    public float mana;
-    public float attack;
-    public float magic;
-    public float defense;
-    public float resilience;
-    public float speed;
 
     private bool dead = false;
 
@@ -26,14 +17,6 @@ public class UnitStats : ActingUnit, IComparable
 
     public GameObject[] prefabs; //prefabs that might need to be instantiated
     private const int BONE_PILE = 0;
-
-    //get stats that take status effects into account
-    public float MaxHealth { get { return maxHealth * StatusEffectMods()[0]; } }
-    public float Attack { get { return attack * StatusEffectMods()[3]; } }
-    public float Magic { get { return magic * StatusEffectMods()[4]; } }
-    public float Defense { get { return defense * StatusEffectMods()[5]; } }
-    public float Resilience { get { return resilience * StatusEffectMods()[6]; } }
-    public float Speed { get { return speed * StatusEffectMods()[7]; } }
 
     public void calculateNextActTurn(int currentTurn)
     {

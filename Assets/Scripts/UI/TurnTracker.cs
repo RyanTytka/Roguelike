@@ -9,8 +9,7 @@ public class TurnTracker : MonoBehaviour
     public List<GameObject> turnOrder = new List<GameObject>();  
     public List<GameObject> turnImages; //reference to the image objects that display turn order
     private bool firstTurn = true;
-    private int roundTimer; //progresses with a speed of 10 along with the units. starts new round when it reaches 100
-    private int round; //what round it is (starts at 1)
+    //private int round; //what round it is (starts at 1)
 
     public GameObject roundDivider; //adds this to acting units to progress its turn and keep track of the round
     public Text roundText;
@@ -19,8 +18,7 @@ public class TurnTracker : MonoBehaviour
     //set up first 5 turns
     public void Init()
     {
-        round = 1;
-        roundTimer = 0;
+        //round = 1;
 
         InitRound();
         allUnits.Add(roundDivider);
@@ -31,23 +29,23 @@ public class TurnTracker : MonoBehaviour
     public void InitRound()
     {
         //find highest speed to get its speed tier
-        int currentHighestSpeed = 0;
+        float currentHighestSpeed = 0;
         foreach (GameObject go in allUnits) 
         {
             if(go.GetComponent<ActingUnit>().Speed > currentHighestSpeed)
                 currentHighestSpeed = go.GetComponent<ActingUnit>().Speed;
         }
         int Div15 = (int)(currentHighestSpeed / 15);
-        int lastHighestSpeed = 9999;
+        float lastHighestSpeed = 9999;
         do //go through each speed tier (increments of 15)
         {
             do //get each speed in this speed tier
             {
                 currentHighestSpeed = 0;
-                GameObject currentGO; 
+                GameObject currentGO = null;
                 foreach (GameObject go in allUnits) //find next highest speed
                 {
-                    if (go.GetComponent<ActingUnit>().Speed - Div15 * 15 > 0 && 
+                    if (go.GetComponent<ActingUnit>().Speed - Div15 * 15 > 0 &&
                         go.GetComponent<ActingUnit>().Speed % 15 > currentHighestSpeed &&
                         go.GetComponent<ActingUnit>().Speed % 15 < lastHighestSpeed)
                     {
@@ -55,15 +53,15 @@ public class TurnTracker : MonoBehaviour
                         currentGO = go;
                     }
                 }
-                if(currentHighestSpeed > 0)
+                if (currentHighestSpeed > 0)
                 {
                     lastHighestSpeed = currentHighestSpeed;
                     turnOrder.Add(currentGO);
                 }
-            } while (currentHighestSpeed > 0)
+            } while (currentHighestSpeed > 0);
             Div15--;
             lastHighestSpeed = 9999;
-        } while (Div15 >= 0) //keep looping until all units have been added
+        } while (Div15 >= 0); //keep looping until all units have been added
     }
 
     //moves turn order up 1 or starts new round 

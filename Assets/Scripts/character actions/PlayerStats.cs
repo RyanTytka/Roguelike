@@ -9,16 +9,16 @@ public class PlayerStats : ActingUnit
     public string playerName;
 
     //base stats
-    public float maxHealth;
-    public float currentHealth;
+    //public float maxHealth;
+    //public float currentHealth;
     public float maxMana;
     public float currentMana;
     public float manaRegen;
-    public float attack;
-    public float magic;
-    public float defense;
-    public float resilience;
-    public float speed;
+    //public float attack;
+    //public float magic;
+    //public float defense;
+    //public float resilience;
+    //public float speed;
 
     public int level = 1;
     public float xp = 0;
@@ -28,14 +28,14 @@ public class PlayerStats : ActingUnit
     private List<GameObject> statusEffectIcons = new List<GameObject>(); //keeps track of the objects created to show current effects
 
     //get stats that take items into account
-    public float MaxHealth { get { return (maxHealth + GetComponent<PlayerItems>().StatMods()[0]) * StatusEffectMods()[0]; } }
+    public override float MaxHealth { get { return (maxHealth + GetComponent<PlayerItems>().StatMods()[0]) * StatusEffectMods()[0]; } }
     public float MaxMana { get { return (maxMana + GetComponent<PlayerItems>().StatMods()[1]) * StatusEffectMods()[1]; } }
     public float ManaRegen { get { return (manaRegen + GetComponent<PlayerItems>().StatMods()[2]) * StatusEffectMods()[2]; } }
-    public float Attack { get { return (attack + GetComponent<PlayerItems>().StatMods()[3]) * StatusEffectMods()[3]; } }
-    public float Magic { get { return (magic + GetComponent<PlayerItems>().StatMods()[4]) * StatusEffectMods()[4]; } }
-    public float Defense { get { return (defense + GetComponent<PlayerItems>().StatMods()[5]) * StatusEffectMods()[5]; } }
-    public float Resilience { get { return (resilience + GetComponent<PlayerItems>().StatMods()[6]) * StatusEffectMods()[6]; } }
-    public float Speed { get { return (speed + GetComponent<PlayerItems>().StatMods()[7]) * StatusEffectMods()[7]; } }
+    public override float Attack { get { return (attack + GetComponent<PlayerItems>().StatMods()[3]) * StatusEffectMods()[3]; } }
+    public override float Magic { get { return (magic + GetComponent<PlayerItems>().StatMods()[4]) * StatusEffectMods()[4]; } }
+    public override float Defense { get { return (defense + GetComponent<PlayerItems>().StatMods()[5]) * StatusEffectMods()[5]; } }
+    public override float Resilience { get { return (resilience + GetComponent<PlayerItems>().StatMods()[6]) * StatusEffectMods()[6]; } }
+    public override float Speed { get { return (speed + GetComponent<PlayerItems>().StatMods()[7]) * StatusEffectMods()[7]; } }
 
     public void RandomizeStats()
     {

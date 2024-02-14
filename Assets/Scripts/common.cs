@@ -1,4 +1,4 @@
-public enum ENEMY_TYPE{
+public enum EnemyTypeEnum{
     GOBLIN=0,
     SKELETON,
     OGRE,
@@ -8,22 +8,22 @@ public enum ENEMY_TYPE{
     UNDYING_SOLDIER
 }
 
-public enum EQUIPMENT_TYPE{
+public enum EquipmentTypeEnum{
     ARMOR = 0,
     WEAPON,
     ARTIFACT
 }
 
-public enum StatusType {  STRENGTH_UP = 0, STRENGTH_DOWN, MAGIC_UP, MAGIC_DOWN, MANAREGEN_UP, MANAREGEN_DOWN, //stats
+public enum StatusTypeEnum {  STRENGTH_UP = 0, STRENGTH_DOWN, MAGIC_UP, MAGIC_DOWN, MANAREGEN_UP, MANAREGEN_DOWN, //stats
                         ARMOR_UP, ARMOR_DOWN, RES_UP, RES_DOWN, SPEED_UP, SPEED_DOWN,
                         POISONED, BLEEDING, STUNNED, CONFUSED, BURNING, //misc effects
                         MARKED, SHACKLED, DOOM } //enemy specific
 
-public enum StatusIcons { }
+public enum StatusIconsEnum { }
 
-public enum PlayerItems { }
+public enum PlayerItemsEnum { }
 
-public enum DamageTypes {
+public enum DamageTypesEnum {
     PHYSICAL=1,
     MAGICAL,
     DIRECT

@@ -55,7 +55,7 @@ public class icestorm : AbilityInterface
         foreach (GameObject obj in targets)
         {
             obj.GetComponent<UnitStats>().TakeDamage(caster.GetComponent<PlayerStats>().Magic * 0.5f, 1);
-            CreateStatusEffect(StatusType.SPEED_DOWN, 2, 0, target);
+            CreateStatusEffect(StatusTypeEnum.SPEED_DOWN, 2, 0, obj);
         }
         //clear targets
         caster.GetComponent<PlayerAbilities>().Hide();

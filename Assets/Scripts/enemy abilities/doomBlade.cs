@@ -18,13 +18,13 @@ public class doomBlade : AbilityInterface
             int stacks = 0;
             foreach(StatusEffect se in statusEffects)
             {
-                if(se.type == StatusType.DOOM)
+                if(se.type == StatusTypeEnum.DOOM)
                 {
                     stacks = se.stacks;
                 }
             }
             //deal damage
-            obj.GetComponent<PlayerStats>().TakeDamage(caster.GetComponent<UnitStats>().Attack * 0.4f * 2 ^ stacks, 1);
+            obj.GetComponent<PlayerStats>().TakeDamage(caster.GetComponent<UnitStats>().Attack * 0.4f * Mathf.Pow(2, stacks), 1);
         }
     }
 

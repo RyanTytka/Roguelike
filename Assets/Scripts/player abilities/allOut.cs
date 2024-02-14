@@ -49,7 +49,7 @@ public class NewBehaviourScript : AbilityInterface
         {
             obj.GetComponent<UnitStats>().TakeDamage(caster.GetComponent<PlayerStats>().Attack * 2, 1);
         }
-        CreateStatusEffect(statusType.STRENGTH_DOWN, 2, 0, caster);
+        CreateStatusEffect(StatusTypeEnum.STRENGTH_DOWN, 2, 0, caster);
         //clear targets
         caster.GetComponent<PlayerAbilities>().Hide();
         foreach (GameObject go in targets)
@@ -74,7 +74,7 @@ public class NewBehaviourScript : AbilityInterface
         }
         else
         {
-            atk = caster.GetComponent<PlayerStats>().Armor.ToString();
+            atk = caster.GetComponent<PlayerStats>().Defense.ToString();
         }
         return "Attack an enemy, dealing " + atk + " physical damage and gaining Attack Down 2.";
     }

@@ -8,4 +8,6 @@ public class crushingBlows : AbilityInterface
     {
         return "Your Basic abilities apply Armor Down 1.";
     }
+
+    public override void Use() { } //This is a passive ability
 }

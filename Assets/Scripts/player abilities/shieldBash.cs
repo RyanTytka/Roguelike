@@ -47,7 +47,7 @@ public class shieldBash : AbilityInterface
     {
         foreach (GameObject obj in targets)
         {
-            obj.GetComponent<UnitStats>().TakeDamage(caster.GetComponent<PlayerStats>().Armor, 1);
+            obj.GetComponent<UnitStats>().TakeDamage(caster.GetComponent<PlayerStats>().Defense, 1);
         }
         //clear targets
         caster.GetComponent<PlayerAbilities>().Hide();
@@ -73,7 +73,7 @@ public class shieldBash : AbilityInterface
         }
         else
         {
-            atk = caster.GetComponent<PlayerStats>().Armor.ToString();
+            atk = caster.GetComponent<PlayerStats>().Defense.ToString();
         }
         return "Bash an enemy with your shield, dealing " + atk + " physical damage.";
     }

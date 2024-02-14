@@ -45,7 +45,7 @@ public class innerStrength : AbilityInterface
 
     public override void Use()
     {
-        CreateStatusEffect(statusType.STRENGTH_UP, 3, 0, target);
+        CreateStatusEffect(StatusTypeEnum.STRENGTH_UP, 3, 0, caster);
         //clear targets
         caster.GetComponent<PlayerAbilities>().Hide();
         foreach (GameObject go in targets)

@@ -31,8 +31,8 @@ public class roundDivider : ActingUnit
             {
                 switch(se.type)
                 {
-                    case BLEEDING:
-                        unit.TakeDamage(unit.GetComponent<PlayerStats>().health * 0.02f * se.stacks, 3);
+                    case StatusTypeEnum.BLEEDING:
+                        unit.GetComponent<UnitStats>().TakeDamage(unit.GetComponent<PlayerStats>().currentHealth * 0.02f * se.stacks, 3);
                     break;
                 }
                 se.Progress();

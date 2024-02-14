@@ -17,7 +17,7 @@ public class crush : AbilityInterface
         {
             //deal damage
             obj.GetComponent<PlayerStats>().TakeDamage(caster.GetComponent<UnitStats>().Attack * 0.8f, 1);
-            CreateStatusEffect(StatusType.ARMOR_DOWN, 2, 0, obj);
+            CreateStatusEffect(StatusTypeEnum.ARMOR_DOWN, 2, 0, obj);
         }
     }
 

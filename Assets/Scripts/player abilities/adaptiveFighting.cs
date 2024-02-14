@@ -8,4 +8,6 @@ public class adaptiveFighting : AbilityInterface
     {
         return "Gain 2 Armor after getting hit by an attack.";
     }
+
+    public override void Use() { } //This is a passive ability
 }
