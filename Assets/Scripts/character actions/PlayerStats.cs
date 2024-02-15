@@ -30,12 +30,12 @@ public class PlayerStats : ActingUnit
     //get stats that take items into account
     public override float MaxHealth { get { return (maxHealth + GetComponent<PlayerItems>().StatMods()[0]) * StatusEffectMods()[0]; } }
     public float MaxMana { get { return (maxMana + GetComponent<PlayerItems>().StatMods()[1]) * StatusEffectMods()[1]; } }
-    public float ManaRegen { get { return (manaRegen + GetComponent<PlayerItems>().StatMods()[2]) * StatusEffectMods()[2]; } }
-    public override float Attack { get { return (attack + GetComponent<PlayerItems>().StatMods()[3]) * StatusEffectMods()[3]; } }
-    public override float Magic { get { return (magic + GetComponent<PlayerItems>().StatMods()[4]) * StatusEffectMods()[4]; } }
-    public override float Defense { get { return (defense + GetComponent<PlayerItems>().StatMods()[5]) * StatusEffectMods()[5]; } }
-    public override float Resilience { get { return (resilience + GetComponent<PlayerItems>().StatMods()[6]) * StatusEffectMods()[6]; } }
-    public override float Speed { get { return (speed + GetComponent<PlayerItems>().StatMods()[7]) * StatusEffectMods()[7]; } }
+    public float ManaRegen { get { return (manaRegen + GetComponent<PlayerItems>().StatMods()[2] + manaRegenMod) * StatusEffectMods()[2]; } }
+    public override float Attack { get { return (attack + GetComponent<PlayerItems>().StatMods()[3] + attackMod) * StatusEffectMods()[3]; } }
+    public override float Magic { get { return (magic + GetComponent<PlayerItems>().StatMods()[4] + magicMod) * StatusEffectMods()[4]; } }
+    public override float Defense { get { return (defense + GetComponent<PlayerItems>().StatMods()[5] + defenseMod) * StatusEffectMods()[5]; } }
+    public override float Resilience { get { return (resilience + GetComponent<PlayerItems>().StatMods()[6] + resMod) * StatusEffectMods()[6]; } }
+    public override float Speed { get { return (speed + GetComponent<PlayerItems>().StatMods()[7] + speedMod) * StatusEffectMods()[7]; } }
 
     public void RandomizeStats()
     {
@@ -161,6 +161,11 @@ public class PlayerStats : ActingUnit
 
         //Update History
         GameObject.Find("History").GetComponent<BattleHistory>().AddLog(playerName + " takes " + damage.ToString("N1") + " damage");
+
+        if(gameObject.GetComponentsInChildren<adaptiveFighting>() != null)
+        {
+            defenseMod += 2;
+        }
     }
 
     public void UseMana(float amount)

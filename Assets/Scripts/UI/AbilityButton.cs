@@ -38,6 +38,15 @@ public class AbilityButton : MonoBehaviour
         if (ability.GetComponent<AbilityInterface>() == null)
             return;
 
+        foreach(StatusEffect se in caster.GetComponentsInChildren<StatusEffect>())
+        {
+            if(se.type == StatusTypeEnum.EXHAUSTED)
+            {
+                if(ability.GetComponent<AbilityInterface>().traits.Contains("Basic") == false)
+                    GetComponent<Image>().color = Color.red;
+                return;
+            }
+        }
         if (ability.GetComponent<AbilityInterface>().selected)
         {
             //selected

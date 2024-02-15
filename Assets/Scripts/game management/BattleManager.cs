@@ -82,6 +82,19 @@ public class BattleManager : MonoBehaviour
         GetComponent<MapManager>().RoomFinished(playerPos);
         //xp
         GameObject.Find("PlayerParty").GetComponent<PartyManager>().AddXp(3);
+        //clear temp stat mods
+        foreach(GameObject go in battlingUnits)
+        {
+            if(go.GetComponent<PlayerStats>() != null)
+            {
+                go.GetComponent<PlayerStats>().attackMod = 0;
+                go.GetComponent<PlayerStats>().magicMod = 0;
+                go.GetComponent<PlayerStats>().defenseMod = 0;
+                go.GetComponent<PlayerStats>().resMod = 0;
+                go.GetComponent<PlayerStats>().speedMod = 0;
+                go.GetComponent<PlayerStats>().manaRegenMod = 0;
+            }
+        }
     }
 
     private void NewTurn()
