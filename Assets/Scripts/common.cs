@@ -1,11 +1,11 @@
 public enum EnemyTypeEnum{
-    GOBLIN=0,
-    SKELETON,
+    SKELETON = 0,
+    GOBLIN,
     OGRE,
-    CULTIST,
-    TENTACLE,
     SKELETON_KING,
-    UNDYING_SOLDIER
+    UNDYING_SOLDIER,
+    TENTACLE,
+    CULTIST
 }
 
 public enum EquipmentTypeEnum{

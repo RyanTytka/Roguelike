@@ -17,7 +17,10 @@ public class Encounter : MonoBehaviour
     public List<int[]> bossEncounters = new List<int[]> { new int[] { 4, 4, 3 } }; 
 
     // similar types of enemies spawn together
-    public List<int[]> buckets = new List<int[]> { new int[] { 1, 2 } }; 
+    public List<int[]> buckets = new List<int[]> { 
+        new int[] { (int)EnemyTypeEnum.GOBLIN, (int)EnemyTypeEnum.OGRE }, 
+        new int[] { (int)EnemyTypeEnum.TENTACLE, (int)EnemyTypeEnum.CULTIST } 
+    }; 
 
     private List<GameObject> enemies = new List<GameObject>();
     public List<GameObject> items = new List<GameObject>();
