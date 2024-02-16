@@ -15,14 +15,15 @@ public class TurnTracker : MonoBehaviour
     public Text roundText;
     public Slider roundSlider;
 
-    //set up first 5 turns
+    public GameObject turnOrderIcon; //sprite used to show turn order
+
     public void Init()
     {
         //round = 1;
 
         InitRound();
-        allUnits.Add(roundDivider);
-        turnOrder.Add(roundDivider);
+        //allUnits.Add(roundDivider);
+        //turnOrder.Add(roundDivider);
     }
 
     //Get turn order for a round
@@ -79,15 +80,22 @@ public class TurnTracker : MonoBehaviour
             InitRound();
 
         //clear existing turn sprites
-        while(turnImages.Count > 0)
+        for(int i = 0; i < turnImages.Count; i++)
         {
-            turnImages.RemoveAt(0);
+            Destroy(turnImages[i]);
         }
+        turnImages.Clear();
+
+        //rdt - instead of removing them as they take their turn, turn them to grayed out so its easier to track
+        
         //add sprites back in turn order
         Display();
 
         //return current turn
-        return turnOrder[0];
+        if (turnOrder.Count > 0)
+            return turnOrder[0];
+        else
+            return null;
     }
 
     //when a unit dies, call this to remove it from turn order
@@ -106,7 +114,7 @@ public class TurnTracker : MonoBehaviour
     {
         for(int i = 0; i < turnOrder.Count; i++)
         {
-            turnImages.Add(Instantiate(turnOrderPrefab, i * 100, 0, this.gameObject));
+            turnImages.Add(Instantiate(turnOrderIcon, new Vector3(i * 0.5f, 3, 0), Quaternion.identity, gameObject.transform));
             turnImages[i].GetComponent<Image>().sprite = turnOrder[i].GetComponent<SpriteRenderer>().sprite;
         }
     }
