@@ -7,18 +7,6 @@ public class roundDivider : ActingUnit
 {
     public Sprite sprite;
 
-    //adds to turn timer and returns true if their turn timer has been filled
-    public override bool UpdateTurn()
-    {
-        turnTimer += 10;
-        if (turnTimer >= 100)
-        {
-            turnTimer -= 100;
-            return true;
-        }
-        return false;
-    }
-
     // trigger round end effects
     public override void MyTurn()
     {
@@ -33,6 +21,9 @@ public class roundDivider : ActingUnit
                 {
                     case StatusTypeEnum.BLEEDING:
                         unit.GetComponent<UnitStats>().TakeDamage(unit.GetComponent<PlayerStats>().currentHealth * 0.02f * se.stacks, 3);
+                    case StatusTypeEnum.BURNING:
+                        unit.GetComponent<UnitStats>().TakeDamage(1 * se.stacks, 2);
+                        se.stacks--;
                     break;
                 }
                 se.Progress();

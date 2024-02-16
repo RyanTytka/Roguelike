@@ -16,11 +16,19 @@ public abstract class ActingUnit : MonoBehaviour
 
     //get stats that take status effects into account
     public virtual float MaxHealth { get { return maxHealth * StatusEffectMods()[0]; } }
-    public virtual float Attack { get { return attack * StatusEffectMods()[3]; } }
-    public virtual float Magic { get { return magic * StatusEffectMods()[4]; } }
-    public virtual float Defense { get { return defense * StatusEffectMods()[5]; } }
-    public virtual float Resilience { get { return resilience * StatusEffectMods()[6]; } }
-    public virtual float Speed { get { return speed * StatusEffectMods()[7]; } }
+    public virtual float Attack { get { return (attack + attackMod) * StatusEffectMods()[3]; } }
+    public virtual float Magic { get { return (magic + magicMod) * StatusEffectMods()[4]; } }
+    public virtual float Defense { get { return (defense + defenseMod) * StatusEffectMods()[5]; } }
+    public virtual float Resilience { get { return (resilience + resMod) * StatusEffectMods()[6]; } }
+    public virtual float Speed { get { return (speed + speedMod) * StatusEffectMods()[7]; } }
+
+    // flat temp bonuses to stats
+    public float attackMod;
+    public float magicMod;
+    public float defenseMod;
+    public float resMod;
+    public float speedMod;
+    public float manaRegenMod;
 
     public float turnTimer;
 
@@ -100,5 +108,24 @@ public abstract class ActingUnit : MonoBehaviour
         }
 
         return mods;
+    }
+
+    //Heal this unit for specificed amount, affected by modifiers
+    public void Heal(float amount)
+    {
+        var statusEffects = gameObject.GetComponentsInChildren<StatusEffect>();
+        foreach(StatusEffect se in statusEffects)
+        {
+            if(se.type == StatusTypeEnum.POISONED)
+            {
+                amount *= 0.5;
+            }
+            if(se.type == StatusTypeEnum.BLEEDING)
+            {
+                Destroy(se);
+            }
+        }
+        gameObject.GetComponent<PlayerStats>().currentHealth += amount;
+        gameObject.GetComponent<PlayerStats>().currentHealth = Mathf.Min(gameObject.GetComponent<PlayerStats>().currentHealth, gameObject.GetComponent<PlayerStats>().MaxHealth);
     }
 }

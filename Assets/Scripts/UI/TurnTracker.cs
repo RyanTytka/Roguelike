@@ -42,7 +42,6 @@ public class TurnTracker : MonoBehaviour
             do //get each speed in this speed tier
             {
                 currentHighestSpeed = 0;
-                GameObject currentGO = null;
                 foreach (GameObject go in allUnits) //find next highest speed
                 {
                     if (go.GetComponent<ActingUnit>().Speed - Div15 * 15 > 0 &&
@@ -50,13 +49,17 @@ public class TurnTracker : MonoBehaviour
                         go.GetComponent<ActingUnit>().Speed % 15 < lastHighestSpeed)
                     {
                         currentHighestSpeed = go.GetComponent<ActingUnit>().Speed % 15;
-                        currentGO = go;
                     }
                 }
                 if (currentHighestSpeed > 0)
                 {
                     lastHighestSpeed = currentHighestSpeed;
-                    turnOrder.Add(currentGO);
+                    // Add all units with that speed
+                    foreach (GameObject go in allUnits)
+                    {
+                        if(go.GetComponent<ActingUnit>().Speed % 15 == currentHighestSpeed)
+                        turnOrder.Add(go);
+                    }
                 }
             } while (currentHighestSpeed > 0);
             Div15--;
@@ -73,42 +76,14 @@ public class TurnTracker : MonoBehaviour
         firstTurn = false;
 
         if(turnOrder.Count == 0)
-        InitRound();
+            InitRound();
 
-        // int c = 0;
-        // //add to end of turnOrder
-        // while (turnOrder.Count < 5 && c < 100)
-        // {
-        //     c++;
-        //     //calculate speed for each battling unit
-        //     foreach (GameObject go in allUnits)
-        //     {
-        //         if (go.GetComponent<ActingUnit>().UpdateTurn())
-        //             turnOrder.Add(go);
-        //     }
-        //     //now do round timer
-        //     roundTimer += 10;
-        //     if(roundTimer >= 100)
-        //     {
-        //         //Debug.Log("Round " + round + " has begun");
-        //         //next round
-        //         roundTimer = 0;
-        //         round++;
-        //         roundText.text = "Round " + round;
-        //         //progress all status effects forward 1 round
-        //         foreach (GameObject go in allUnits)
-        //         {
-        //             var effects = go.GetComponentsInChildren<StatusEffect>();
-        //             foreach (StatusEffect status in effects)
-        //             {
-        //                 status.Progress();
-        //             }
-        //         }
-        //     }
-        //     roundSlider.value = roundTimer;
-        // }
-
-        //update turn tracker UI
+        //clear existing turn sprites
+        while(turnImages.Count > 0)
+        {
+            turnImages.RemoveAt(0);
+        }
+        //add sprites back in turn order
         Display();
 
         //return current turn
@@ -122,25 +97,16 @@ public class TurnTracker : MonoBehaviour
         { 
             //print("removed"); 
         }
-        //refill turnOrder
-        int c = 0;
-        while (turnOrder.Count < 5 && c < 100)
-        {
-            foreach (GameObject go in allUnits)
-            {
-                if (go.GetComponent<ActingUnit>().UpdateTurn())
-                    turnOrder.Add(go);
-            }
-            c++;
-        }
         //restructure unit order
         GameObject.Find("GameManager").GetComponent<BattleManager>().UpdateUnitPositions();
     }
 
+    // Add a sprite for each unit in the turn order
     public void Display()
     {
-        for(int i = 0; i < 5 && i < turnOrder.Count; i++)
+        for(int i = 0; i < turnOrder.Count; i++)
         {
+            turnImages.Add(Instantiate(turnOrderPrefab, i * 100, 0, this.gameObject));
             turnImages[i].GetComponent<Image>().sprite = turnOrder[i].GetComponent<SpriteRenderer>().sprite;
         }
     }

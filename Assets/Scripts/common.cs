@@ -1,11 +1,30 @@
 public enum EnemyTypeEnum{
-    SKELETON = 0,
-    GOBLIN,
+    GOBLIN=0,
+    GOBLIN_SHAMAN,
+    GOBLIN_APPRENTICE,
+    SHIELD_GOBLIN,
     OGRE,
     SKELETON_KING,
     UNDYING_SOLDIER,
     TENTACLE,
-    CULTIST
+    SPAWN_OF_THE_OLD_ONE,
+    SKELETON_KING,
+    UNDYING_SOLDIER,
+    SKELETON,
+    ZOMBIE,
+    GHOST,
+    WITCH,
+    BONE_HOUND,
+    VOID_DEMON,
+    FLAME_DEMON,
+    SLAVER,
+    IMP,
+    ASSASSIN,
+    BERSERKER,
+    WITCH_DOCTOR,
+    WIZARD,
+    DRUID,
+    KNIGHT
 }
 
 public enum EquipmentTypeEnum{
@@ -16,10 +35,8 @@ public enum EquipmentTypeEnum{
 
 public enum StatusTypeEnum {  STRENGTH_UP = 0, STRENGTH_DOWN, MAGIC_UP, MAGIC_DOWN, MANAREGEN_UP, MANAREGEN_DOWN, //stats
                         ARMOR_UP, ARMOR_DOWN, RES_UP, RES_DOWN, SPEED_UP, SPEED_DOWN,
-                        POISONED, BLEEDING, STUNNED, CONFUSED, BURNING, //misc effects
+                        POISONED, BLEEDING, STUNNED, EXHAUSTED, BURNING, FROZEN(Next attack deals extra dmg), //misc effects
                         MARKED, SHACKLED, DOOM } //enemy specific
-
-public enum StatusIconsEnum { }
 
 public enum PlayerItemsEnum { }
 
