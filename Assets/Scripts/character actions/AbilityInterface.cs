@@ -4,6 +4,7 @@ using UnityEngine;
 
 public abstract class AbilityInterface : MonoBehaviour
 {
+    
     public enum AbilityType { ATTACK, DEFENSE, UTILITY }
 
     //What kind of ability this is. Ex: Fire. Holy. Basic.
@@ -45,6 +46,165 @@ public abstract class AbilityInterface : MonoBehaviour
         string d = se.descriptions[iconID];
         obj.GetComponent<StatusEffect>().description = d;
         return obj;
+    }
+
+    //clear targets and end turn after an ability has been used
+    public void AbilityUsed()
+    {
+        //clear targets
+        caster.GetComponent<PlayerAbilities>().Hide();
+        foreach (GameObject go in targets)
+        {
+            if (go.GetComponent<UnitStats>().isDead() == false)
+                go.GetComponent<SpriteRenderer>().color = Color.white;
+        }
+        //end turn
+        selected = false;
+        GameObject.Find("GameManager").GetComponent<BattleManager>().TurnEnded();
+    }
+
+    //helper methods for common target selection
+    Ray ray;
+    RaycastHit hit;
+    public void TargetSelf()
+    {
+        if (selected)
+        {
+            //clear targets
+            try
+            {
+                foreach (GameObject go in targets)
+                {
+                    if (go.GetComponent<UnitStats>().isDead() == false)
+                        go.GetComponent<SpriteRenderer>().color = Color.white;
+                }
+            }
+            catch { }
+            targets = new List<GameObject>();
+            //check if mousing over myself
+            ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray, out hit))
+            {
+                GameObject mouseOver = hit.collider.gameObject;
+                if (mouseOver == caster)
+                {
+                    //add myself to targets list
+                    targets.Add(mouseOver);
+                    mouseOver.GetComponent<SpriteRenderer>().color = Color.red;
+                }
+            }
+
+            if (Input.GetMouseButtonDown(0))
+            {
+                if (targets.Count > 0)
+                    Use();
+            }
+        }
+    }
+    public void TargetAPlyaer()
+    {
+        if (selected)
+        {
+            //clear targets
+            try
+            {
+                foreach (GameObject go in targets)
+                {
+                    if (go.GetComponent<UnitStats>().isDead() == false)
+                        go.GetComponent<SpriteRenderer>().color = Color.white;
+                }
+            }
+            catch { }
+            targets = new List<GameObject>();
+            //check if mousing over enemy
+            ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray, out hit))
+            {
+                GameObject mouseOver = hit.collider.gameObject;
+                if (mouseOver.tag == "Player")
+                {
+                    //add hovered enemy to targets list
+                    targets.Add(mouseOver);
+                    mouseOver.GetComponent<SpriteRenderer>().color = Color.red;
+                }
+            }
+
+            if (Input.GetMouseButtonDown(0))
+            {
+                if (targets.Count > 0)
+                    Use();
+            }
+        }
+    }
+    public void TargetAnEnemy()
+    {
+        if (selected)
+        {
+            //clear targets
+            try
+            {
+                foreach (GameObject go in targets)
+                {
+                    if (go.GetComponent<UnitStats>().isDead() == false)
+                        go.GetComponent<SpriteRenderer>().color = Color.white;
+                }
+            }
+            catch { }
+            targets = new List<GameObject>();
+            //check if mousing over enemy
+            ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray, out hit))
+            {
+                GameObject mouseOver = hit.collider.gameObject;
+                if (mouseOver.tag == "Enemy")
+                {
+                    //add hovered enemy to targets list
+                    targets.Add(mouseOver);
+                    mouseOver.GetComponent<SpriteRenderer>().color = Color.red;
+                }
+            }
+
+            if (Input.GetMouseButtonDown(0))
+            {
+                if (targets.Count > 0)
+                    Use();
+            }
+        }
+    }
+    public void TargetAllEnemies()
+    {
+        if (selected)
+        {
+            //clear targets
+            try
+            {
+                foreach (GameObject go in targets)
+                {
+                    if (go.GetComponent<UnitStats>().isDead() == false)
+                        go.GetComponent<SpriteRenderer>().color = Color.white;
+                }
+            }
+            catch { }
+            targets = new List<GameObject>();
+            //check if mousing over myself
+            ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray, out hit))
+            {
+                GameObject mouseOver = hit.collider.gameObject;
+                if (mouseOver == caster)
+                {
+                    //add myself to targets list
+                    targets.Add(mouseOver);
+                    mouseOver.GetComponent<SpriteRenderer>().color = Color.red;
+                }
+            }
+
+            if (Input.GetMouseButtonDown(0))
+            {
+                if (targets.Count > 0)
+                    Use();
+            }
+        }
     }
 
 }

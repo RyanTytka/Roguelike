@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class sneakAttack : AbilityInterface
 {
+    void Update()
+    {
+        TargetAnEnemy();
+    }
+
     public override void Use()
     {
         foreach (GameObject obj in targets)
@@ -12,7 +17,8 @@ public class sneakAttack : AbilityInterface
         }
 
         //Update History
-        GameObject.Find("History").GetComponent<BattleHistory>().AddLog(caster.GetComponent<PlayerStats>().playerName + " uses sneak attack.");
+        string history = caster.GetComponent<PlayerStats>().playerName + " uses sneak attack.";
+        GameObject.Find("History").GetComponent<BattleHistory>().AddLog(history);
     }
 
     public override string GetDescription()

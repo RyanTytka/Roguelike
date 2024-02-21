@@ -128,4 +128,11 @@ public abstract class ActingUnit : MonoBehaviour
         gameObject.GetComponent<PlayerStats>().currentHealth += amount;
         gameObject.GetComponent<PlayerStats>().currentHealth = Mathf.Min(gameObject.GetComponent<PlayerStats>().currentHealth, gameObject.GetComponent<PlayerStats>().MaxHealth);
     }
+
+    //Recover amount mana, up to max
+    public void RecoverMana(float amount)
+    {
+        gameObject.GetComponent<PlayerStats>().currentMana += amount;
+        gameObject.GetComponent<PlayerStats>().currentMana = Mathf.Min(gameObject.GetComponent<PlayerStats>().currentMana, gameObject.GetComponent<PlayerStats>().MaxMana);
+    }
 }

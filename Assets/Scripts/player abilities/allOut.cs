@@ -4,43 +4,9 @@ using UnityEngine;
 
 public class NewBehaviourScript : AbilityInterface
 {
-    Ray ray;
-    RaycastHit hit;
-
     void Update()
     {
-        if (selected)
-        {
-            //clear targets
-            try
-            {
-                foreach (GameObject go in targets)
-                {
-                    if (go.GetComponent<UnitStats>().isDead() == false)
-                        go.GetComponent<SpriteRenderer>().color = Color.white;
-                }
-            }
-            catch { }
-            targets = new List<GameObject>();
-            //check if mousing over enemy
-            ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out hit))
-            {
-                GameObject mouseOver = hit.collider.gameObject;
-                if (mouseOver.tag == "Enemy")
-                {
-                    //add hovered enemy to targets list
-                    targets.Add(mouseOver);
-                    mouseOver.GetComponent<SpriteRenderer>().color = Color.red;
-                }
-            }
-
-            if (Input.GetMouseButtonDown(0))
-            {
-                if (targets.Count > 0)
-                    Use();
-            }
-        }
+        TargetAnEnemy();
     }
 
     public override void Use()
@@ -50,19 +16,13 @@ public class NewBehaviourScript : AbilityInterface
             obj.GetComponent<UnitStats>().TakeDamage(caster.GetComponent<PlayerStats>().Attack * 2, 1);
         }
         CreateStatusEffect(StatusTypeEnum.STRENGTH_DOWN, 2, 0, caster);
-        //clear targets
-        caster.GetComponent<PlayerAbilities>().Hide();
-        foreach (GameObject go in targets)
-        {
-            if (go.GetComponent<UnitStats>().isDead() == false)
-                go.GetComponent<SpriteRenderer>().color = Color.white;
-        }
-        //end turn
-        selected = false;
-        GameObject.Find("GameManager").GetComponent<BattleManager>().TurnEnded();
+        
+        //clear targets and end turn
+        AbilityUsed();
 
         //Update History
-        GameObject.Find("History").GetComponent<BattleHistory>().AddLog(caster.GetComponent<PlayerStats>().playerName + " uses Shield Bash.");
+        string history = caster.GetComponent<PlayerStats>().playerName + " uses Shield Bash.";
+        GameObject.Find("History").GetComponent<BattleHistory>().AddLog(history);
     }
 
     public override string GetDescription()
@@ -74,8 +34,8 @@ public class NewBehaviourScript : AbilityInterface
         }
         else
         {
-            atk = caster.GetComponent<PlayerStats>().Defense.ToString();
+            atk = (string)(caster.GetComponent<PlayerStats>().Strength * 2);
         }
-        return "Attack an enemy, dealing " + atk + " physical damage and gaining Attack Down 2.";
+        return "Attack an enemy, dealing " + atk + " physical damage and gaining Strength Down 2.";
     }
 }

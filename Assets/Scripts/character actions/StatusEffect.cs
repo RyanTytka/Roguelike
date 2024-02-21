@@ -9,7 +9,7 @@ public class StatusEffect : MonoBehaviour
     public List<Sprite> icons; 
     public List<string> descriptions; 
     public List<bool> TicksDown; // Does this status effect remove 1 stack each round
-    public List<bool> IsGood; // Is this a buff or debuff? 
+    public List<bool> IsDebuff; // Is this a buff or debuff? 
 
     //this instance of a status effect's info
     public string statusName;

@@ -4,64 +4,31 @@ using UnityEngine;
 
 public class breakThrough : AbilityInterface
 {
-    Ray ray;
-    RaycastHit hit;
-
     void Update()
     {
-        if (selected)
-        {
-            //clear targets
-            try
-            {
-                foreach (GameObject go in targets)
-                {
-                    if (go.GetComponent<UnitStats>().isDead() == false)
-                        go.GetComponent<SpriteRenderer>().color = Color.white;
-                }
-            }
-            catch { }
-            targets = new List<GameObject>();
-            //check if mousing over enemy
-            ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out hit))
-            {
-                GameObject mouseOver = hit.collider.gameObject;
-                if (mouseOver.tag == "Enemy")
-                {
-                    //add hovered enemy to targets list
-                    targets.Add(mouseOver);
-                    mouseOver.GetComponent<SpriteRenderer>().color = Color.red;
-                }
-            }
-
-            if (Input.GetMouseButtonDown(0))
-            {
-                if (targets.Count > 0)
-                    Use();
-            }
-        }
+        TargetSelf();
     }
 
     public override void Use()
     {
-        foreach (GameObject obj in targets)
+        //clear my debuffs
+        var effects = caster.GetComponentsInChildren<StatusEffect>();
+        foreach (StatusEffect se in effects)
         {
-            obj.GetComponent<UnitStats>().TakeDamage(caster.GetComponent<PlayerStats>().Attack, 1);
+            if(se.IsDebuff[(int)se.type] == false)
+            {
+                Destroy(se);
+            }
         }
-        //clear targets
-        caster.GetComponent<PlayerAbilities>().Hide();
-        foreach (GameObject go in targets)
-        {
-            if (go.GetComponent<UnitStats>().isDead() == false)
-                go.GetComponent<SpriteRenderer>().color = Color.white;
-        }
-        //end turn
-        selected = false;
-        GameObject.Find("GameManager").GetComponent<BattleManager>().TurnEnded();
+        CreateStatusEffect(StatusTypeEnum.ARMOR_UP, 2, 0, caster);
+        CreateStatusEffect(StatusTypeEnum.RES_UP, 2, 0, caster);
+
+        //clear targets and end turn
+        AbilityUsed();
 
         //Update History
-        GameObject.Find("History").GetComponent<BattleHistory>().AddLog(caster.GetComponent<PlayerStats>().playerName + " uses Stab.");
+        string history = caster.GetComponent<PlayerStats>().playerName + " uses Break Through.";
+        GameObject.Find("History").GetComponent<BattleHistory>().AddLog(history);
     }
 
     public override string GetDescription()

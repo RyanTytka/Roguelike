@@ -4,28 +4,37 @@ using UnityEngine;
 
 public class secondWind : AbilityInterface
 {
+    void Update()
+    {
+        TargetSelf();
+    }
+
     public override void Use()
     {
-        //heal self
+        //heal
+        caster.GetComponent<PlayerStats>().Heal(caster.GetComponent<PlayerStats>().Resilience);
+        //recover mana 
+        caster.GetComponent<PlayerStats>().RecoverMana(caster.GetComponent<PlayerStats>().Resilience);
+
+        //clear targets and end turn
+        AbilityUsed();
 
         //Update History
-        GameObject.Find("History").GetComponent<BattleHistory>().AddLog(caster.GetComponent<PlayerStats>().playerName + " uses Second Wind.");
+        string history = caster.GetComponent<PlayerStats>().playerName + " uses Second Wind.";
+        GameObject.Find("History").GetComponent<BattleHistory>().AddLog(history);
     }
 
     public override string GetDescription()
     {
-        string mana;
         string res;
         if (caster == null)
         {
-            mana = "(Mana Regen)";
             res = "(Resilience)";
         }
         else
         {
-            mana = caster.GetComponent<PlayerStats>().ManaRegen.ToString();
             res = caster.GetComponent<PlayerStats>().Resilience.ToString();
         }
-        return "Recover " + mana + " mana and heal for " + res + " health.";
+        return "Recover " + res + " Mana and Health.";
     }
 }

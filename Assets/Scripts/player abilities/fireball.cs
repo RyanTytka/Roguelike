@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class fireball : AbilityInterface
 {
-    Ray ray;
-    RaycastHit hit;
-
     void Update()
     {
         //if (GetComponent<PlayerStats>().currentMana >= ability.GetComponent<AbilityInterface>().manaCost)
@@ -70,19 +67,13 @@ public class fireball : AbilityInterface
         {
             obj.GetComponent<UnitStats>().TakeDamage(caster.GetComponent<PlayerStats>().Magic, 2);
         }
-        //clear targets
-        caster.GetComponent<PlayerAbilities>().Hide();
-        foreach (GameObject go in targets)
-        {
-            if (go.GetComponent<UnitStats>().isDead() == false)
-                go.GetComponent<SpriteRenderer>().color = Color.white;
-        }
-        //end turn
-        selected = false;
-        GameObject.Find("GameManager").GetComponent<BattleManager>().TurnEnded();
+
+        //clear targets and end turn
+        AbilityUsed();
 
         //Update History
-        GameObject.Find("History").GetComponent<BattleHistory>().AddLog(caster.GetComponent<PlayerStats>().playerName + " hurls a fireball.");
+        string history = caster.GetComponent<PlayerStats>().playerName + " hurls a fireball.";
+        GameObject.Find("History").GetComponent<BattleHistory>().AddLog(history);
     }
 
     public override string GetDescription()
