@@ -38,9 +38,6 @@ public abstract class ActingUnit : MonoBehaviour
 
     }
 
-    //adds to turn timer and returns true if their turn timer has been filled
-    public abstract bool UpdateTurn();
-
     //display info and act when it is my turn
     public abstract void MyTurn();
     
@@ -118,7 +115,7 @@ public abstract class ActingUnit : MonoBehaviour
         {
             if(se.type == StatusTypeEnum.POISONED)
             {
-                amount *= 0.5;
+                amount *= 0.5f;
             }
             if(se.type == StatusTypeEnum.BLEEDING)
             {

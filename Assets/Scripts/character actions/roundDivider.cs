@@ -21,10 +21,11 @@ public class roundDivider : ActingUnit
                 {
                     case StatusTypeEnum.BLEEDING:
                         unit.GetComponent<UnitStats>().TakeDamage(unit.GetComponent<PlayerStats>().currentHealth * 0.02f * se.stacks, 3);
+                        break;
                     case StatusTypeEnum.BURNING:
                         unit.GetComponent<UnitStats>().TakeDamage(1 * se.stacks, 2);
                         se.stacks--;
-                    break;
+                        break;
                 }
                 se.Progress();
             }

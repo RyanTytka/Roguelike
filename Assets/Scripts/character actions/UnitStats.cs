@@ -33,18 +33,6 @@ public class UnitStats : ActingUnit, IComparable
         return this.dead;
     }
 
-    //adds to turn timer and returns true if their turn timer has been filled
-    public override bool UpdateTurn()
-    {
-        turnTimer += speed;
-        if (turnTimer >= 100)
-        {
-            turnTimer -= 100;
-            return true;
-        }
-        return false;
-    }
-
     public override void MyTurn()
     {
         StartCoroutine(Wait());

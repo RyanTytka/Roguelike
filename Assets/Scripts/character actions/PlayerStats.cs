@@ -79,18 +79,6 @@ public class PlayerStats : ActingUnit
         speed += newStats[7] * 2;
     }
 
-    //adds to turn timer and returns true if their turn timer has been filled
-    public override bool UpdateTurn()
-    {
-        turnTimer += speed;
-        if(turnTimer >= 100)
-        {
-            turnTimer -= 100;
-            return true;
-        }
-        return false;
-    }
-
     public override void MyTurn()
     {
         //Debug.Log("Player Turn");

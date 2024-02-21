@@ -14,10 +14,14 @@ public class Encounter : MonoBehaviour
     public List<GameObject> enemyInventory; 
     
     // one list item is an array that contains the ids for each enemy in that boss encounter
-    public List<int[]> bossEncounters = new List<int[]> { new int[] { 4, 4, 3 } }; 
+    public List<int[]> bossEncounters = new List<int[]> { 
+        new int[] { (int)EnemyTypeEnum.BONE_PILE, (int)EnemyTypeEnum.BONE_PILE, (int)EnemyTypeEnum.SKELETON_KING } }; 
 
     // similar types of enemies spawn together
-    public List<int[]> buckets = new List<int[]> { new int[] { 1, 2 } }; 
+    public List<int[]> buckets = new List<int[]> { 
+        new int[] { (int)EnemyTypeEnum.GOBLIN, (int)EnemyTypeEnum.OGRE }, 
+        new int[] { (int)EnemyTypeEnum.TENTACLE, (int)EnemyTypeEnum.CULTIST } 
+    }; 
 
     private List<GameObject> enemies = new List<GameObject>();
     public List<GameObject> items = new List<GameObject>();
@@ -33,7 +37,7 @@ public class Encounter : MonoBehaviour
             float totalDifficulty = 0;
             float targetDifficulty = difficulty + Random.Range(0.0f, 0.5f) * difficulty;
             //choose a bucket
-            int[] bucket = buckets[(int)Random.Range(0.0f, buckets.Count)];
+            int[] bucket = buckets[(int)Random.Range(0.0f, buckets.Count - 1)];
             while(totalDifficulty < targetDifficulty)
             {
                 int enemyNum = Random.Range(0, bucket.Length);
