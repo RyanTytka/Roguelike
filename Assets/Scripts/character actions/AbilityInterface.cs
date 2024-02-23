@@ -37,6 +37,18 @@ public abstract class AbilityInterface : MonoBehaviour
 
     public GameObject CreateStatusEffect(StatusTypeEnum type, int stacks, int iconID, GameObject parent)
     {
+        //check if the unit already has this type of effect
+        var currentEffects = GetComponentsInChildren<StatusEffect>();
+        foreach(StatusEffect se in currentEffects)
+        {
+            if(se.type == type)
+            {
+                //add to current stacks
+                se.stacks += stacks;
+                return se.gameObject;
+            }           
+        }
+        //create new status effect object
         GameObject obj = Instantiate(statusEffect, parent.transform);
         StatusEffect se = obj.GetComponent<StatusEffect>();
         se.type = type;

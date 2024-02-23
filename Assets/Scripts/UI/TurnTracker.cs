@@ -10,7 +10,7 @@ public class TurnTracker : MonoBehaviour
     public List<GameObject> turnImages; //reference to the image objects that display turn order
     private bool firstTurn = true;
     //private int round; //what round it is (starts at 1)
-
+    private int turnNumber; //how many turns have been taken this round
     public GameObject roundDivider; //adds this to acting units to progress its turn and keep track of the round
     public Text roundText;
     public Slider roundSlider;
@@ -29,6 +29,8 @@ public class TurnTracker : MonoBehaviour
     //Get turn order for a round
     public void InitRound()
     {
+        turnNumber = 0;
+
         //find highest speed to get its speed tier
         float currentHighestSpeed = 0;
         foreach (GameObject go in allUnits) 
@@ -71,13 +73,20 @@ public class TurnTracker : MonoBehaviour
     //moves turn order up 1 or starts new round 
     public GameObject NextTurn()
     {
-        //current turn has ended, so remove them from turn order
+        //current turn has ended, so move to next unit's turn
         if(!firstTurn)
-            turnOrder.RemoveAt(0);
+            turnNumber++;
+            //turnOrder.RemoveAt(0); //dont remove this. keep all units
         firstTurn = false;
 
-        if(turnOrder.Count == 0)
+        //if(turnOrder.Count == 0)
+        //    InitRound();
+
+        if(turnOrder.Count == turnNumber)
+        {
+            turnOrder.Clear();
             InitRound();
+        }
 
         //clear existing turn sprites
         for(int i = 0; i < turnImages.Count; i++)
@@ -85,15 +94,13 @@ public class TurnTracker : MonoBehaviour
             Destroy(turnImages[i]);
         }
         turnImages.Clear();
-
-        //rdt - instead of removing them as they take their turn, turn them to grayed out so its easier to track
         
         //add sprites back in turn order
         Display();
 
         //return current turn
         if (turnOrder.Count > 0)
-            return turnOrder[0];
+            return turnOrder[turnNumber]; //[0]
         else
             return null;
     }
@@ -116,6 +123,8 @@ public class TurnTracker : MonoBehaviour
         {
             turnImages.Add(Instantiate(turnOrderIcon, new Vector3(i * 0.5f, 3, 0), Quaternion.identity, gameObject.transform));
             turnImages[i].GetComponent<Image>().sprite = turnOrder[i].GetComponent<SpriteRenderer>().sprite;
+            if(i < turnNumber) //already taken their turn
+                turnImages[i].GetComponent<SpriteRenderer>().color = Color.;
         }
     }
 }

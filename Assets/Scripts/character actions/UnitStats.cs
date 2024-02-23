@@ -70,16 +70,6 @@ public class UnitStats : ActingUnit, IComparable
 
     public void TakeDamage(float damage, int type)
     {
-        //status effects
-        var statusEffects = GetComponentsInChildren<StatusEffect>();
-        //multiply damage for each status effect
-        float multiplier = 1;
-        foreach (StatusEffect se in statusEffects)
-        {
-            //rdt - need implementation
-        }
-        damage *= multiplier;
-
         //defense/resilience
         if (type == 1)
         {

@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class slash : AbilityInterface
 {
-    Ray ray;
-    RaycastHit hit;
-
     void Update()
     {
         TargetAnEnemy();
