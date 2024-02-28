@@ -172,16 +172,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ff60a56a52143418ed9d76650b8a53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitName: Goblin
+  unitName: Tentacle
   description: 
-  maxHealth: 8
-  currentHealth: 8
+  maxHealth: 13
+  currentHealth: 13
   mana: 0
-  attack: 3
-  magic: 0
-  defense: 2
-  resilience: 0
-  speed: 8
+  attack: 8
+  magic: 2
+  defense: 3
+  resilience: 4
+  speed: 4
   attackMod: 0
   magicMod: 0
   defenseMod: 0
@@ -206,7 +206,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   possibleAbilities:
   - {fileID: 3732584909606297116, guid: ea5203c8e449a3448b2c33694bd75415, type: 3}
-  difficulty: 0.5
+  difficulty: 1
   isBoss: 0
 --- !u!1001 &8667784528673314356
 PrefabInstance:

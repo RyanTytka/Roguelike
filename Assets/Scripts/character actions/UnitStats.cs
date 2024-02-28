@@ -147,7 +147,7 @@ public class UnitStats : ActingUnit, IComparable
     //display info
     void OnMouseOver()
     {
-        if (activeHoverDisplay == null)
+        if (activeHoverDisplay == null) //rdt - I think this no longer works since there is no collider on UnitStats gameobject
         {
             activeHoverDisplay = Instantiate(GameObject.Find("GameManager").GetComponent<UIManager>().enemyHoverInfoPrefab, GameObject.Find("HUDCanvas").transform);
             //activeHoverDisplay.transform.position = new Vector3(transform.position.x, transform.position.y + 2);

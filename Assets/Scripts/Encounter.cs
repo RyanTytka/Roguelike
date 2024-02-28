@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+using E = EnemyTypeEnum;
 public enum EncounterType { ENEMY, EVENT, SHOP, TREASURE, BOSS }
-
 public class Encounter : MonoBehaviour
 {
 
@@ -15,12 +14,13 @@ public class Encounter : MonoBehaviour
     
     // one list item is an array that contains the ids for each enemy in that boss encounter
     public List<int[]> bossEncounters = new List<int[]> { 
-        new int[] { (int)EnemyTypeEnum.BONE_PILE, (int)EnemyTypeEnum.BONE_PILE, (int)EnemyTypeEnum.SKELETON_KING } }; 
+        new int[] { (int)E.BONE_PILE, (int)E.BONE_PILE, (int)E.SKELETON_KING } }; 
 
     // similar types of enemies spawn together
     public List<int[]> buckets = new List<int[]> { 
-        new int[] { (int)EnemyTypeEnum.GOBLIN, (int)EnemyTypeEnum.OGRE }, 
-        new int[] { (int)EnemyTypeEnum.TENTACLE, (int)EnemyTypeEnum.CULTIST } 
+        //new int[] { (int)E.GOBLIN, (int)E.GOBLIN_APPRENTICE, (int)E.GOBLIN_KNIGHT, (int)E.GOBLIN_SHAMAN, (int)E.GOBLIN_SPEARMAN, (int)E.ORC }, //goblins
+        new int[] { (int)E.TENTACLE, (int)E.CULTIST }, //cultists
+        //new int[] { (int)E.SKELETON } //undead
     }; 
 
     private List<GameObject> enemies = new List<GameObject>();

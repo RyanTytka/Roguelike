@@ -11,7 +11,7 @@ public class innerStrength : AbilityInterface
 
     public override void Use()
     {
-        CreateStatusEffect(StatusTypeEnum.STRENGTH_UP, 3, 0, caster);
+        CreateStatusEffect(StatusTypeEnum.STRENGTH_UP, 3, caster);
         
         //clear targets and end turn
         AbilityUsed();

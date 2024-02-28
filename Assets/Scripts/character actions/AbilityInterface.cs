@@ -35,10 +35,10 @@ public abstract class AbilityInterface : MonoBehaviour
     public abstract void Use();
     public abstract string GetDescription();
 
-    public GameObject CreateStatusEffect(StatusTypeEnum type, int stacks, int iconID, GameObject parent)
+    public GameObject CreateStatusEffect(StatusTypeEnum type, int stacks, GameObject parent)
     {
         //check if the unit already has this type of effect
-        var currentEffects = GetComponentsInChildren<StatusEffect>();
+        var currentEffects = parent.GetComponentsInChildren<StatusEffect>();
         foreach(StatusEffect status in currentEffects)
         {
             if(status.type == type)
@@ -53,9 +53,9 @@ public abstract class AbilityInterface : MonoBehaviour
         StatusEffect se = obj.GetComponent<StatusEffect>();
         se.type = type;
         se.stacks = stacks;
-        se.statusName = se.names[iconID];
-        se.iconImage = se.icons[iconID];
-        string d = se.descriptions[iconID];
+        se.statusName = se.names[(int)type];
+        se.iconImage = se.icons[(int)type];
+        string d = se.descriptions[(int)type];
         obj.GetComponent<StatusEffect>().description = d;
         return obj;
     }

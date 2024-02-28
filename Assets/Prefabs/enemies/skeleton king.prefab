@@ -91,16 +91,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ff60a56a52143418ed9d76650b8a53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitName: Goblin
+  unitName: Skeleton King
   description: 
-  maxHealth: 8
-  currentHealth: 8
+  maxHealth: 80
+  currentHealth: 80
   mana: 0
-  attack: 3
-  magic: 0
-  defense: 2
-  resilience: 0
-  speed: 8
+  attack: 10
+  magic: 5
+  defense: 14
+  resilience: 10
+  speed: 4
   attackMod: 0
   magicMod: 0
   defenseMod: 0
@@ -124,9 +124,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   possibleAbilities:
-  - {fileID: 3732584909606297116, guid: ea5203c8e449a3448b2c33694bd75415, type: 3}
+  - {fileID: 3732584909606297116, guid: 3dfbf8ad62d7ab7479f3add017719e6e, type: 3}
+  - {fileID: 3732584909606297116, guid: df4f0264404e73b46a5aef9f36477149, type: 3}
+  - {fileID: 3732584909606297116, guid: e01b8698932cdb8488b8b4fbaa1e8a5d, type: 3}
   difficulty: 0.5
-  isBoss: 0
+  isBoss: 1
 --- !u!1 &6285915952135501487
 GameObject:
   m_ObjectHideFlags: 0

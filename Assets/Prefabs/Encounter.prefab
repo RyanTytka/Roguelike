@@ -46,12 +46,11 @@ MonoBehaviour:
   type: 0
   enemyInventory:
   - {fileID: 973495817556448452, guid: aeaf48f49a065504b8ce7f6e42888892, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 6184550328116596908, guid: 19ed7f07fa19bc34a8c0a39ae9c351da, type: 3}
+  - {fileID: 4062554505806690861, guid: a3d82b1b29399fa4fbbf5f30c98afcac, type: 3}
+  - {fileID: 2679256702460214637, guid: c31341266260371458dc2673e02ebe1c, type: 3}
+  - {fileID: 47562947566691721, guid: 58859e9a0bab4644c9b0c5de1c3fe668, type: 3}
   - {fileID: 7859404486984966999, guid: b72d1ba0253395940a938c6ea2b6a5d1, type: 3}
-  - {fileID: 4625090027120992767, guid: 691168e129022084c9407ab9cd792b28, type: 3}
-  - {fileID: 622951560105617343, guid: 3a20faea7d402574792e52b952168768, type: 3}
   - {fileID: 4739858725471433083, guid: 33eb5221fe01e03409c748f55c6bf5a0, type: 3}
   - {fileID: 8565806590925826180, guid: 7705e2a9de28a6b478bf4f482b2640f3, type: 3}
   - {fileID: 0}
@@ -70,6 +69,9 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 4625090027120992767, guid: 691168e129022084c9407ab9cd792b28, type: 3}
+  - {fileID: 622951560105617343, guid: 3a20faea7d402574792e52b952168768, type: 3}
+  - {fileID: 5477603481312226931, guid: 253c8070d634ee44cb73d6888713c183, type: 3}
   items: []
   eventID: 0
   gold: 0

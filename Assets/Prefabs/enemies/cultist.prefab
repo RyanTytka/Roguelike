@@ -91,15 +91,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ff60a56a52143418ed9d76650b8a53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitName: Goblin
+  unitName: Cultist
   description: 
-  maxHealth: 8
-  currentHealth: 8
+  maxHealth: 9
+  currentHealth: 9
   mana: 0
-  attack: 3
-  magic: 0
-  defense: 2
-  resilience: 0
+  attack: 7
+  magic: 5
+  defense: 6
+  resilience: 8
   speed: 8
   attackMod: 0
   magicMod: 0
@@ -124,7 +124,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   possibleAbilities:
-  - {fileID: 3732584909606297116, guid: ea5203c8e449a3448b2c33694bd75415, type: 3}
+  - {fileID: 6183994335350609988, guid: ae214e4aa87e280409536c5bc4deadf2, type: 3}
+  - {fileID: 9104205926309748234, guid: e6daf8e521f689841b856e68137807bd, type: 3}
   difficulty: 0.5
   isBoss: 0
 --- !u!1 &6256852260496762411

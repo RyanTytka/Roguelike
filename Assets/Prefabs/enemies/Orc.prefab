@@ -91,16 +91,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ff60a56a52143418ed9d76650b8a53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitName: Goblin
+  unitName: Orc
   description: 
-  maxHealth: 8
-  currentHealth: 8
+  maxHealth: 18
+  currentHealth: 18
   mana: 0
-  attack: 3
-  magic: 0
-  defense: 2
-  resilience: 0
-  speed: 8
+  attack: 9
+  magic: 4
+  defense: 8
+  resilience: 9
+  speed: 5
   attackMod: 0
   magicMod: 0
   defenseMod: 0
@@ -125,7 +125,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   possibleAbilities:
   - {fileID: 3732584909606297116, guid: ea5203c8e449a3448b2c33694bd75415, type: 3}
-  difficulty: 0.5
+  difficulty: 2
   isBoss: 0
 --- !u!1 &8791491719030469639
 GameObject:

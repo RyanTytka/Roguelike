@@ -11,9 +11,9 @@ public class defensiveStance : AbilityInterface
 
     public override void Use()
     {
-        CreateStatusEffect(StatusTypeEnum.ARMOR_UP, 3, 0, caster);
-        CreateStatusEffect(StatusTypeEnum.RES_UP, 3, 0, caster);
-        CreateStatusEffect(StatusTypeEnum.STRENGTH_DOWN, 2, 0, caster);
+        CreateStatusEffect(StatusTypeEnum.ARMOR_UP, 3, caster);
+        CreateStatusEffect(StatusTypeEnum.RES_UP, 3, caster);
+        CreateStatusEffect(StatusTypeEnum.STRENGTH_DOWN, 2, caster);
         
         //clear targets and end turn
         AbilityUsed();

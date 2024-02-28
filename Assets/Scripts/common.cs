@@ -1,30 +1,37 @@
 public enum EnemyTypeEnum{
-    GOBLIN=0,
+    //goblins
+    GOBLIN=0,           
     GOBLIN_SHAMAN,
     GOBLIN_APPRENTICE,
-    SHIELD_GOBLIN,
-    OGRE,
-    SKELETON_KING,
-    UNDYING_SOLDIER,
-    BONE_PILE,
-    CULTIST,
+    GOBLIN_KNIGHT,
+    GOBLIN_SPEARMAN,
+    ORC,
+    //cultists
+    CULTIST,            
     TENTACLE,
     SPAWN_OF_THE_OLD_ONE,
+    //undead
     SKELETON,
     ZOMBIE,
     GHOST,
     WITCH,
     BONE_HOUND,
+    //demons
     VOID_DEMON,
     FLAME_DEMON,
     SLAVER,
     IMP,
+    //humans
     ASSASSIN,
     BERSERKER,
     WITCH_DOCTOR,
     WIZARD,
     DRUID,
-    KNIGHT
+    KNIGHT,
+    //boss 1
+    SKELETON_KING,      
+    UNDYING_SOLDIER,
+    BONE_PILE,
 }
 
 public enum EquipmentTypeEnum{

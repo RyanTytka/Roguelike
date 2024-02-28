@@ -91,16 +91,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ff60a56a52143418ed9d76650b8a53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitName: Goblin
+  unitName: Bone Pile
   description: 
   maxHealth: 8
   currentHealth: 8
   mana: 0
-  attack: 3
+  attack: 0
   magic: 0
-  defense: 2
-  resilience: 0
-  speed: 8
+  defense: 5
+  resilience: 2
+  speed: 0
   attackMod: 0
   magicMod: 0
   defenseMod: 0

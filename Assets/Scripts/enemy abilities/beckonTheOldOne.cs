@@ -6,7 +6,7 @@ public class beckonTheOldOne : AbilityInterface
 {
     public override void Use()
     {
-        CreateStatusEffect(StatusTypeEnum.DOOM, 1, 0, caster);
+        CreateStatusEffect(StatusTypeEnum.DOOM, 1, caster);
     }
 
     public override string GetDescription()

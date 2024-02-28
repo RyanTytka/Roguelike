@@ -20,8 +20,8 @@ public class breakThrough : AbilityInterface
                 Destroy(se);
             }
         }
-        CreateStatusEffect(StatusTypeEnum.ARMOR_UP, 2, 0, caster);
-        CreateStatusEffect(StatusTypeEnum.RES_UP, 2, 0, caster);
+        CreateStatusEffect(StatusTypeEnum.ARMOR_UP, 2, caster);
+        CreateStatusEffect(StatusTypeEnum.RES_UP, 2, caster);
 
         //clear targets and end turn
         AbilityUsed();

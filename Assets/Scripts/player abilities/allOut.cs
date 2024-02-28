@@ -15,7 +15,7 @@ public class NewBehaviourScript : AbilityInterface
         {
             obj.GetComponent<UnitStats>().TakeDamage(caster.GetComponent<PlayerStats>().Attack * 2, 1);
         }
-        CreateStatusEffect(StatusTypeEnum.STRENGTH_DOWN, 2, 0, caster);
+        CreateStatusEffect(StatusTypeEnum.STRENGTH_DOWN, 2, caster);
         
         //clear targets and end turn
         AbilityUsed();

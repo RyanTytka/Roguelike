@@ -35,7 +35,7 @@ public class fireball : AbilityInterface
                     List<GameObject> enemies = bm.battlingUnits.FindAll(unit => unit.tag == "Enemy");
                     //add adjacent enemies to targets list
                     int index = enemies.IndexOf(mouseOver);
-                    enemies[index].GetComponent<SpriteRenderer>().color = Color.red;
+                    enemies[index].GetComponentInChildren<SpriteRenderer>().color = Color.red;
                     targets.Add(enemies[index]);
                     if (index > 0)
                     {

@@ -18,7 +18,7 @@ public class slash : AbilityInterface
         {
             obj.GetComponent<UnitStats>().TakeDamage(dmg, (int)DamageTypesEnum.PHYSICAL);
             if(caster.GetComponentsInChildren<crushingBlows>() != null)
-                CreateStatusEffect(StatusTypeEnum.ARMOR_DOWN, 1, 0, obj);
+                CreateStatusEffect(StatusTypeEnum.ARMOR_DOWN, 1, obj);
         }
 
         //clear targets and end turn

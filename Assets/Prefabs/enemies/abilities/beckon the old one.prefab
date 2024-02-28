@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5824584839832201141}
   - component: {fileID: 9018850475259897752}
   m_Layer: 0
-  m_Name: BeckonTheOldOne
+  m_Name: beckon the old one
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -43,3 +43,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa5fb99d226d88c478eeb19857187ad3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  traits: []
+  targets: []
+  caster: {fileID: 0}
+  manaCost: 0
+  abilityType: 0
+  abilityName: 
+  description: 
+  image: {fileID: 0}
+  selected: 0
+  statusEffect: {fileID: 3251617262686129893, guid: 8fcd4451df529e14591d5947c8b6cd11,
+    type: 3}
