@@ -39,13 +39,13 @@ public abstract class AbilityInterface : MonoBehaviour
     {
         //check if the unit already has this type of effect
         var currentEffects = GetComponentsInChildren<StatusEffect>();
-        foreach(StatusEffect se in currentEffects)
+        foreach(StatusEffect status in currentEffects)
         {
-            if(se.type == type)
+            if(status.type == type)
             {
                 //add to current stacks
-                se.stacks += stacks;
-                return se.gameObject;
+                status.stacks += stacks;
+                return status.gameObject;
             }           
         }
         //create new status effect object
@@ -67,8 +67,8 @@ public abstract class AbilityInterface : MonoBehaviour
         caster.GetComponent<PlayerAbilities>().Hide();
         foreach (GameObject go in targets)
         {
-            if (go.GetComponent<UnitStats>().isDead() == false)
-                go.GetComponent<SpriteRenderer>().color = Color.white;
+            if (go.GetComponent<UnitStats>().isDead() == false) //rdt this breaks if you use an ability on yourself
+                go.GetComponentInChildren<SpriteRenderer>().color = Color.white;
         }
         //end turn
         selected = false;
@@ -76,8 +76,8 @@ public abstract class AbilityInterface : MonoBehaviour
     }
 
     //helper methods for common target selection
-    Ray ray;
-    RaycastHit hit;
+    public Ray ray;
+    public RaycastHit hit;
     public void TargetSelf()
     {
         if (selected)
@@ -88,7 +88,7 @@ public abstract class AbilityInterface : MonoBehaviour
                 foreach (GameObject go in targets)
                 {
                     if (go.GetComponent<UnitStats>().isDead() == false)
-                        go.GetComponent<SpriteRenderer>().color = Color.white;
+                        go.GetComponentInChildren<SpriteRenderer>().color = Color.white;
                 }
             }
             catch { }
@@ -97,12 +97,12 @@ public abstract class AbilityInterface : MonoBehaviour
             ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out hit))
             {
-                GameObject mouseOver = hit.collider.gameObject;
+                GameObject mouseOver = hit.collider.gameObject.transform.parent.gameObject;
                 if (mouseOver == caster)
                 {
                     //add myself to targets list
                     targets.Add(mouseOver);
-                    mouseOver.GetComponent<SpriteRenderer>().color = Color.red;
+                    mouseOver.GetComponentInChildren<SpriteRenderer>().color = Color.red;
                 }
             }
 
@@ -123,7 +123,7 @@ public abstract class AbilityInterface : MonoBehaviour
                 foreach (GameObject go in targets)
                 {
                     if (go.GetComponent<UnitStats>().isDead() == false)
-                        go.GetComponent<SpriteRenderer>().color = Color.white;
+                        go.GetComponentInChildren<SpriteRenderer>().color = Color.white;
                 }
             }
             catch { }
@@ -132,12 +132,12 @@ public abstract class AbilityInterface : MonoBehaviour
             ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out hit))
             {
-                GameObject mouseOver = hit.collider.gameObject;
+                GameObject mouseOver = hit.collider.gameObject.transform.parent.gameObject;
                 if (mouseOver.tag == "Player")
                 {
-                    //add hovered enemy to targets list
+                    //add hovered player to targets list
                     targets.Add(mouseOver);
-                    mouseOver.GetComponent<SpriteRenderer>().color = Color.red;
+                    mouseOver.GetComponentInChildren<SpriteRenderer>().color = Color.red;
                 }
             }
 
@@ -158,7 +158,7 @@ public abstract class AbilityInterface : MonoBehaviour
                 foreach (GameObject go in targets)
                 {
                     if (go.GetComponent<UnitStats>().isDead() == false)
-                        go.GetComponent<SpriteRenderer>().color = Color.white;
+                        go.GetComponentInChildren<SpriteRenderer>().color = Color.white;
                 }
             }
             catch { }
@@ -167,12 +167,12 @@ public abstract class AbilityInterface : MonoBehaviour
             ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out hit))
             {
-                GameObject mouseOver = hit.collider.gameObject;
+                GameObject mouseOver = hit.collider.gameObject.transform.parent.gameObject;
                 if (mouseOver.tag == "Enemy")
                 {
                     //add hovered enemy to targets list
                     targets.Add(mouseOver);
-                    mouseOver.GetComponent<SpriteRenderer>().color = Color.red;
+                    mouseOver.GetComponentInChildren<SpriteRenderer>().color = Color.red;
                 }
             }
 
@@ -193,21 +193,27 @@ public abstract class AbilityInterface : MonoBehaviour
                 foreach (GameObject go in targets)
                 {
                     if (go.GetComponent<UnitStats>().isDead() == false)
-                        go.GetComponent<SpriteRenderer>().color = Color.white;
+                        go.GetComponentInChildren<SpriteRenderer>().color = Color.white;
                 }
             }
             catch { }
             targets = new List<GameObject>();
-            //check if mousing over myself
             ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out hit))
             {
-                GameObject mouseOver = hit.collider.gameObject;
-                if (mouseOver == caster)
+                GameObject mouseOver = hit.collider.gameObject.transform.parent.gameObject;
+                if (mouseOver.tag == "Enemy")
                 {
-                    //add myself to targets list
-                    targets.Add(mouseOver);
-                    mouseOver.GetComponent<SpriteRenderer>().color = Color.red;
+                    //add all enemies to targets list
+                    GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+                    foreach (GameObject go in enemies)
+                    {
+                        if (go.GetComponent<UnitStats>().isDead() == false)
+                        {
+                            go.GetComponentInChildren<SpriteRenderer>().color = Color.red;
+                            targets.Add(go);
+                        }
+                    }
                 }
             }
 

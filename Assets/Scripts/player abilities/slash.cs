@@ -38,7 +38,7 @@ public class slash : AbilityInterface
         }
         else
         {
-            str = caster.GetComponent<PlayerStats>().Strength.ToString();
+            str = caster.GetComponent<PlayerStats>().Attack.ToString();
         }
         return "Slash an enemy, dealing " + str + " physical damage.";
     }

@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class enrage : AbilityInterface
 {
-    Ray ray;
-    RaycastHit hit;
-
     void Update()
     {
         if (selected)
@@ -26,7 +23,7 @@ public class enrage : AbilityInterface
             ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out hit))
             {
-                GameObject mouseOver = hit.collider.gameObject;
+                GameObject mouseOver = hit.collider.gameObject.transform.parent.gameObject;
                 if (mouseOver.tag == "Enemy")
                 {
                     //add hovered enemy to targets list

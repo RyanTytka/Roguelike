@@ -122,9 +122,9 @@ public class TurnTracker : MonoBehaviour
         for(int i = 0; i < turnOrder.Count; i++)
         {
             turnImages.Add(Instantiate(turnOrderIcon, new Vector3(i * 0.5f, 3, 0), Quaternion.identity, gameObject.transform));
-            turnImages[i].GetComponent<Image>().sprite = turnOrder[i].GetComponent<SpriteRenderer>().sprite;
+            turnImages[i].GetComponent<Image>().sprite = turnOrder[i].GetComponentInChildren<SpriteRenderer>().sprite;
             if(i < turnNumber) //already taken their turn
-                turnImages[i].GetComponent<SpriteRenderer>().color = Color.;
+                turnImages[i].GetComponent<Image>().color = Color.gray;
         }
     }
 }

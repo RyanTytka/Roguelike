@@ -39,7 +39,7 @@ public class frenzy : AbilityInterface
         }
         else
         {
-            str = caster.GetComponent<PlayerStats>().Strength.ToString();
+            str = caster.GetComponent<PlayerStats>().Attack.ToString();
         }
         return "Attack a random enemy three times, dealing " + str + " physical damage each.";
     }

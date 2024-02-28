@@ -34,7 +34,7 @@ public class icestorm : AbilityInterface
         }
         else
         {
-            mgc = (string)(caster.GetComponent<PlayerStats>().Magic * 0.5f);
+            mgc = (caster.GetComponent<PlayerStats>().Magic * 0.5f).ToString();
         }
         return "Deal " + mgc + " magic damage to all enemies and apply Speed Down 2 to them.";
     }

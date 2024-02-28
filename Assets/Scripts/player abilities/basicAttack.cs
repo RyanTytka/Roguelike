@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class basicAttack : AbilityInterface
 {
-    Ray ray;
-    RaycastHit hit;
-
     void Update()
     {
         if (selected)
@@ -17,7 +14,7 @@ public class basicAttack : AbilityInterface
                 foreach (GameObject go in targets)
                 {
                     if (go.GetComponent<UnitStats>().isDead() == false)
-                        go.GetComponent<SpriteRenderer>().color = Color.white;
+                        go.GetComponentInChildren<SpriteRenderer>().color = Color.white;
                 }
             }
             catch { }
@@ -26,12 +23,12 @@ public class basicAttack : AbilityInterface
             ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out hit))
             {
-                GameObject mouseOver = hit.collider.gameObject;
+                GameObject mouseOver = hit.collider.gameObject.transform.parent.gameObject;
                 if (mouseOver.tag == "Enemy")
                 {
                     //add hovered enemy to targets list
                     targets.Add(mouseOver);
-                    mouseOver.GetComponent<SpriteRenderer>().color = Color.red;
+                    mouseOver.GetComponentInChildren<SpriteRenderer>().color = Color.red;
                 }
             }
 
@@ -54,7 +51,7 @@ public class basicAttack : AbilityInterface
         foreach (GameObject go in targets)
         {
             if (go.GetComponent<UnitStats>().isDead() == false)
-                go.GetComponent<SpriteRenderer>().color = Color.white;
+                go.GetComponentInChildren<SpriteRenderer>().color = Color.white;
         }
         //end turn
         selected = false;

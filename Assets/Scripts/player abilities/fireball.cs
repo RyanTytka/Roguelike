@@ -18,7 +18,7 @@ public class fireball : AbilityInterface
                 foreach (GameObject go in targets)
                 {
                     if (go.GetComponent<UnitStats>().isDead() == false)
-                        go.GetComponent<SpriteRenderer>().color = Color.white;
+                        go.GetComponentInChildren<SpriteRenderer>().color = Color.white;
                 }
             }
             catch { }
@@ -27,7 +27,7 @@ public class fireball : AbilityInterface
             ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out hit))
             {
-                GameObject mouseOver = hit.collider.gameObject;
+                GameObject mouseOver = hit.collider.gameObject.transform.parent.gameObject;
                 if (mouseOver.tag == "Enemy")
                 {
                     //get list of enemies
@@ -40,13 +40,13 @@ public class fireball : AbilityInterface
                     if (index > 0)
                     {
                         var leftUnit = enemies[index - 1];
-                        leftUnit.GetComponent<SpriteRenderer>().color = Color.red;
+                        leftUnit.GetComponentInChildren<SpriteRenderer>().color = Color.red;
                         targets.Add(leftUnit);
                     }
                     if (index < enemies.Count - 1)
                     {
                         var rightUnit = enemies[index + 1];
-                        rightUnit.GetComponent<SpriteRenderer>().color = Color.red;
+                        rightUnit.GetComponentInChildren<SpriteRenderer>().color = Color.red;
                         targets.Add(rightUnit);
                     }
                 }

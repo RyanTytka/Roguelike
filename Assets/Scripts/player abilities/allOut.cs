@@ -34,7 +34,7 @@ public class NewBehaviourScript : AbilityInterface
         }
         else
         {
-            atk = (string)(caster.GetComponent<PlayerStats>().Strength * 2);
+            atk = (caster.GetComponent<PlayerStats>().Attack * 2).ToString();
         }
         return "Attack an enemy, dealing " + atk + " physical damage and gaining Strength Down 2.";
     }

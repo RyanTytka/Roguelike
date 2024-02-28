@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &8427657506174460770
+--- !u!1 &839296356958861874
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,40 +8,80 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3072614158950657625}
-  - component: {fileID: 6303194621160936923}
-  - component: {fileID: 8465104180336460941}
-  - component: {fileID: 2406416907856497147}
-  - component: {fileID: 2671607442080176787}
+  - component: {fileID: 3789235826666000606}
+  - component: {fileID: 1037662537333620153}
   m_Layer: 0
-  m_Name: tentacle
-  m_TagString: Enemy
+  m_Name: Collider
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3072614158950657625
+--- !u!4 &3789235826666000606
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8427657506174460770}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -14.046605, y: -3.400985, z: -0.79878455}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 6936635278276319480}
-  m_Father: {fileID: 0}
+  m_GameObject: {fileID: 839296356958861874}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.32, y: 0.11, z: -0.4011535}
+  m_LocalScale: {x: 1.4788442, y: 2.105473, z: 1.6886}
+  m_Children: []
+  m_Father: {fileID: 2922493248090760639}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1037662537333620153
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 839296356958861874}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &7047089065817391060
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 911770434294422554}
+  - component: {fileID: 5546360431086499090}
+  m_Layer: 0
+  m_Name: Sprite
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &911770434294422554
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7047089065817391060}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.46, y: 0.25, z: -0.4011535}
+  m_LocalScale: {x: 3.984835, y: 3.984835, z: 3.984835}
+  m_Children: []
+  m_Father: {fileID: 2922493248090760639}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &6303194621160936923
+--- !u!212 &5546360431086499090
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8427657506174460770}
+  m_GameObject: {fileID: 7047089065817391060}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -79,45 +119,86 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.16, y: 0.16}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8465104180336460941
+--- !u!1 &8565806590925826180
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2922493248090760639}
+  - component: {fileID: 8597583940386721643}
+  - component: {fileID: 2544420547764961821}
+  m_Layer: 0
+  m_Name: Tentacle
+  m_TagString: Enemy
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2922493248090760639
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8565806590925826180}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -11, y: -0.96, z: -0.79878455}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 911770434294422554}
+  - {fileID: 3789235826666000606}
+  - {fileID: 643296882013505445}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8597583940386721643
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8427657506174460770}
+  m_GameObject: {fileID: 8565806590925826180}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 34ff60a56a52143418ed9d76650b8a53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitName: Tentacle
+  unitName: Goblin
   description: 
-  maxHealth: 15
-  currentHealth: 15
+  maxHealth: 8
+  currentHealth: 8
   mana: 0
-  attack: 4
+  attack: 3
   magic: 0
-  defense: 4
+  defense: 2
   resilience: 0
-  speed: 5
+  speed: 8
+  attackMod: 0
+  magicMod: 0
+  defenseMod: 0
+  resMod: 0
+  speedMod: 0
+  manaRegenMod: 0
   turnTimer: 0
   statusEffectIconPrefab: {fileID: 1624661279948346891, guid: de8fbcfd84ebab44998eddefe136e2b1,
     type: 3}
   prefabs: []
---- !u!114 &2406416907856497147
+--- !u!114 &2544420547764961821
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8427657506174460770}
+  m_GameObject: {fileID: 8565806590925826180}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a68529f1779933349b08be5f5d02d292, type: 3}
@@ -125,37 +206,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   possibleAbilities:
   - {fileID: 3732584909606297116, guid: ea5203c8e449a3448b2c33694bd75415, type: 3}
-  difficulty: 0.8
+  difficulty: 0.5
   isBoss: 0
---- !u!65 &2671607442080176787
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8427657506174460770}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.36, y: 1.71, z: 0.2}
-  m_Center: {x: 0, y: -0.18, z: 0}
---- !u!1001 &1217302348836194665
+--- !u!1001 &8667784528673314356
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 3072614158950657625}
+    m_TransformParent: {fileID: 2922493248090760639}
     m_Modifications:
+    - target: {fileID: 8117556915411763652, guid: bf96b2d5bc2821c4aa990ec62536cc4d,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8117556916512297361, guid: bf96b2d5bc2821c4aa990ec62536cc4d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.70442
+      value: -0.32469
       objectReference: {fileID: 0}
     - target: {fileID: 8117556916512297361, guid: bf96b2d5bc2821c4aa990ec62536cc4d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.12
+      value: 1.65
       objectReference: {fileID: 0}
     - target: {fileID: 8117556916512297361, guid: bf96b2d5bc2821c4aa990ec62536cc4d,
         type: 3}
@@ -185,7 +258,7 @@ PrefabInstance:
     - target: {fileID: 8117556916512297361, guid: bf96b2d5bc2821c4aa990ec62536cc4d,
         type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8117556916512297361, guid: bf96b2d5bc2821c4aa990ec62536cc4d,
         type: 3}
@@ -205,7 +278,7 @@ PrefabInstance:
     - target: {fileID: 8117556916512297361, guid: bf96b2d5bc2821c4aa990ec62536cc4d,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 4.2
+      value: 4.3312497
       objectReference: {fileID: 0}
     - target: {fileID: 8117556916512297361, guid: bf96b2d5bc2821c4aa990ec62536cc4d,
         type: 3}
@@ -219,9 +292,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bf96b2d5bc2821c4aa990ec62536cc4d, type: 3}
---- !u!4 &6936635278276319480 stripped
+--- !u!4 &643296882013505445 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8117556916512297361, guid: bf96b2d5bc2821c4aa990ec62536cc4d,
     type: 3}
-  m_PrefabInstance: {fileID: 1217302348836194665}
+  m_PrefabInstance: {fileID: 8667784528673314356}
   m_PrefabAsset: {fileID: 0}

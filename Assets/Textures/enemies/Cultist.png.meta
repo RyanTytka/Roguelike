@@ -1,31 +1,31 @@
 fileFormatVersion: 2
-guid: 34cc40ad96358a542a44eb634d99fd28
+guid: 5dbf49a301ab0eb4fbe3a9eec9f0f49d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3799508404887519019
-    second: Orc_0
+      213: 1012188541264668013
+    second: Cultist_0
   - first:
-      213: -9003958548615516068
-    second: Orc_1
+      213: 9036486259378387770
+    second: Cultist_1
   - first:
-      213: -4848521796537363852
-    second: Orc_2
+      213: -4094435366003946609
+    second: Cultist_2
   - first:
-      213: -4561745191760880128
-    second: Orc_3
+      213: -1265494479681556460
+    second: Cultist_3
   - first:
-      213: 2090174075836721236
-    second: Orc_4
+      213: 1571668205195289280
+    second: Cultist_4
   - first:
-      213: -104981853600970874
-    second: Orc_5
+      213: -5018462377149142638
+    second: Cultist_5
   - first:
-      213: 2897101806617490989
-    second: Orc_6
+      213: 8909606718232716730
+    second: Cultist_6
   - first:
-      213: -5387681273772109387
-    second: Orc_7
+      213: -7821949336605958844
+    second: Cultist_7
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -71,7 +71,7 @@ TextureImporter:
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spriteGenerateFallbackPhysicsShape: 1
+  spriteGenerateFallbackPhysicsShape: 0
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -123,13 +123,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Orc_0
+      name: Cultist_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 32
-        width: 32
-        height: 32
+        y: 16
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -137,20 +137,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b2f7e6a73c09ab430800000000000000
-      internalID: 3799508404887519019
+      spriteID: d652dcf8d140c0e00800000000000000
+      internalID: 1012188541264668013
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Orc_1
+      name: Cultist_1
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3b72f3206c086d70800000000000000
+      internalID: 9036486259378387770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cultist_2
       rect:
         serializedVersion: 2
         x: 32
-        y: 32
-        width: 32
-        height: 32
+        y: 16
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -158,20 +179,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c503e61b7638b0380800000000000000
-      internalID: -9003958548615516068
+      spriteID: f8bc9855ab4ad27c0800000000000000
+      internalID: -4094435366003946609
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Orc_2
+      name: Cultist_3
       rect:
         serializedVersion: 2
-        x: 64
-        y: 32
-        width: 32
-        height: 32
+        x: 48
+        y: 16
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -179,41 +200,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 472d6a75d1796bcb0800000000000000
-      internalID: -4848521796537363852
+      spriteID: 410fc51c97f007ee0800000000000000
+      internalID: -1265494479681556460
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Orc_3
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 32
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 00e1f31daec61b0c0800000000000000
-      internalID: -4561745191760880128
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Orc_4
+      name: Cultist_4
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 32
-        height: 32
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -221,20 +221,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4586afc6f3ac10d10800000000000000
-      internalID: 2090174075836721236
+      spriteID: 0c2e073d7efafc510800000000000000
+      internalID: 1571668205195289280
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Orc_5
+      name: Cultist_5
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 299ec539e07da5ab0800000000000000
+      internalID: -5018462377149142638
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Cultist_6
       rect:
         serializedVersion: 2
         x: 32
         y: 0
-        width: 32
-        height: 32
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -242,20 +263,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 68780447f870b8ef0800000000000000
-      internalID: -104981853600970874
+      spriteID: ab5e1b8ea1845ab70800000000000000
+      internalID: 8909606718232716730
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Orc_6
+      name: Cultist_7
       rect:
         serializedVersion: 2
-        x: 64
+        x: 48
         y: 0
-        width: 32
-        height: 32
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -263,29 +284,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d26f39d5eb2943820800000000000000
-      internalID: 2897101806617490989
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Orc_7
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5b11ac93d6c1b35b0800000000000000
-      internalID: -5387681273772109387
+      spriteID: 44ddf74558ad27390800000000000000
+      internalID: -7821949336605958844
       vertices: []
       indices: 
       edges: []
