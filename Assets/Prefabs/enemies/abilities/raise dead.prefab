@@ -43,6 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adfdadc508b25404ea124aafa338c540, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  traits: []
   targets: []
   caster: {fileID: 0}
   manaCost: 0
@@ -52,5 +53,5 @@ MonoBehaviour:
   image: {fileID: -8539944179904504042, guid: 36654eb29cc9163448129d8b3996a915, type: 3}
   selected: 0
   statusEffect: {fileID: 0}
-  skeletonPrefab: {fileID: 6518903012773142904, guid: 27cfa6813faca434aae5a086347febb8,
+  skeletonPrefab: {fileID: 8016316106468096255, guid: 4f01f0959370a514a943916f6747a713,
     type: 3}

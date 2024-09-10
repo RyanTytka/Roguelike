@@ -18,7 +18,8 @@ public class ItemHoverDisplay : MonoBehaviour
         currentInfoDisplay = Instantiate(infoDisplay, GameObject.Find("Canvas").transform);
         currentInfoDisplay.transform.position = new Vector3(transform.position.x, transform.position.y + 1, 0);
 
-        currentInfoDisplay.GetComponentInChildren<Text>().text = itemObj.GetComponent<ItemInterface>().description;
+        currentInfoDisplay.GetComponentsInChildren<Text>()[0].text = itemObj.GetComponent<ItemInterface>().name;
+        currentInfoDisplay.GetComponentsInChildren<Text>()[1].text = itemObj.GetComponent<ItemInterface>().description;
     }
 
     public void OnMouseExit()

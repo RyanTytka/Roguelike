@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3999793087827236600}
-  - component: {fileID: -4828797176910114129}
   - component: {fileID: -6465371279654279323}
+  - component: {fileID: 1856510862356713174}
   m_Layer: 0
   m_Name: Boots of Swiftness
   m_TagString: Untagged
@@ -32,28 +32,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-4828797176910114129
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9185470880305436546}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 992b0e5cd44f0b94981db91f478b0900, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemType: 0
-  itemName: Boots of Swiftness
-  description: Increases speed
-  image: {fileID: 21300000, guid: 53150a952971b4a40a81a09d0151905c, type: 3}
-  statBoosts: 
-  inventoryItem: {fileID: 0}
-  equippedBy: {fileID: 0}
-  infoDisplay: {fileID: 2861884166923151974, guid: f2a69968a6771ad45bbb7c7913e86bb5,
-    type: 3}
-  currentInfoDisplay: {fileID: 0}
 --- !u!61 &-6465371279654279323
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -80,3 +58,23 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 10.54, y: 9.85}
   m_EdgeRadius: 0
+--- !u!114 &1856510862356713174
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9185470880305436546}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab224d59c5d2e3a4193cf6a1a8077977, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemType: 0
+  itemName: Boots of Switftness
+  description: Gain speed
+  image: {fileID: 21300000, guid: daa3d5005f88cac45ae0b068d836cf21, type: 3}
+  statBoosts: 0000000000000000000000000000000000000000000000000000000005000000
+  inventoryItem: {fileID: 8364549837452557084, guid: 0f8d187930c987142b8ead86acacba35,
+    type: 3}
+  equippedBy: {fileID: 0}

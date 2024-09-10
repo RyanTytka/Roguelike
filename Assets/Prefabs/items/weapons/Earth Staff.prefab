@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5054460174074187270}
-  - component: {fileID: 4276254112165966234}
+  - component: {fileID: 5718458369063459889}
   m_Layer: 0
   m_Name: Earth Staff
   m_TagString: Untagged
@@ -31,7 +31,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4276254112165966234
+--- !u!114 &5718458369063459889
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -40,15 +40,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1132981646735270770}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d58f351a157ca14d96d01ca84540479, type: 3}
+  m_Script: {fileID: 11500000, guid: ab224d59c5d2e3a4193cf6a1a8077977, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   itemType: 1
   itemName: Earth Staff
-  description: Heals better
+  description: Gain nature magic
   image: {fileID: 21300000, guid: 699a3ede527b34044a274756733da052, type: 3}
-  statBoosts: 
-  inventoryItem: {fileID: 0}
-  equippedBy: {fileID: 0}
-  infoDisplay: {fileID: 2861884166923151974, guid: f2a69968a6771ad45bbb7c7913e86bb5,
+  statBoosts: 0000000000000000000000000000000008000000000000000000000000000000
+  inventoryItem: {fileID: 8364549837452557084, guid: 0f8d187930c987142b8ead86acacba35,
     type: 3}
+  equippedBy: {fileID: 0}

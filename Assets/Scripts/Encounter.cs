@@ -18,9 +18,12 @@ public class Encounter : MonoBehaviour
 
     // similar types of enemies spawn together
     public List<int[]> buckets = new List<int[]> { 
-        //new int[] { (int)E.GOBLIN, (int)E.GOBLIN_APPRENTICE, (int)E.GOBLIN_KNIGHT, (int)E.GOBLIN_SHAMAN, (int)E.GOBLIN_SPEARMAN, (int)E.ORC }, //goblins
-        new int[] { (int)E.TENTACLE, (int)E.CULTIST }, //cultists
-        //new int[] { (int)E.SKELETON } //undead
+        //goblins
+        new int[] { (int)E.GOBLIN, (int)E.GOBLIN_APPRENTICE, (int)E.GOBLIN_KNIGHT, (int)E.GOBLIN_SHAMAN, (int)E.GOBLIN_SPEARMAN, (int)E.ORC }, 
+        //cultists
+        new int[] { (int)E.TENTACLE, (int)E.CULTIST }, 
+        //undead
+        new int[] { (int)E.SKELETON } 
     }; 
 
     private List<GameObject> enemies = new List<GameObject>();

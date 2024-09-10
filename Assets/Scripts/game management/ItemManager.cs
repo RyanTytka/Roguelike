@@ -16,7 +16,7 @@ public class ItemManager : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
     }
 
-    //randomly select and display three abilities to choose from after a battle
+    //randomly select and display three items to choose from after a battle
     public void DisplayNewItems()
     {
 

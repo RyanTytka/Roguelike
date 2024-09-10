@@ -8,6 +8,9 @@ TagManager:
   - EnemyUnit
   - PlayerUnit
   - Enemy
+  - weaponSlot
+  - armorSlot
+  - relicSlot
   layers:
   - Default
   - TransparentFX

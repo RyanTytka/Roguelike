@@ -23,8 +23,8 @@ public class EventManager : MonoBehaviour
             {
                 case 2: //heal fountain
                     LoadBackground(backgrounds[0]);
-                    string s = "You find a fountain that glows with life.Your party takes a drink and feels rejuvinated.";
-                    GameObject t = CreateText(s, 0, 100, 400, 200, Color.white, 30);
+                    //string s = "You find a fountain that glows with life.Your party takes a drink and feels rejuvinated.";
+                    //GameObject t = CreateText(s, 0, 100, 400, 200, Color.white, 30);
                     GameObject b = CreateButton("Continue", 0, 0, 100, 30);
                     b.GetComponent<Button>().onClick.AddListener(delegate
                     {

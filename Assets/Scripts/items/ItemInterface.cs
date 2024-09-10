@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public enum ItemType { ARMOR = 0, WEAPON = 1, ARTIFACT = 2 }
 
-public abstract class ItemInterface : MonoBehaviour
+public class ItemInterface : MonoBehaviour
 {
     public ItemType itemType;
     public string itemName, description;
