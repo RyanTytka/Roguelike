@@ -1,37 +1,55 @@
 public enum EnemyTypeEnum{
-    //goblins
-    GOBLIN=0,           
-    GOBLIN_SHAMAN,
-    GOBLIN_APPRENTICE,
-    GOBLIN_KNIGHT,
-    GOBLIN_SPEARMAN,
-    ORC,
     //cultists
-    CULTIST,            
+    CULTIST = 0,            
     TENTACLE,
     SPAWN_OF_THE_OLD_ONE,
     //undead
     SKELETON,
+    SKELETON_KNIGHT,
+    SKELETON_LORD,
     ZOMBIE,
-    GHOST,
-    WITCH,
-    BONE_HOUND,
+    LICH,
+    SOUL_COLLECTOR,
     //demons
+    CHAIN_DEMON,
     VOID_DEMON,
-    FLAME_DEMON,
-    SLAVER,
+    FLYING_EYE,
     IMP,
-    //humans
-    ASSASSIN,
-    BERSERKER,
-    WITCH_DOCTOR,
+    //nature
+    CARNIVOROUS_PLANT,
+    GIANT_SPIDER,
+    HERMIT,
+    MONSTER_PLANT,
+    MUSHROOM,
+    WATER_SPIRIT,
+    //constructs
+    CLAY_GOLEM,
+    STONE_GOLEM,
+    ICE_GOLEM,
+    //creatures
+    HOUND,
+    SNAKE,
+    WENDIGO,
+    WEREWOLF,
+    VAMPIRE,
+    //humanoid
+    GOBLIN,
+    ORC,
     WIZARD,
-    DRUID,
-    KNIGHT,
-    //boss 1
+    //ooze
+    OOZE,
+    TOXIC_OOZE,
+    //spirits
+    GHOST_HOUND,
+    GHOST_WIZARD,
+    WRAITH,
+    //bosses
     SKELETON_KING,      
-    UNDYING_SOLDIER,
     BONE_PILE,
+    LICH_KING,
+    BEHOLDER,
+    ICE_DRAGON,
+    ORC_KING
 }
 
 public enum EquipmentTypeEnum{
