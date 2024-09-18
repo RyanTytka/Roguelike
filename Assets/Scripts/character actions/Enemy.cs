@@ -20,12 +20,24 @@ public class Enemy : MonoBehaviour
 
     public void TakeTurn()
     {
-        //need a system for enemies that have more specific action sequences. maybe:
-        //if(I am a zombie)
-        //{ Choose from Zombie abilities }
-        int abilityNum = Random.Range(0, possibleAbilities.Count);
-        possibleAbilities[abilityNum].GetComponent<AbilityInterface>().caster = this.gameObject;
-        possibleAbilities[abilityNum].GetComponent<AbilityInterface>().Use();
+        if (GetComponent<ActingUnit>().unitName == "Cultist")
+        {
+            int abilityNum = Random.Range(0, possibleAbilities.Count);
+            possibleAbilities[abilityNum].GetComponent<AbilityInterface>().caster = this.gameObject;
+            possibleAbilities[abilityNum].GetComponent<AbilityInterface>().Use();
+        }
+        if (GetComponent<ActingUnit>().unitName == "Tentacle")
+        {
+            int abilityNum = Random.Range(0, possibleAbilities.Count);
+            possibleAbilities[abilityNum].GetComponent<AbilityInterface>().caster = this.gameObject;
+            possibleAbilities[abilityNum].GetComponent<AbilityInterface>().Use();
+        }
+        else
+        {
+            int abilityNum = Random.Range(0, possibleAbilities.Count);
+            possibleAbilities[abilityNum].GetComponent<AbilityInterface>().caster = this.gameObject;
+            possibleAbilities[abilityNum].GetComponent<AbilityInterface>().Use();
+        }
     }
 
     void OnMouseOver()

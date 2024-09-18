@@ -14,13 +14,33 @@ public class Encounter : MonoBehaviour
     
     // one list item is an array that contains the ids for each enemy in that boss encounter
     public List<int[]> bossEncounters = new List<int[]> { 
-        new int[] { (int)E.BONE_PILE, (int)E.BONE_PILE, (int)E.SKELETON_KING } }; 
+        new int[] { (int)E.BONE_PILE, (int)E.BONE_PILE, (int)E.SKELETON_KING },
+        new int[] { (int)E.LICH_KING },
+        new int[] { (int)E.ORC_KING },
+        new int[] { (int)E.BEHOLDER },
+        new int[] { (int)E.ICE_DRAGON },
+    }; 
 
     // similar types of enemies spawn together
     public List<int[]> buckets = new List<int[]> { 
-        //new int[] { (int)E.GOBLIN, (int)E.GOBLIN_APPRENTICE, (int)E.GOBLIN_KNIGHT, (int)E.GOBLIN_SHAMAN, (int)E.GOBLIN_SPEARMAN, (int)E.ORC }, //goblins
-        new int[] { (int)E.TENTACLE, (int)E.CULTIST }, //cultists
-        //new int[] { (int)E.SKELETON } //undead
+        //cultists
+        new int[] { (int)E.TENTACLE, (int)E.CULTIST }, 
+        //undead
+        new int[] { (int)E.ZOMBIE, (int)E.LICH, (int)E.SKELETON, (int)E.SOUL_COLLECTOR, (int)E.SKELETON_KNIGHT, (int)E.SKELETON_LORD },
+        //spirits
+        new int[] { (int)E.GHOST_WIZARD, (int)E.GHOST_HOUND, (int)E.WRAITH },
+        //demons
+        new int[] { (int)E.CHAIN_DEMON, (int)E.VOID_DEMON, (int)E.FLYING_EYE, (int)E.IMP },
+        //nature
+        new int[] { (int)E.CARNIVOROUS_PLANT, (int)E.GIANT_SPIDER, (int)E.HERMIT, (int)E.MONSTER_PLANT, (int)E.MUSHROOM, (int)E.WATER_SPIRIT },
+        //constructs
+        new int[] { (int)E.CLAY_GOLEM, (int)E.STONE_GOLEM, (int)E.ICE_GOLEM },
+        //creatures
+        new int[] { (int)E.HOUND, (int)E.SNAKE, (int)E.WENDIGO, (int)E.WEREWOLF, (int)E.VAMPIRE },
+        //humanoid
+        new int[] { (int)E.GOBLIN, (int)E.ORC, (int)E.WIZARD },
+        //ooze
+        new int[] { (int)E.OOZE, (int)E.TOXIC_OOZE }
     }; 
 
     private List<GameObject> enemies = new List<GameObject>();

@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9135296565231235359}
-  - component: {fileID: 7330682916254908649}
+  - component: {fileID: 7541299763245448563}
   m_Layer: 0
   m_Name: Ring Of Magic
   m_TagString: Untagged
@@ -31,7 +31,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7330682916254908649
+--- !u!114 &7541299763245448563
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -40,15 +40,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 4970903984408745278}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c74a2bf1ec8330e44bd2bd0a5ca1dc57, type: 3}
+  m_Script: {fileID: 11500000, guid: ab224d59c5d2e3a4193cf6a1a8077977, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   itemType: 2
   itemName: Ring of Magic
-  description: Gives magic power (+5 magic)
-  image: {fileID: 21300000, guid: 36df334cd29da0d4782e08dbdf7f1fc5, type: 3}
+  description: Gain Magic
+  image: {fileID: 21300000, guid: 740f43ccc9def2b4cbe3b2a48316bdf0, type: 3}
   statBoosts: 0000000000000000000000000000000005000000000000000000000000000000
-  inventoryItem: {fileID: 0}
-  equippedBy: {fileID: 0}
-  infoDisplay: {fileID: 2861884166923151974, guid: f2a69968a6771ad45bbb7c7913e86bb5,
+  inventoryItem: {fileID: 8364549837452557084, guid: 0f8d187930c987142b8ead86acacba35,
     type: 3}
+  equippedBy: {fileID: 0}

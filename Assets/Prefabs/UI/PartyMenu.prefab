@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5506654819196113577}
   m_Layer: 0
   m_Name: weapon
-  m_TagString: Untagged
+  m_TagString: weaponSlot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -340,7 +340,7 @@ GameObject:
   - component: {fileID: 897753499269841146}
   m_Layer: 0
   m_Name: artifact
-  m_TagString: Untagged
+  m_TagString: relicSlot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1120,7 +1120,7 @@ GameObject:
   - component: {fileID: 6329698945109203202}
   - component: {fileID: 6329698945109203204}
   - component: {fileID: 6329698945109203203}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: partyTitle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1429,7 +1429,7 @@ GameObject:
   - component: {fileID: 6329698946604124196}
   - component: {fileID: 6329698946604124198}
   - component: {fileID: 6329698946604124197}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Party
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1444,7 +1444,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6329698946604124195}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 91.06557}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.030594977, y: 0.030594977, z: 0.030594977}
   m_Children:
   - {fileID: 6329698945109203202}
@@ -1667,7 +1667,7 @@ GameObject:
   - component: {fileID: 2015771464819209418}
   m_Layer: 0
   m_Name: armor
-  m_TagString: Untagged
+  m_TagString: armorSlot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

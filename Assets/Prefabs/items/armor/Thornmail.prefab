@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3999793087827236600}
-  - component: {fileID: -4828797176910114129}
   - component: {fileID: 3749018884536957831}
+  - component: {fileID: 3735240220852941306}
   m_Layer: 0
   m_Name: Thornmail
   m_TagString: Untagged
@@ -32,28 +32,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-4828797176910114129
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9185470880305436546}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 992b0e5cd44f0b94981db91f478b0900, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemType: 0
-  itemName: Thornmail
-  description: Armor that bites back
-  image: {fileID: 21300000, guid: b28db78fe4013d04b87246d863655499, type: 3}
-  statBoosts: 
-  inventoryItem: {fileID: 0}
-  equippedBy: {fileID: 0}
-  infoDisplay: {fileID: 2861884166923151974, guid: f2a69968a6771ad45bbb7c7913e86bb5,
-    type: 3}
-  currentInfoDisplay: {fileID: 0}
 --- !u!61 &3749018884536957831
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -80,3 +58,23 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &3735240220852941306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9185470880305436546}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab224d59c5d2e3a4193cf6a1a8077977, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemType: 0
+  itemName: Thornmail
+  description: Ouch pointy
+  image: {fileID: 21300000, guid: 0efdce7767f54d74fb5fb0de938d4546, type: 3}
+  statBoosts: 0000000000000000000000000000000000000000050000000000000000000000
+  inventoryItem: {fileID: 8364549837452557084, guid: 0f8d187930c987142b8ead86acacba35,
+    type: 3}
+  equippedBy: {fileID: 0}

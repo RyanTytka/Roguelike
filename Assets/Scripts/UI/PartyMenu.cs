@@ -52,7 +52,21 @@ public class PartyMenu : MonoBehaviour
         //update display stats with new items
         GetComponentInChildren<DisplayStats>().SetStats(selectedPlayer);
         //unhighlight selected item
-        
+        selectedItem.GetComponent<InventoryItem>().selected = false;
+        //unhighlight applicable slot
+        if (selectedItem.GetComponent<InventoryItem>().itemReference.GetComponent<ItemInterface>().itemType == ItemType.WEAPON)
+        {
+            GameObject.FindGameObjectWithTag("weaponSlot").GetComponent<Image>().color = Color.white;
+        }
+        if (selectedItem.GetComponent<InventoryItem>().itemReference.GetComponent<ItemInterface>().itemType == ItemType.ARMOR)
+        {
+            GameObject.FindGameObjectWithTag("armorSlot").GetComponent<Image>().color = Color.white;
+        }
+        if (selectedItem.GetComponent<InventoryItem>().itemReference.GetComponent<ItemInterface>().itemType == ItemType.ARTIFACT)
+        {
+            GameObject.FindGameObjectWithTag("relicSlot").GetComponent<Image>().color = Color.white;
+        }
+        selectedItem = null;
     }
 
     public void Display(List<GameObject> party)
@@ -109,6 +123,19 @@ public class PartyMenu : MonoBehaviour
                 }
                 if (selectedItem == item)
                 {
+                    //unhighlight applicable slot
+                    if (selectedItem.GetComponent<InventoryItem>().itemReference.GetComponent<ItemInterface>().itemType == ItemType.WEAPON)
+                    {
+                        GameObject.FindGameObjectWithTag("weaponSlot").GetComponent<Image>().color = Color.white;
+                    }
+                    if (selectedItem.GetComponent<InventoryItem>().itemReference.GetComponent<ItemInterface>().itemType == ItemType.ARMOR)
+                    {
+                        GameObject.FindGameObjectWithTag("armorSlot").GetComponent<Image>().color = Color.white;
+                    }
+                    if (selectedItem.GetComponent<InventoryItem>().itemReference.GetComponent<ItemInterface>().itemType == ItemType.ARTIFACT)
+                    {
+                        GameObject.FindGameObjectWithTag("relicSlot").GetComponent<Image>().color = Color.white;
+                    }
                     //deselect currently selected item
                     selectedItem = null;
                 }
@@ -116,6 +143,19 @@ public class PartyMenu : MonoBehaviour
                 {
                     selectedItem = item;
                     selectedItem.GetComponent<InventoryItem>().selected = true;
+                    //highlight applicable slot
+                    if (selectedItem.GetComponent<InventoryItem>().itemReference.GetComponent<ItemInterface>().itemType == ItemType.WEAPON)
+                    {
+                        GameObject.FindGameObjectWithTag("weaponSlot").GetComponent<Image>().color = Color.yellow;
+                    }
+                    if (selectedItem.GetComponent<InventoryItem>().itemReference.GetComponent<ItemInterface>().itemType == ItemType.ARMOR)
+                    {
+                        GameObject.FindGameObjectWithTag("armorSlot").GetComponent<Image>().color = Color.yellow;
+                    }
+                    if (selectedItem.GetComponent<InventoryItem>().itemReference.GetComponent<ItemInterface>().itemType == ItemType.ARTIFACT)
+                    {
+                        GameObject.FindGameObjectWithTag("relicSlot").GetComponent<Image>().color = Color.yellow;
+                    }
                 }
             });
         }
