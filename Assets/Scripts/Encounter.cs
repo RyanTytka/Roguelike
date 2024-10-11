@@ -113,17 +113,17 @@ private List<GameObject> enemies = new List<GameObject>();
             eventID = Random.Range(0, 3);
             switch (eventID)
             {
-                case 0: //treasure room
+                case EventType.TREASURE: //treasure room
                     type = EncounterType.TREASURE;
                     GenerateEncounter(difficulty);
                     type = EncounterType.EVENT;
                     break;
-                case 1: //enemy room
+                case EventType.ENEMY: //enemy room
                     type = EncounterType.ENEMY;
                     GenerateEncounter(difficulty);
                     type = EncounterType.EVENT;
                     break;
-                case 2: //heal party
+                case EventType.HEAL: //heal party
 
                     break;
             }
