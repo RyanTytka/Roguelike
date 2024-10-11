@@ -13,7 +13,7 @@ public class stab : AbilityInterface
     {
         foreach (GameObject obj in targets)
         {
-            obj.GetComponent<UnitStats>().TakeDamage(caster.GetComponent<PlayerStats>().Attack, 1);
+            obj.GetComponent<UnitStats>().TakeDamage(caster.GetComponent<PlayerStats>().Attack, 1); 
         }
 
         //clear targets and end turn

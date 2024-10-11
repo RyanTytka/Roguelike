@@ -49,14 +49,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitName: Skeleton Knight
   description: 
-  maxHealth: 8
-  currentHealth: 8
+  maxHealth: 9
+  currentHealth: 9
   mana: 0
   attack: 6
-  magic: 3
-  defense: 10
-  resilience: 8
-  speed: 6
+  magic: 0
+  defense: 6
+  resilience: 3
+  speed: 4
   attackMod: 0
   magicMod: 0
   defenseMod: 0

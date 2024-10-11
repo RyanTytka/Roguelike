@@ -43,6 +43,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b177743545b863f4ea5193004c97ae9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  traits:
+  - Basic
+  - Melee
+  playerClass: 0
   targets: []
   caster: {fileID: 0}
   manaCost: 0
@@ -51,3 +55,4 @@ MonoBehaviour:
   description: Stab an enemy
   image: {fileID: 21300000, guid: 32a873933c3e5cf41bd1ff82ee7210d2, type: 3}
   selected: 0
+  statusEffect: {fileID: 0}

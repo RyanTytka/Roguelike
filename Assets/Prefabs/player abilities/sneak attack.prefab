@@ -43,6 +43,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c1bd818a6ade4745b029be3fc4d42dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  traits: []
+  playerClass: 1
   targets: []
   caster: {fileID: 0}
   manaCost: 2
@@ -50,3 +52,5 @@ MonoBehaviour:
   abilityName: Sneak Attack
   description: Deal damage based on speed
   image: {fileID: 21300000, guid: 8b0b3420f8e955441a577dec301997ed, type: 3}
+  selected: 0
+  statusEffect: {fileID: 0}

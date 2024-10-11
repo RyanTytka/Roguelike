@@ -96,11 +96,11 @@ MonoBehaviour:
   maxHealth: 9
   currentHealth: 9
   mana: 0
-  attack: 7
-  magic: 5
-  defense: 6
-  resilience: 8
-  speed: 8
+  attack: 6
+  magic: 4
+  defense: 12
+  resilience: 10
+  speed: 3
   attackMod: 0
   magicMod: 0
   defenseMod: 0

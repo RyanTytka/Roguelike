@@ -91,15 +91,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ff60a56a52143418ed9d76650b8a53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitName: Cultist
+  unitName: Soul Collector
   description: 
-  maxHealth: 9
-  currentHealth: 9
+  maxHealth: 12
+  currentHealth: 12
   mana: 0
-  attack: 7
-  magic: 5
+  attack: 8
+  magic: 10
   defense: 6
-  resilience: 8
+  resilience: 6
   speed: 8
   attackMod: 0
   magicMod: 0

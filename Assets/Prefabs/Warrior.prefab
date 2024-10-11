@@ -50,18 +50,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27e975f1ef66040449ba362446f578b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  turnTimer: 0
-  playerName: Warrior
+  unitName: 
+  description: 
   maxHealth: 12
   currentHealth: 12
-  maxMana: 6
-  currentMana: 6
-  manaRegen: 1.5
+  mana: 0
   attack: 8
   magic: 1
   defense: 9
   resilience: 8
   speed: 6
+  attackMod: 0
+  magicMod: 0
+  defenseMod: 0
+  resMod: 0
+  speedMod: 0
+  manaRegenMod: 0
+  turnTimer: 0
+  playerName: Warrior
+  maxMana: 6
+  currentMana: 6
+  manaRegen: 1.5
   level: 1
   xp: 0
   levelUps: 0
@@ -227,9 +236,29 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1753770746023882859, guid: 92f61f9c44ce17143a5421cea534c83a,
         type: 3}
+      propertyPath: traits.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1753770746023882859, guid: 92f61f9c44ce17143a5421cea534c83a,
+        type: 3}
       propertyPath: caster
       value: 
       objectReference: {fileID: 4745044831338327750}
+    - target: {fileID: 1753770746023882859, guid: 92f61f9c44ce17143a5421cea534c83a,
+        type: 3}
+      propertyPath: abilityName
+      value: Slash
+      objectReference: {fileID: 0}
+    - target: {fileID: 1753770746023882859, guid: 92f61f9c44ce17143a5421cea534c83a,
+        type: 3}
+      propertyPath: traits.Array.data[0]
+      value: Basic
+      objectReference: {fileID: 0}
+    - target: {fileID: 1753770746023882859, guid: 92f61f9c44ce17143a5421cea534c83a,
+        type: 3}
+      propertyPath: traits.Array.data[1]
+      value: Melee
+      objectReference: {fileID: 0}
     - target: {fileID: 8447949290602039168, guid: 92f61f9c44ce17143a5421cea534c83a,
         type: 3}
       propertyPath: m_Name

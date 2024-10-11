@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NewBehaviourScript : AbilityInterface
+public class allOut : AbilityInterface
 {
     void Update()
     {

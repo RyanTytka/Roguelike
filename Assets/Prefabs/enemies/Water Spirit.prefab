@@ -131,14 +131,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitName: Water Spirit
   description: 
-  maxHealth: 9
-  currentHealth: 9
+  maxHealth: 4
+  currentHealth: 4
   mana: 0
-  attack: 7
+  attack: 1
   magic: 5
-  defense: 6
-  resilience: 8
-  speed: 8
+  defense: 1
+  resilience: 5
+  speed: 7
   attackMod: 0
   magicMod: 0
   defenseMod: 0

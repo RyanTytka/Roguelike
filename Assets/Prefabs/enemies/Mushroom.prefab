@@ -47,16 +47,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ff60a56a52143418ed9d76650b8a53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitName: Cultist
+  unitName: Mushroom
   description: 
-  maxHealth: 9
-  currentHealth: 9
+  maxHealth: 3
+  currentHealth: 3
   mana: 0
-  attack: 7
-  magic: 5
-  defense: 6
-  resilience: 8
-  speed: 8
+  attack: 3
+  magic: 2
+  defense: 1
+  resilience: 2
+  speed: 4
   attackMod: 0
   magicMod: 0
   defenseMod: 0

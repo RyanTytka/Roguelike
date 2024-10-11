@@ -44,8 +44,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemType: 2
+  playerClass: 3
+  rarity: 0
   itemName: Tooth Neckalce
-  description: Rarw XD
+  description: Gain atk and spd
   image: {fileID: 21300000, guid: 5e017f78f41657b44ac96926cfe64f06, type: 3}
   statBoosts: 0000000000000000000000000200000000000000000000000000000002000000
   inventoryItem: {fileID: 8364549837452557084, guid: 0f8d187930c987142b8ead86acacba35,

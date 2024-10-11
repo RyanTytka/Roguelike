@@ -99,7 +99,7 @@ MonoBehaviour:
   attack: 0
   magic: 0
   defense: 5
-  resilience: 2
+  resilience: 5
   speed: 0
   attackMod: 0
   magicMod: 0

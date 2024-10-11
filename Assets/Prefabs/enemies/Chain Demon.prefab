@@ -131,14 +131,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitName: Chain Demon
   description: 
-  maxHealth: 9
-  currentHealth: 9
+  maxHealth: 15
+  currentHealth: 15
   mana: 0
-  attack: 7
-  magic: 5
-  defense: 6
-  resilience: 8
-  speed: 8
+  attack: 10
+  magic: 6
+  defense: 12
+  resilience: 10
+  speed: 2
   attackMod: 0
   magicMod: 0
   defenseMod: 0

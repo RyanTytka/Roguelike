@@ -173,16 +173,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ff60a56a52143418ed9d76650b8a53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitName: Orc
+  unitName: Orc King
   description: 
-  maxHealth: 80
-  currentHealth: 10
+  maxHealth: 37
+  currentHealth: 37
   mana: 0
-  attack: 10
-  magic: 5
-  defense: 14
-  resilience: 10
-  speed: 4
+  attack: 18
+  magic: 3
+  defense: 20
+  resilience: 4
+  speed: 2
   attackMod: 0
   magicMod: 0
   defenseMod: 0

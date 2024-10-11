@@ -44,6 +44,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemType: 2
+  playerClass: 3
+  rarity: 0
   itemName: Magic Shield Orb
   description: Gain Resilience
   image: {fileID: 21300000, guid: ac462b318a199ae48a5f55b47878f367, type: 3}

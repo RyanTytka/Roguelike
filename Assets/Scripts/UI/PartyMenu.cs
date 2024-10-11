@@ -17,11 +17,14 @@ public class PartyMenu : MonoBehaviour
 
     public Sprite[] defaultEquipIcons;
 
+    public GameObject InventoryObj;
+
     public void Close()
     {
         GameObject.Find("PlayerParty").GetComponent<PartyManager>().partyMenuOpen = false;
         Destroy(this.gameObject);
     }
+
 
     //when an equipment slot button is clicked, equip the selected item
     public void EquipButtonClick(int type)

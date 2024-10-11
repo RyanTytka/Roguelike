@@ -66,18 +66,18 @@ MonoBehaviour:
   - '-'
   - Doom
   icons:
-  - {fileID: 21300000, guid: f5d7e965031d96549bbe571bc553dd15, type: 3}
-  - {fileID: 21300000, guid: bcfe5cc24a176f84c8b81e7abe676eb7, type: 3}
-  - {fileID: 21300000, guid: bcfe5cc24a176f84c8b81e7abe676eb7, type: 3}
-  - {fileID: 21300000, guid: bcfe5cc24a176f84c8b81e7abe676eb7, type: 3}
-  - {fileID: 21300000, guid: bcfe5cc24a176f84c8b81e7abe676eb7, type: 3}
-  - {fileID: 21300000, guid: bcfe5cc24a176f84c8b81e7abe676eb7, type: 3}
-  - {fileID: 21300000, guid: bcfe5cc24a176f84c8b81e7abe676eb7, type: 3}
-  - {fileID: 21300000, guid: bcfe5cc24a176f84c8b81e7abe676eb7, type: 3}
-  - {fileID: 21300000, guid: bcfe5cc24a176f84c8b81e7abe676eb7, type: 3}
-  - {fileID: 21300000, guid: bcfe5cc24a176f84c8b81e7abe676eb7, type: 3}
-  - {fileID: 21300000, guid: bcfe5cc24a176f84c8b81e7abe676eb7, type: 3}
-  - {fileID: 21300000, guid: bcfe5cc24a176f84c8b81e7abe676eb7, type: 3}
+  - {fileID: -7985981561052953894, guid: 8b984bb52e52dd549897a1422c6b2251, type: 3}
+  - {fileID: 4119742744823765146, guid: 8b984bb52e52dd549897a1422c6b2251, type: 3}
+  - {fileID: -6800792195772431609, guid: 8b984bb52e52dd549897a1422c6b2251, type: 3}
+  - {fileID: -3109551001889690363, guid: 8b984bb52e52dd549897a1422c6b2251, type: 3}
+  - {fileID: 3087733964066873862, guid: 8b984bb52e52dd549897a1422c6b2251, type: 3}
+  - {fileID: -1195523491733256612, guid: 8b984bb52e52dd549897a1422c6b2251, type: 3}
+  - {fileID: 7553902983297101551, guid: 8b984bb52e52dd549897a1422c6b2251, type: 3}
+  - {fileID: 2276106848586406621, guid: 8b984bb52e52dd549897a1422c6b2251, type: 3}
+  - {fileID: -8607083045035270391, guid: 8b984bb52e52dd549897a1422c6b2251, type: 3}
+  - {fileID: -6950081524954645002, guid: 8b984bb52e52dd549897a1422c6b2251, type: 3}
+  - {fileID: -1893807893616397567, guid: 8b984bb52e52dd549897a1422c6b2251, type: 3}
+  - {fileID: -4988993079289501435, guid: 8b984bb52e52dd549897a1422c6b2251, type: 3}
   - {fileID: 21300000, guid: bcfe5cc24a176f84c8b81e7abe676eb7, type: 3}
   - {fileID: 21300000, guid: bcfe5cc24a176f84c8b81e7abe676eb7, type: 3}
   - {fileID: 21300000, guid: bcfe5cc24a176f84c8b81e7abe676eb7, type: 3}
@@ -88,29 +88,29 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 9f1d1535ef89a554ab23263ebc2436fa, type: 3}
   - {fileID: 21300000, guid: 4b194c52dce6f7b4bae2a44ad9433106, type: 3}
   descriptions:
-  - Take _X% more damage
   - Gain _X% more Attack
-  - Gain _X% more Attack
-  - Gain _X% more Attack
-  - Gain _X% more Attack
-  - Gain _X% more Attack
-  - Gain _X% more Attack
-  - Gain _X% more Attack
-  - Gain _X% more Attack
-  - Gain _X% more Attack
-  - Gain _X% more Attack
-  - Gain _X% more Attack
-  - Gain _X% more Attack
-  - Gain _X% more Attack
-  - Gain _X% more Attack
-  - Gain _X% more Attack
-  - Gain _X% more Attack
-  - Gain _X% more Attack
-  - Gain _X% more Attack
-  - '-'
-  - The Old One is empowering his followers.
-  TicksDown: 010101010101010101010101000000000000000000
-  IsDebuff: 000000000000000000000000000000000000000000
+  - Attack reduced by _X%
+  - Gain _X% more Magic
+  - Magic reduced by _X%
+  - Gain _X% more Mana Regen
+  - Mana Regen reduced by _X%
+  - Gain _X% more Armor
+  - Armor reduced by _X%
+  - Gain _X% more Resilience
+  - Resilience reduced by _X%
+  - Gain _X% more Speed
+  - Speed reduced by _X%
+  - Healing is reduced by 50%
+  - 'Persistent. Lose _X% health at the end of each round. Removed when you are healed. '
+  - _X% chance to dodge attacks.
+  - Persistent. Deal _X% of Magical damage back to attacker
+  - Persistent. Deal _X physical damage to attacks when hit by a Melee attack
+  - Take _X damage at the end of your turn
+  - Can only perform Basic abilities
+  - Speed is reduced to 1. Cannot perform Melee or Ranged abilities.
+  - Persistent. The Old One is empowering his followers.
+  TicksDown: 010101010101010101010101010001000001010100
+  IsDebuff: 000100010001000100010001010100000001010100
   statusName: 
   type: 0
   stacks: 0

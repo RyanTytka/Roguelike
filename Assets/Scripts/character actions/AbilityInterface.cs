@@ -5,10 +5,13 @@ using UnityEngine;
 public abstract class AbilityInterface : MonoBehaviour
 {
     
-    public enum AbilityType { ATTACK, DEFENSE, UTILITY }
+    public enum AbilityType { ATTACK, DEFENSE, UTILITY, PASSIVE }
 
     //What kind of ability this is. Ex: Fire. Holy. Basic.
-    public List<string> traits = new List<string>(); 
+    public List<string> traits = new List<string>();
+
+    //Warrior/Rogue/Mage
+    public PlayerClass playerClass;
 
     //Used to select characters that are being targeted
     public List<GameObject> targets = new List<GameObject>();
@@ -67,8 +70,14 @@ public abstract class AbilityInterface : MonoBehaviour
         caster.GetComponent<PlayerAbilities>().Hide();
         foreach (GameObject go in targets)
         {
-            if (go.GetComponent<UnitStats>().isDead() == false) //rdt this breaks if you use an ability on yourself
+            if(go.CompareTag("Enemy"))
+            {
                 go.GetComponentInChildren<SpriteRenderer>().color = Color.white;
+            }
+            else
+            {
+                go.GetComponent<SpriteRenderer>().color = Color.white;
+            }
         }
         //end turn
         selected = false;
@@ -87,8 +96,7 @@ public abstract class AbilityInterface : MonoBehaviour
             {
                 foreach (GameObject go in targets)
                 {
-                    if (go.GetComponent<UnitStats>().isDead() == false)
-                        go.GetComponentInChildren<SpriteRenderer>().color = Color.white;
+                    go.GetComponent<SpriteRenderer>().color = Color.white;
                 }
             }
             catch { }
@@ -97,12 +105,13 @@ public abstract class AbilityInterface : MonoBehaviour
             ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out hit))
             {
-                GameObject mouseOver = hit.collider.gameObject.transform.parent.gameObject;
+                //Debug.Log("Hit - " + hit.collider.gameObject.name);
+                GameObject mouseOver = hit.collider.gameObject.transform.gameObject;
                 if (mouseOver == caster)
                 {
                     //add myself to targets list
                     targets.Add(mouseOver);
-                    mouseOver.GetComponentInChildren<SpriteRenderer>().color = Color.red;
+                    mouseOver.GetComponent<SpriteRenderer>().color = Color.red;
                 }
             }
 
@@ -113,7 +122,7 @@ public abstract class AbilityInterface : MonoBehaviour
             }
         }
     }
-    public void TargetAPlyaer()
+    public void TargetAPlayer()
     {
         if (selected)
         {
@@ -122,8 +131,7 @@ public abstract class AbilityInterface : MonoBehaviour
             {
                 foreach (GameObject go in targets)
                 {
-                    if (go.GetComponent<UnitStats>().isDead() == false)
-                        go.GetComponentInChildren<SpriteRenderer>().color = Color.white;
+                    go.GetComponent<SpriteRenderer>().color = Color.white;
                 }
             }
             catch { }
@@ -137,7 +145,7 @@ public abstract class AbilityInterface : MonoBehaviour
                 {
                     //add hovered player to targets list
                     targets.Add(mouseOver);
-                    mouseOver.GetComponentInChildren<SpriteRenderer>().color = Color.red;
+                    mouseOver.GetComponent<SpriteRenderer>().color = Color.red;
                 }
             }
 
@@ -158,7 +166,7 @@ public abstract class AbilityInterface : MonoBehaviour
                 foreach (GameObject go in targets)
                 {
                     if (go.GetComponent<UnitStats>().isDead() == false)
-                        go.GetComponentInChildren<SpriteRenderer>().color = Color.white;
+                        go.GetComponent<SpriteRenderer>().color = Color.white;
                 }
             }
             catch { }

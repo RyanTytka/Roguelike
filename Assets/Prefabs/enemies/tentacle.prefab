@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 8597583940386721643}
   - component: {fileID: 2544420547764961821}
   m_Layer: 0
-  m_Name: Tentacle
+  m_Name: tentacle
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -174,13 +174,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitName: Tentacle
   description: 
-  maxHealth: 13
-  currentHealth: 13
+  maxHealth: 15
+  currentHealth: 15
   mana: 0
   attack: 8
   magic: 2
-  defense: 3
-  resilience: 4
+  defense: 1
+  resilience: 3
   speed: 4
   attackMod: 0
   magicMod: 0

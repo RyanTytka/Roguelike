@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1022581205188850763}
-  - component: {fileID: 1200515628093673363}
+  - component: {fileID: 7148790834334324768}
   m_Layer: 0
   m_Name: frenzy
   m_TagString: Untagged
@@ -31,7 +31,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1200515628093673363
+--- !u!114 &7148790834334324768
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -40,17 +40,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 639717778221898780}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6dff5c2e0627ae54e9d412b93d6275b7, type: 3}
+  m_Script: {fileID: 11500000, guid: 45ba9f0b768f8f044b26ac5cb95e25de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   traits:
-  - basic
+  - Basic
+  - Melee
+  playerClass: 0
   targets: []
   caster: {fileID: 0}
   manaCost: 0
   abilityType: 0
   abilityName: Frenzy
-  description: Hit an Enemy 3 Times
-  image: {fileID: 21300000, guid: ebefce42478ee53479152edf45bb14a3, type: 3}
+  description: Hit a random enemy 3 times
+  image: {fileID: 21300000, guid: 08f8c4d49b6854b499a483ce25963300, type: 3}
   selected: 0
   statusEffect: {fileID: 0}

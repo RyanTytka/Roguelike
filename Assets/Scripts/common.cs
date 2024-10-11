@@ -57,11 +57,17 @@ public enum EquipmentTypeEnum{
     WEAPON,
     ARTIFACT
 }
+public enum EquipmentRarityEnum
+{
+    COMMON,
+    RARE,
+    LEGENDARY
+}
 
 public enum StatusTypeEnum {  STRENGTH_UP = 0, STRENGTH_DOWN, MAGIC_UP, MAGIC_DOWN, MANAREGEN_UP, MANAREGEN_DOWN, //stats
                         ARMOR_UP, ARMOR_DOWN, RES_UP, RES_DOWN, SPEED_UP, SPEED_DOWN,
-                        POISONED, BLEEDING, STUNNED, EXHAUSTED, BURNING, FROZEN,//(Next attack deals extra dmg), //misc effects
-                        MARKED, SHACKLED, DOOM } //enemy specific
+                        POISONED, BLEEDING, DODGE, REFLECT, THRONS, BURNING, EXHAUSTED, RESTRAINED, DOOM
+}
 
 public enum PlayerItemsEnum { }
 
@@ -69,4 +75,12 @@ public enum DamageTypesEnum {
     PHYSICAL=1,
     MAGICAL,
     DIRECT
+}
+
+public enum PlayerClass
+{
+    WARRIOR,
+    ROGUE,
+    MAGE,
+    NEUTRAL
 }

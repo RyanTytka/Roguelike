@@ -80,7 +80,7 @@ public class UnitStats : ActingUnit, IComparable
             damage *= 10 / (10 + Resilience);
         }
 
-        print(gameObject.name + " took " + damage + " damage");
+        //print(gameObject.name + " took " + damage + " damage");
         currentHealth -= damage;
         SetHealthBar();
 

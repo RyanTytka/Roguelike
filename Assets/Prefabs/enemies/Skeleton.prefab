@@ -93,14 +93,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitName: Skeleton
   description: 
-  maxHealth: 10
-  currentHealth: 10
+  maxHealth: 7
+  currentHealth: 7
   mana: 0
-  attack: 6
-  magic: 3
-  defense: 10
-  resilience: 8
-  speed: 6
+  attack: 5
+  magic: 0
+  defense: 2
+  resilience: 3
+  speed: 5
   attackMod: 0
   magicMod: 0
   defenseMod: 0

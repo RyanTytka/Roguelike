@@ -131,14 +131,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitName: Toxic Ooze
   description: 
-  maxHealth: 9
-  currentHealth: 9
+  maxHealth: 6
+  currentHealth: 6
   mana: 0
-  attack: 7
-  magic: 5
-  defense: 6
-  resilience: 8
-  speed: 8
+  attack: 4
+  magic: 1
+  defense: 2
+  resilience: 4
+  speed: 6
   attackMod: 0
   magicMod: 0
   defenseMod: 0

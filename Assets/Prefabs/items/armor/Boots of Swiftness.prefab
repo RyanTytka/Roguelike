@@ -71,6 +71,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemType: 0
+  playerClass: 3
+  rarity: 0
   itemName: Boots of Switftness
   description: Gain speed
   image: {fileID: 21300000, guid: daa3d5005f88cac45ae0b068d836cf21, type: 3}

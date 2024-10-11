@@ -93,13 +93,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitName: Orc
   description: 
-  maxHealth: 18
-  currentHealth: 18
+  maxHealth: 12
+  currentHealth: 12
   mana: 0
   attack: 9
-  magic: 4
-  defense: 8
-  resilience: 9
+  magic: 3
+  defense: 6
+  resilience: 6
   speed: 5
   attackMod: 0
   magicMod: 0

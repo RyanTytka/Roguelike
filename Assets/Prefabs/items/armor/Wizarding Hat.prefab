@@ -71,6 +71,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemType: 0
+  playerClass: 2
+  rarity: 1
   itemName: Wizard Hat
   description: Yay Magic
   image: {fileID: 21300000, guid: 6145f2eae8d4cdb419b4a3e72d7b8473, type: 3}

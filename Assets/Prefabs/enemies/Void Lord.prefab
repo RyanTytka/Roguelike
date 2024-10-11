@@ -93,14 +93,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitName: Void Lord
   description: 
-  maxHealth: 9
-  currentHealth: 9
+  maxHealth: 14
+  currentHealth: 14
   mana: 0
-  attack: 7
-  magic: 5
-  defense: 6
-  resilience: 8
-  speed: 8
+  attack: 8
+  magic: 13
+  defense: 4
+  resilience: 15
+  speed: 6
   attackMod: 0
   magicMod: 0
   defenseMod: 0

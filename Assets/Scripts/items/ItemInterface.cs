@@ -8,6 +8,8 @@ public enum ItemType { ARMOR = 0, WEAPON = 1, ARTIFACT = 2 }
 public class ItemInterface : MonoBehaviour
 {
     public ItemType itemType;
+    public PlayerClass playerClass;
+    public EquipmentRarityEnum rarity;
     public string itemName, description;
     public Sprite image;
     public int[] statBoosts;

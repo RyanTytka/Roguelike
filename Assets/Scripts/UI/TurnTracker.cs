@@ -29,6 +29,23 @@ public class TurnTracker : MonoBehaviour
     //Get turn order for a round
     public void InitRound()
     {
+        //reduce stacks of status effects for all units
+        foreach(GameObject obj in allUnits)
+        {
+            var statusEffects = obj.GetComponentsInChildren<StatusEffect>();
+            foreach (StatusEffect status in statusEffects)
+            {
+                if (status.TicksDown[(int)status.type])
+                {
+                    status.stacks--;
+                    if(status.stacks == 0)
+                    {
+                        Destroy(status.gameObject);
+                    }
+                }
+            }
+        }
+
         turnNumber = 0;
 
         //find highest speed to get its speed tier

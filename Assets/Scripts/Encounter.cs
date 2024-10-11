@@ -19,14 +19,14 @@ public class Encounter : MonoBehaviour
         new int[] { (int)E.ORC_KING },
         new int[] { (int)E.BEHOLDER },
         new int[] { (int)E.ICE_DRAGON },
-    }; 
+    };
 
     // similar types of enemies spawn together
     public List<int[]> buckets = new List<int[]> { 
         //cultists
-        new int[] { (int)E.TENTACLE, (int)E.CULTIST }, 
-        //undead
-        new int[] { (int)E.ZOMBIE, (int)E.LICH, (int)E.SKELETON, (int)E.SOUL_COLLECTOR, (int)E.SKELETON_KNIGHT, (int)E.SKELETON_LORD },
+        new int[] { (int)E.TENTACLE, (int)E.CULTIST },
+        //undead 
+        new int[] { (int) E.ZOMBIE, (int) E.LICH, (int) E.SKELETON, (int) E.SOUL_COLLECTOR, (int) E.SKELETON_KNIGHT, (int) E.SKELETON_LORD },
         //spirits
         new int[] { (int)E.GHOST_WIZARD, (int)E.GHOST_HOUND, (int)E.WRAITH },
         //demons
@@ -41,9 +41,9 @@ public class Encounter : MonoBehaviour
         new int[] { (int)E.GOBLIN, (int)E.ORC, (int)E.WIZARD },
         //ooze
         new int[] { (int)E.OOZE, (int)E.TOXIC_OOZE }
-    }; 
+    };
 
-    private List<GameObject> enemies = new List<GameObject>();
+private List<GameObject> enemies = new List<GameObject>();
     public List<GameObject> items = new List<GameObject>();
     public int eventID;
     public int gold;

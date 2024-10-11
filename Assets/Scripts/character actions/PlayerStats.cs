@@ -124,7 +124,7 @@ public class PlayerStats : ActingUnit
             damage *= 10 / (10 + Resilience);
         }
 
-        print(gameObject.name + " took " + damage + " damage");
+        //print(gameObject.name + " took " + damage + " damage");
         //apply damage
         currentHealth = Mathf.Max(currentHealth - damage, 0);
         SetBars();
@@ -143,6 +143,7 @@ public class PlayerStats : ActingUnit
         if(gameObject.GetComponentsInChildren<adaptiveFighting>() != null)
         {
             defenseMod += 2;
+            Debug.Log("Gained Armor");
         }
     }
 

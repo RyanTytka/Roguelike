@@ -71,8 +71,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemType: 0
+  playerClass: 3
+  rarity: 1
   itemName: Thornmail
-  description: Ouch pointy
+  description: Gain Armor and Thorns
   image: {fileID: 21300000, guid: 0efdce7767f54d74fb5fb0de938d4546, type: 3}
   statBoosts: 0000000000000000000000000000000000000000050000000000000000000000
   inventoryItem: {fileID: 8364549837452557084, guid: 0f8d187930c987142b8ead86acacba35,

@@ -43,6 +43,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e5c613a4734e3948a101e2d95876dbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  traits: []
+  playerClass: 2
   targets: []
   caster: {fileID: 0}
   manaCost: 10

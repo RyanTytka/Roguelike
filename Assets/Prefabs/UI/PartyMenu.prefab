@@ -1343,6 +1343,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: dcee3ae9e56513f4188fa146701904f0, type: 3}
   - {fileID: 21300000, guid: 88e468266f2125f45a0bb93dd91f34ae, type: 3}
   - {fileID: 21300000, guid: 4bf370e6ac2b6b749be733ce3aaa58a1, type: 3}
+  InventoryObj: {fileID: 6329698946540202640}
 --- !u!1 &6329698946540202640
 GameObject:
   m_ObjectHideFlags: 0

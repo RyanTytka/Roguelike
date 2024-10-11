@@ -49,14 +49,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitName: Skeleton Lord
   description: 
-  maxHealth: 9
-  currentHealth: 9
+  maxHealth: 10
+  currentHealth: 10
   mana: 0
-  attack: 7
-  magic: 5
-  defense: 6
-  resilience: 8
-  speed: 8
+  attack: 4
+  magic: 8
+  defense: 4
+  resilience: 6
+  speed: 4
   attackMod: 0
   magicMod: 0
   defenseMod: 0

@@ -49,14 +49,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitName: Beholder
   description: 
-  maxHealth: 80
-  currentHealth: 10
+  maxHealth: 42
+  currentHealth: 42
   mana: 0
-  attack: 10
-  magic: 5
-  defense: 14
-  resilience: 10
-  speed: 4
+  attack: 12
+  magic: 14
+  defense: 9
+  resilience: 13
+  speed: 9
   attackMod: 0
   magicMod: 0
   defenseMod: 0

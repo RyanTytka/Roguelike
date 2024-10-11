@@ -6,10 +6,6 @@ public class frenzy : AbilityInterface
 {
     void Update()
     {
-        //if (GetComponent<PlayerStats>().currentMana >= ability.GetComponent<AbilityInterface>().manaCost)
-        {
-
-        }
         TargetAllEnemies();
     }
 

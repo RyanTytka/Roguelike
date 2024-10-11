@@ -131,14 +131,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitName: Stone Golem
   description: 
-  maxHealth: 9
-  currentHealth: 9
+  maxHealth: 19
+  currentHealth: 19
   mana: 0
-  attack: 7
-  magic: 5
-  defense: 6
-  resilience: 8
-  speed: 8
+  attack: 10
+  magic: 8
+  defense: 18
+  resilience: 15
+  speed: 1
   attackMod: 0
   magicMod: 0
   defenseMod: 0
